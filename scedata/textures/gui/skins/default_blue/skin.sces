@@ -1,0 +1,10 @@
+<SCRIPT>
+	<SKIN>
+		textcolor default 1 1 1
+		textcolor disabled 0.5 0.5 0.5
+		textcolor error 1 0 0
+		textcolor good 0 1 0
+		textcolor team 1 1 0
+		textcolor neutral 0 1 1
+	</SKIN>
+</SCRIPT>

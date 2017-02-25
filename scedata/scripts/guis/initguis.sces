@@ -1,0 +1,41 @@
+<IF>
+    id "play_pause"
+    <CONDITIONS>
+	    soundsystem ismusicplaying
+    </CONDITIONS>
+    <DO>
+	    guielement label texture "playpause" "jar" "scedata/textures/gui/skins/default_blue/play.png"
+    </DO>
+    <ELSE>
+	    guielement label texture "playpause" "jar" "scedata/textures/gui/skins/default_blue/paused.png"
+    </ELSE>
+</IF>
+<IF>
+    <PROPS>
+	id "autorot"
+    </PROPS>
+    <CONDITIONS>
+	mv isautorot
+    </CONDITIONS>
+    <DO>
+	guielement label texture "autorot" "jar" "scedata/textures/gui/skins/default_blue/paused.png"
+    </DO>
+    <ELSE>
+	guielement label texture "autorot" "jar" "scedata/textures/gui/skins/default_blue/rotate.png"
+    </ELSE>
+</IF>
+
+exec jar "scedata/scripts/guis/maingui.sces"
+exec jar "scedata/scripts/guis/solsystemgui.sces"
+exec jar "scedata/scripts/guis/skirmishgui.sces"
+exec jar "scedata/scripts/guis/guieditgui.sces"
+exec jar "scedata/scripts/guis/toolsgui.sces"
+exec jar "scedata/scripts/guis/modelviewergui.sces"
+exec jar "scedata/scripts/guis/optionsgui.sces"
+exec jar "scedata/scripts/guis/gamesetgui.sces"
+exec jar "scedata/scripts/guis/audiosetgui.sces"
+exec jar "scedata/scripts/guis/planetovergui.sces"
+exec jar "scedata/scripts/guis/infogui.sces"
+exec jar "scedata/scripts/guis/galaxygui.sces"
+exec jar "scedata/scripts/guis/surfacegui.sces"
+exec jar "scedata/scripts/guis/wreckagegui.sces"

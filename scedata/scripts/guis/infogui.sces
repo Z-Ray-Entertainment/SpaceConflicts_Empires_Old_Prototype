@@ -1,0 +1,138 @@
+<GUI>
+    <PROPS>
+	id "infogui"
+    </PROPS>
+//Left
+    <LABEL>
+	<PROPS>
+	    id "info"
+	    text "FPS"
+	    position -1.35 1.35
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "yourhere"
+	    text "You are here:"
+	    position -1.35 1.15
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "currgalaxy"
+	    text "Galaxy"
+	    position -1.35 1.05
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "currsystem"
+	    text "System"
+	    position -1.35 0.95
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "currplanet"
+	    text "Planet"
+	    position -1.35 0.85
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+//Right
+    <LABEL>
+	<PROPS>
+	    id "events0"
+	    text ""
+	    position 1.35 1.35
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "events1"
+	    text ""
+	    position 1.35 1.25
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+     <LABEL>
+	<PROPS>
+	    id "events2"
+	    text ""
+	    position 1.35 1.15
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "events3"
+	    text ""
+	    position 1.35 1.05
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "events4"
+	    text ""
+	    position 1.35 0.95
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "speed"
+	    text ""
+	    position 1.35 0.75
+	    size 0.1 0.1
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+</GUI>
+
+<TRIGGER>
+    <PROPS>
+	type refresh
+    </PROPS>
+    <TASKS>
+	gui "infogui" label "info" set text (get current fps) df
+	
+	gui "infogui" label "events0" set text (get current eventmsg 0) df
+	gui "infogui" label "events1" set text (get current eventmsg 1) df
+	gui "infogui" label "events2" set text (get current eventmsg 2) df
+	gui "infogui" label "events3" set text (get current eventmsg 3) df
+	gui "infogui" label "events4" set text (get current eventmsg 4) df
+
+	gui "infogui" label "speed" set text (get current gamespeed) df
+	
+	gui "infogui" label "currgalaxy" set text (get current galaxy) df
+	gui "infogui" label "currsystem" set text (get current system) df
+	gui "infogui" label "currplanet" set text (get current planet id) df
+    </TASKS>
+</TRIGGER>

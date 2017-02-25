@@ -1,0 +1,35 @@
+<SCRIPT>
+	<CINEMATIC>
+		<INIT>
+			//Default playback is 60 fps
+			<PROPS>
+				playback loop
+				name "mainguibg"
+			</PROPS>
+			<OBJECT>
+				name "planet1"
+				position 0f -1.5f 0f
+				rotation 0f 0f 1f 0f
+				material 0f 1f 3f 0f
+				materialop GL_FRONT GL_ABIENTE_AND_DIFFUSE 0
+				addobject sprere wired
+			<OBJECT>
+			<OBJECT>
+				name "planet2"
+				position 1f 0.5f 0f
+				rotation 0f 0f 1f 0f
+				material 0f 1f 3f 0f
+				materialop GL_FRONT GL_ABIENTE_AND_DIFFUSE 0
+				setobjectdata wired planet halo true
+			<OBJECT>
+		</INIT>
+		<0>
+			object "planet1" rotation 0f 0f 1f 0f
+			object "planet2" rotation 0f 0f 1f 0f
+		</0>
+		<3600>
+			object "planet1" rotation 360f 0f 1f 0f
+			object "planet2" rotation 360f 0f 1f 0f
+		</3600>
+	</CINEMATIC>
+</SCRIPT>

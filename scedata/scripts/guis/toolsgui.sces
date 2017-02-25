@@ -1,0 +1,153 @@
+<GUI>
+    <PROPS>
+	id "tools"
+	cinematic "mainguicine"
+    </PROPS> 
+    <LABEL>
+	<PROPS>
+	    id "banner"
+	    text ""
+	    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+	    position 0 1
+	    size 0.7 0.28
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "z-ray"
+	    text ""
+	    texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+	    position 1 -1
+	    size 0.35 0.1
+	</PROPS>
+	<EVENT>
+		toggle showgui
+	</EVENT>
+    </LABEL>
+    <TOOLBAR>
+	<PROPS>
+	    id "musicplayer"
+	    position -2.358 -1.2
+	    slide edge left
+	    slide time sec 1
+	</PROPS>
+	<LABEL>
+	    <PROPS>
+		id "backward"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		switch bgm
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "playpause"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/play.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		toggle mutebgm
+		if "play_pause"
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "forward"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		    switch bgm
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "decreasevol"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		bgmvol decrease
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "increasevol"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		bgmvol increase
+	    </EVENT>
+	</LABEL>
+    </TOOLBAR>
+    <BUTTON>
+	    id "spacedit"
+	    text %spaceedit%
+	    diabled true
+	    position 0 0.6
+	    size 0.5 0.1
+	    <EVENT>
+		showgui main
+	    </EVENT>
+    </BUTTON>
+    <BUTTON>
+	    id "guiedit"
+	    text %guiedit%
+	    diabled false
+	    position 0 0.3
+	    size 0.5 0.1
+	    <EVENT>
+		open guiedit
+		showgui "guiedit"
+	    </EVENT>
+    </BUTTON>
+    <BUTTON>
+	    id "unitedit"
+	    text %unitedit%
+	    diabled true
+	    position 0 0
+	    size 0.5 0.1
+	    <EVENT>
+		showgui main
+	    </EVENT>
+    </BUTTON>
+    <BUTTON>
+	    id "cinedit"
+	    text %cineedit%
+	    diabled true
+	    position 0 -0.3
+	    size 0.5 0.1
+	    <EVENT>
+		showgui main
+	    </EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "modelview"
+	text %modelview%
+	diabled false
+	position 0 -0.6
+	size 0.5 0.1
+	<EVENT>
+	    open modelviewer
+	    showgui modelviewer
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "back"
+	text "%back%"
+	diabled false
+	position 0 -1
+	size 0.5 0.1
+	<EVENT>
+	    showgui main
+	</EVENT>
+    </BUTTON>
+</GUI>

@@ -1,0 +1,82 @@
+<GUI>
+    <PROPS>
+	id "systemgui"
+    </PROPS>
+    <LABEL>
+	<PROPS>
+	    id "info"
+	    text "Object"
+	    position -1.35 -1.25
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "info_2"
+	    text "Owner"
+	    position -1.35 -1.35
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <BUTTON>
+	id "back"
+	text "%back%"
+	diabled false
+	position 1 -1.3
+	size 0.5 0.1
+	<EVENT>
+	    showgui main
+	    set layer 0
+	</EVENT>
+    </BUTTON>
+</GUI>
+
+<TRIGGER>
+    <PROPS>
+	type nohover
+    </PROPS>
+    <TASKS>
+	gui "systemgui" label "info" set text "Object"
+	gui "systemgui" label "info_2" set text "Owner"
+    </TASKS>
+</TRIGGER>
+<TRIGGER>
+    <PROPS>
+	type hoverwrackage
+    </PROPS>
+    <TASKS>
+	gui "systemgui" label "info" set text "Wreckage"
+	gui "systemgui" label "info_2" set text "Nobody"
+    </TASKS>
+</TRIGGER>
+<TRIGGER>
+    <PROPS>
+	type hoverplanet
+    </PROPS>
+    <TASKS>
+	gui "systemgui" label "info" set text (get current planet name) df
+	gui "systemgui" label "info_2" set text (get current planet owner name) df
+    </TASKS>
+</TRIGGER>
+<TRIGGER>
+    <PROPS>
+	type hoversun
+    </PROPS>
+    <TASKS>
+	gui "systemgui" label "info" set text "Sun"
+	gui "systemgui" label "info_2" set text "Nobody"
+    </TASKS>
+</TRIGGER>
+<TRIGGER>
+    <PROPS>
+	type hoverwarpgate
+    </PROPS>
+    <TASKS>
+	gui "systemgui" label "info" set text (get current warpgate name) df
+	gui "systemgui" label "info_2" set text (get current warpgate owner name) df
+    </TASKS>
+</TRIGGER>

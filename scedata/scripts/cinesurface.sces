@@ -1,0 +1,43 @@
+<SCRIPT>
+    <CINEMATIC>
+	<PROPS>
+		id "cinesurface"
+		play loop true
+		play time sec 360
+		//play bgm jar "scedata/audio/bgm/normal/murdok/alt1.ogg"
+		//play bgm jar "scedata/audio/bgm/normal/gazinro/alt1.ogg"
+		interactive false
+		camera eye 0 0 0
+		camerta center 0 0 -1
+		camera up 0 1 0
+	</PROPS>
+	<SCENE>
+	    <LIGHT>
+		light position 0 10 -50 0
+		light ambiente 1 1 1 1
+		light diffuse 1 1 1 1
+		light specular 1 1 1 1
+	    </LIGHT>
+	    <CINEOBJ>
+		<PROPS>
+                    id "surface"
+                    mesh surface 0.684651984 100 100 100
+                    scale 1 1 1
+                    rotation global 0 0 0
+                    location global -50 -10 -50
+                    fluids true lava
+                    texture jar "scedata/textures/$texturesize$/terrain/gasgigant/deadgrass.jpg"
+                    lighted true
+		</PROPS>
+	</CINEOBJ>
+	    <KEYTIME>
+		<PROPS>
+		    time sec 10000
+		</PROPS>
+		<TASKS>
+		   cineobj "surface" rotation global 0 -25000 0
+		</TASKS>
+	    </KEYTIME>
+	</SCENE>
+    </CINEMATIC>
+</SCRIPT>

@@ -1,0 +1,1201 @@
+<SCRIPT>
+	//windowcenter/canvascenter at x = 0 y = 0
+	//x-axis increase to right
+	//y-axis increase to top
+	//   ^ y-axis
+	//   |
+	//   |
+	//---0---> x-axis
+	//   |
+	//   |
+	<IF>
+	    <PROPS>
+		id "autorot"
+	    </PROPS>
+	    <CONDITIONS>
+		mv isautorot
+	    </CONDITIONS>
+	    <DO>
+		guielement label texture "autorot" "jar" "scedata/textures/gui/skins/default_blue/paused.png"
+	    </DO>
+	    <ELSE>
+		guielement label texture "autorot" "jar" "scedata/textures/gui/skins/default_blue/rotate.png"
+	    </ELSE>
+	</IF>
+	<IF>
+	    id "play_pause"
+	    <CONDITIONS>
+		    soundsystem ismusicplaying
+	    </CONDITIONS>
+	    <DO>
+		    guielement label texture "playpause" "jar" "scedata/textures/gui/skins/default_blue/play.png"
+	    </DO>
+	    <ELSE>
+		    guielement label texture "playpause" "jar" "scedata/textures/gui/skins/default_blue/paused.png"
+	    </ELSE>
+	</IF>
+	<METHOD>
+	    <PROPS>
+		id "selectplayer"
+	    </PROPS>
+	    <TASKS>
+		texfield "playername" settext (game player get name (list get selecteditem))
+		combox "race" setindex (game player get race (list get selecteditem))
+	    </TASKS>
+	</METHOD>
+	<GUI>
+	    <PROPS>
+		id "main"
+		cinematic "mainguicine"
+	    </PROPS>
+	    <TOOLBAR>
+		<PROPS>
+		    id "musicplayer"
+		    position -2.358 -1.2
+		    slide edge left
+		    slide time sec 1
+		</PROPS>
+		<LABEL>
+		    <PROPS>
+			id "backward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "playpause"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			toggle mutebgm
+			if "play_pause"
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "forward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "decreasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol decrease
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "increasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol increase
+		    </EVENT>
+		</LABEL>
+	    </TOOLBAR>
+	    <LABEL>
+		<PROPS>
+		    id "banner"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+		    position 0 1
+		    size 0.7 0.28
+		</PROPS>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "info"
+		    text "Space Conflicts - Empires 0.0.1 Currendum"
+		    position -1.35 -1.35
+		    size 0.1 0.1
+		    textprops allign left
+		    textprops size 0.02
+		</PROPS>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "z-ray"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+		    position 1 -1
+		    size 0.35 0.1
+		</PROPS>
+		<EVENT>
+			toggle showgui
+		</EVENT>
+	    </LABEL>
+	    <BUTTON>
+		id "campaign"
+		text (get camp (get camp)) honolulu (get camp)
+		diabled true
+		position 0 0.3
+		size 0.5 0.1
+		<EVENT>
+		    showgui campaign
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "skirmish"
+		text %skirmish%
+		diabled false
+		position 0 0
+		size 0.5 0.1
+		<EVENT>
+			showgui skirmish
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "multiplayer"
+		text %multiplayer%
+		diabled true
+		position 0 -0.3
+		size 0.5 0.1
+		<EVENT>
+		    showgui multiplayer
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "options"
+		text %options%
+		diabled false
+		position 0 -0.6
+		size 0.5 0.1
+		<EVENT>
+		    showgui options
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "quit"
+		text %quit%
+		diabled false
+		position 1 -0.6
+		size 0.3 0.1
+		<EVENT>
+		    quit
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "tools"
+		text %tools%
+		diabled false
+		position -1 -0.6
+		size 0.3 0.1
+		<EVENT>
+		    showgui "tools"
+		</EVENT>
+	    </BUTTON>
+	</GUI>
+	<GUI>
+	    <PROPS>
+		id "skirmish"
+		cinematic "mainguicine"
+	    </PROPS>
+	    <TOOLBAR>
+		<PROPS>
+		    id "musicplayer"
+		    position -2.358 -1.2
+		    slide edge left
+		    slide time sec 1
+		</PROPS>
+		<LABEL>
+		    <PROPS>
+			id "backward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "playpause"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			toggle mutebgm
+			if "play_pause"
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "forward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "decreasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol decrease
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "increasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol increase
+		    </EVENT>
+		</LABEL>
+	    </TOOLBAR>
+	    <LABEL>
+		<PROPS>
+		    id "banner"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+		    position 0 1
+		    size 0.7 0.28
+		</PROPS>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "z-ray"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+		    position 1 -1
+		    size 0.35 0.1
+		</PROPS>
+		<EVENT>
+		    toggle showgui
+		</EVENT>
+	    </LABEL>
+	    <BUTTON>
+		id "start"
+		text %start%
+		diabled true
+		position 1 -0.6
+		size 0.3 0.1
+		<EVENT>
+		</EVENT>
+	    </BUTTON>
+	    <LIST>
+		<PROPS>
+		    id "playerlist"
+		    position -1 0
+		    size 0.5 1
+		</PROPS>
+		<ITEM>
+		    game getplayers
+		</ITEM>
+		<TASKS>
+		    method "selectplayer"
+		</TASKS>
+	    </LIST>
+	    <BUTTON>
+		id "back"
+		text %back%
+		diabled false
+		position -1 -0.6
+		size 0.3 0.1
+		<EVENT>
+		    showgui main
+		</EVENT>
+	    </BUTTON>
+	</GUI>
+	
+	<IF>
+	    id "start_game_1"
+	    <CONDITIONS>
+		guielement combox "gametype" item "hotseat"
+	    </CONDITIONS>
+	    <DO>
+		newgame hotseat 
+	    </DO>
+	    <ELSE>
+		if "start_game_2"
+	    </ELSE>
+	</IF>
+	<IF>
+	    id "start_game_2"
+	    <CONDITIONS>
+		guielement combox "gametype" item "realtime"
+	    </CONDITIONS>
+	    <DO>
+		newgame realtime
+	    </DO>
+	    <ELSE>
+		msgframe info "Please select a gametype."
+	    </ELSE>
+	</IF>
+	<GUI>
+	    <PROPS>
+		    id "guiedit"
+	    </PROPS>
+	    <TOOLBAR>
+		<PROPS>
+			id "palete"
+			position 1.358 -1.2
+			slide edge right
+			slide time sec 1
+		</PROPS>
+		<LABEL>
+			<PROPS>
+				id "back"
+				text ""
+				texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+				size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				showgui tools
+				default layer
+			</EVENT>
+		</LABEL>
+		<LABEL>
+			<PROPS>
+				id "addbutton"
+				text ""
+				texture jar "scedata/textures/gui/skins/default_blue/play.png"
+				size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				guiedit add button
+			</EVENT>
+		</LABEL>
+		<LABEL>
+			<PROPS>
+				id "addlabel"
+				text ""
+				texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+				size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				guiedit add label
+			</EVENT>
+		</LABEL>
+		<LABEL>
+			<PROPS>
+				id "addtextfield"
+				text ""
+				texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+				size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				guiedit add textfield
+			</EVENT>
+		</LABEL>
+		<LABEL>
+			<PROPS>
+				id "newgui"
+				text ""
+				texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+				size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				guiedit newgui
+			</EVENT>
+		</LABEL>
+	    </TOOLBAR>
+	    <TOOLBAR>
+		<PROPS>
+		    id "musicplayer"
+		    position -2.358 -1.2
+		    slide edge left
+		    slide time sec 1
+		</PROPS>
+		<LABEL>
+		    <PROPS>
+			id "backward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "playpause"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			toggle mutebgm
+			if "play_pause"
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "forward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			    id "decreasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			    size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			    bgmvol decrease
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			    id "increasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			    size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			    bgmvol increase
+		    </EVENT>
+		</LABEL>
+	    </TOOLBAR>
+	</GUI>
+	<GUI>
+	    <PROPS>
+		    id "tools"
+		    cinematic "mainguicine"
+	    </PROPS> 
+	    <LABEL>
+		<PROPS>
+		    id "banner"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+		    position 0 1
+		    size 0.7 0.28
+		</PROPS>
+	    </LABEL>
+	    <LABEL>
+		    <PROPS>
+			id "z-ray"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+			position 1 -1
+			size 0.35 0.1
+		    </PROPS>
+		    <EVENT>
+			    toggle showgui
+		    </EVENT>
+	    </LABEL>
+	    <TOOLBAR>
+		    <PROPS>
+			    id "musicplayer"
+			    position -2.358 -1.2
+			    slide edge left
+			    slide time sec 1
+		    </PROPS>
+		    <LABEL>
+			<PROPS>
+			    id "backward"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    switch bgm
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "playpause"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    toggle mutebgm
+			    if "play_pause"
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "forward"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+				switch bgm
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "decreasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    bgmvol decrease
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "increasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    bgmvol increase
+			</EVENT>
+		    </LABEL>
+	    </TOOLBAR>
+	    <BUTTON>
+		    id "spacedit"
+		    text %spaceedit%
+		    diabled true
+		    position 0 0.6
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui main
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "guiedit"
+		    text %guiedit%
+		    diabled false
+		    position 0 0.3
+		    size 0.5 0.1
+		    <EVENT>
+			    open guiedit
+			    showgui "guiedit"
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "unitedit"
+		    text %unitedit%
+		    diabled true
+		    position 0 0
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui main
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "cinedit"
+		    text %cineedit%
+		    diabled true
+		    position 0 -0.3
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui main
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "modelview"
+		text %modelview%
+		diabled false
+		position 0 -0.6
+		size 0.5 0.1
+		<EVENT>
+			open modelviewer
+			showgui modelviewer
+		</EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		id "back"
+		text "%back%"
+		diabled false
+		position 0 -1
+		size 0.5 0.1
+		<EVENT>
+			showgui main
+		</EVENT>
+	    </BUTTON>
+	</GUI>
+	<GUI>
+	    <PROPS>
+		id "modelviewer"
+	    </PROPS>
+	    <TOOLBAR>
+		<PROPS>
+		    id "musicplayer"
+		    position -2.358 -1.2
+		    slide edge left
+		    slide time sec 1
+		</PROPS>
+		<LABEL>
+		    <PROPS>
+			id "backward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "playpause"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			toggle mutebgm
+			if "play_pause"
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "forward"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			switch bgm
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "decreasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol decrease
+		    </EVENT>
+		</LABEL>
+		<LABEL>
+		    <PROPS>
+			id "increasevol"
+			text ""
+			texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			size 0.05 0.05
+		    </PROPS>
+		    <EVENT>
+			bgmvol increase
+		    </EVENT>
+		</LABEL>
+	    </TOOLBAR>
+	    <BUTTON>
+		id "back"
+		text "%back%"
+		diabled false
+		position 0 -1
+		size 0.5 0.1
+		<EVENT>
+		    showgui tools
+		    default layer
+		</EVENT>
+	    </BUTTON>
+	    <LABEL>
+		<PROPS>
+		    id "autorot"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/rotate.png"
+		    position 0 1
+		    size 0.1 0.1
+		</PROPS>
+		<EVENT>
+		    if "autorot"
+		    mv toggleautorot
+		</EVENT>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "next"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+		    position 1 1
+		    size 0.1 0.1
+		</PROPS>
+		<EVENT>
+		    mv next model
+		</EVENT>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "prev"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+		    position -1 1
+		    size 0.1 0.1
+		</PROPS>
+		<EVENT>
+		    mv prev model
+		</EVENT>
+	    </LABEL>
+	</GUI>
+//Options menue
+	<GUI>
+	    <PROPS>
+		id "options"
+		cinematic "mainguicine"
+	    </PROPS> 
+	    <LABEL>
+		<PROPS>
+		    id "banner"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+		    position 0 1
+		    size 0.7 0.28
+		</PROPS>
+	    </LABEL>
+	    <LABEL>
+		<PROPS>
+		    id "z-ray"
+		    text ""
+		    texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+		    position 1 -1
+		    size 0.35 0.1
+		</PROPS>
+		<EVENT>
+		    toggle showgui
+		</EVENT>
+	    </LABEL>
+	    <TOOLBAR>
+		    <PROPS>
+			id "musicplayer"
+			position -2.358 -1.2
+			slide edge left
+			slide time sec 1
+		    </PROPS>
+		    <LABEL>
+			<PROPS>
+			    id "backward"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    switch bgm
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "playpause"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/play.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    toggle mutebgm
+			    if "play_pause"
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "forward"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    switch bgm
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "decreasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    bgmvol decrease
+			</EVENT>
+		    </LABEL>
+		    <LABEL>
+			<PROPS>
+			    id "increasevol"
+			    text ""
+			    texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+			    size 0.05 0.05
+			</PROPS>
+			<EVENT>
+			    bgmvol increase
+			</EVENT>
+		    </LABEL>
+	    </TOOLBAR>
+	    <BUTTON>
+		    id "gameset"
+		    text "%gamesettings%"
+		    diabled true
+		    position 0 0.6
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui gameset
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "audioset"
+		    text "%audioset%"
+		    diabled true
+		    position 0 0.3
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui gameset
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "graphset"
+		    text "%graphset%"
+		    diabled true
+		    position 0 0
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui gameset
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "back"
+		    text "%back%"
+		    diabled false
+		    position 0 -1
+		    size 0.5 0.1
+		    <EVENT>
+			    showgui main
+		    </EVENT>
+	    </BUTTON>
+	</GUI>
+	<GUI>    
+	    <PROPS>
+		    id "gameset"
+		    cinematic "mainguicine"
+	    </PROPS>
+	    <LABEL>
+		    id "info"
+		    text "Externaldata:"
+		    position 0 0.75
+		    size 0.5 1.5
+	    </LABEL>
+	    <RADIOBT>
+		    id "home"
+		    text %homedir%
+		    position -0.75 0.375
+		    size 0.5 1.5
+		    <EVENT>
+			    radiobt appdir disabled
+			    radiobt custom disabled
+			    textfield path disabled
+			    externaldata home
+		    </EVENT>
+	    </RADIOBT>    
+	    <RADIOBT>
+		    id "custom"
+		    text %custom%
+		    position -0.375 0.375
+		    size 0.5 1.5
+		    <EVENT>
+			    radiobt appdata disabled
+			    radiobt appdir disabled
+			    textfield path enabled
+		    </EVENT>
+	    </RADIOBT>
+	    <TEXTFIELD>
+		    id "path"
+		    text ""
+		    value ""
+		    position -0.75 0
+		    size 1 0.1
+	    </TEXTFIELD>
+	    <BUTTON>
+		    id "choosedir"
+		    text "Choose"
+		    hoversound default
+		    clicksound default
+		    errorsound default
+		    hovereffect true
+		    diabled false
+		    position -0.375 0
+		    size 1 0.1
+		    <EVENT>
+			    showfilebrowser
+			    textfield path setvalue filebrowser getvalue
+		    </EVENT>
+	    </BUTTON>
+	    <CHECKBOX>
+		    id "autosave"
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+	    </CHECKBOX>
+	    <SLIDER>
+		    id "autosave"
+		    text ""
+		    value 10
+		    increase 1
+		    decrease 1
+		    position 0 0
+		    size 1 0.1
+	    </SLIDER>
+	    <BUTTON>
+		    id "apply"
+		    text "Apply"
+		    hoversound default
+		    clicksound default
+		    errorsound default
+		    hovereffect true
+		    diabled false
+		    position 0 0
+		    size 1 0.1
+		    <EVENT>
+			    saveoption textfield path getvalue
+			    showgui options
+		    </EVENT>
+	    </BUTTON> 
+	    <BUTTON>
+		    id "defaults"
+		    text %apply%
+		    hoversound default
+		    clicksound default
+		    errorsound default
+		    hovereffect true
+		    diabled false
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+		    <EVENT>
+			    saveoption home
+			    showgui options
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "back"
+		    text "Back"
+		    hoversound default
+		    clicksound default
+		    errorsound default
+		    hovereffect true
+		    diabled false
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+		    <EVENT>
+			    showgui %lastgui
+		    </EVENT>
+	    </BUTTON>
+    </GUI>
+    <GUI>
+	    <PROPS>
+		    id "audioset"
+		    text "Audio settings"
+		    checkbox master enabled
+		    checkbox bgmvol enabled
+		    checkbox sfxvol enabled
+		    checkbox voicevol enabled
+		    checkbox convvol enabled
+		    checkbox feedbackvol enabled
+	    </PROPS>
+	    <CHECKBOX>
+		    id "master"
+		    text "Enable sounds"
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+		    <EVENT>
+		    </EVENT>
+	    </CHECKBOX>
+	    <CHECKBOX>
+		    id "bgmvol"
+		    text "BGM"
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+	    </CHECKBOX>
+	    <CHECKBOX>
+		    id "sfxvol"
+		    text "SFX"
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+	    </CHECKBOX>
+	    <CHECKBOX>
+		    id "voicevol"
+		    text "Voice"
+		    position_16_9 0 0
+		    position_4_3 0 0
+		    position_1_1 0 0
+		    position_16_10 0 0
+		    position_5_4 0 0
+		    position_5_3 0 0
+		    size_16_9 1 0.1
+		    size_4_3 1 0.1
+		    size_1_1 1 0.1
+		    size_16_10 1 0.1
+		    size_5_4 1 0.1
+		    size_5_3 1 0.1
+	    </CHECKBOX>
+	    <CHECKBOX>
+		    id "convvol"
+		    text "Conversation"
+	    </CHECKBOX>
+	    <SLIDER>
+		    id "bgmvol"
+		    text "BGM Volume"
+		    value bgmvol
+		    increase 1
+		    decrease 1
+	    </SLIDER>
+	    <SLIDER>
+		    id "sfxvol"
+		    text "SFX Volume"
+		    value sfxvol
+		    increase 1
+		    decrease 1
+	    </SLIDER>
+	    <SLIDER>
+		    id "voicevol"
+		    text "Voice volume"
+		    value voicevol
+		    increase 1
+		    decrease 1
+	    </SLIDER>
+	    <SLIDER>
+		    id "convvol"
+		    text "Converstation volume"
+		    value convvol
+		    increase 1
+		    decrease 1
+	    </SLIDER>
+	    <SLIDER>
+		    id "feedbackvol"
+		    text "Feedback volume"
+		    value feedbackvol
+		    increase 1
+		    decrease 1
+	    </SLIDER>
+	    <BUTTON>
+		    id "apply"
+		    text "Apply"
+		    hoversound default
+		    clicksound default
+		    hovereffect true
+		    diabled false
+		    <EVENT>
+			    setbgmvol slider bgmvol getvalue checkbox bgmvol getstate
+			    setsfxvol slider sfxvol getvalue checkbox sfxvol getstate
+			    setvoicevol slider voicevol getvalue checkbox voicevol getstate
+			    setconvvol slider convvol getvalue checkbox convvol getstate
+			    setfeedbackvol slider feedbackvol getvalue checkbox feedbackvol getstate
+			    showgui options
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "defaults"
+		    text "Default"
+		    hoversound default
+		    clicksound default
+		    hovereffect true
+		    diabled false
+		    <EVENT>
+			    setbgmvol 50 true
+			    setsfxvol 50 true
+			    setvoicevol 50 true
+			    setconvvol 50 true;
+			    setfeedbackvol 50 true
+			    showgui options
+		    </EVENT>
+	    </BUTTON>
+	    <BUTTON>
+		    id "back"
+		    text "Back"
+		    hoversound default
+		    clicksound default
+		    hovereffect true
+		    diabled false
+		    <EVENT>
+			    showgui options
+		    </EVENT>
+	    </BUTTON>
+	</GUI>
+//Multiplayer menue
+	<GUI>
+	    <PROPS>
+	      id "multyplayer"
+	      text "Multiplayer"
+	    </PROPS>
+	    <BUTTON>
+		    id "back"
+		    text "Back"
+		    showgui %lastgui
+	    </BUTTON>
+	</GUI>
+</SCRIPT>

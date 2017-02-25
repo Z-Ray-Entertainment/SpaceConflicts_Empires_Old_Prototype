@@ -1,0 +1,160 @@
+<GUI>
+    <PROPS>
+	id "audioset"
+	text "Audio settings"
+	checkbox master enabled
+	checkbox bgmvol enabled
+	checkbox sfxvol enabled
+	checkbox voicevol enabled
+	checkbox convvol enabled
+	checkbox feedbackvol enabled
+    </PROPS>
+    <CHECKBOX>
+	id "master"
+	text "Enable sounds"
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+	<EVENT>
+	</EVENT>
+    </CHECKBOX>
+    <CHECKBOX>
+	id "bgmvol"
+	text "BGM"
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+    </CHECKBOX>
+    <CHECKBOX>
+	id "sfxvol"
+	text "SFX"
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+    </CHECKBOX>
+    <CHECKBOX>
+	id "voicevol"
+	text "Voice"
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+    </CHECKBOX>
+    <CHECKBOX>
+	id "convvol"
+	text "Conversation"
+    </CHECKBOX>
+    <SLIDER>
+	id "bgmvol"
+	text "BGM Volume"
+	value bgmvol
+	increase 1
+	decrease 1
+    </SLIDER>
+    <SLIDER>
+	id "sfxvol"
+	text "SFX Volume"
+	value sfxvol
+	increase 1
+	decrease 1
+    </SLIDER>
+    <SLIDER>
+	id "voicevol"
+	text "Voice volume"
+	value voicevol
+	increase 1
+	decrease 1
+    </SLIDER>
+    <SLIDER>
+	id "convvol"
+	text "Converstation volume"
+	value convvol
+	increase 1
+	decrease 1
+    </SLIDER>
+    <SLIDER>
+	id "feedbackvol"
+	text "Feedback volume"
+	value feedbackvol
+	increase 1
+	decrease 1
+    </SLIDER>
+    <BUTTON>
+	id "apply"
+	text "Apply"
+	hoversound default
+	clicksound default
+	hovereffect true
+	diabled false
+	<EVENT>
+	    setbgmvol slider bgmvol getvalue checkbox bgmvol getstate
+	    setsfxvol slider sfxvol getvalue checkbox sfxvol getstate
+	    setvoicevol slider voicevol getvalue checkbox voicevol getstate
+	    setconvvol slider convvol getvalue checkbox convvol getstate
+	    setfeedbackvol slider feedbackvol getvalue checkbox feedbackvol getstate
+	    showgui options
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "defaults"
+	text "Default"
+	hoversound default
+	clicksound default
+	hovereffect true
+	diabled false
+	<EVENT>
+	    setbgmvol 50 true
+	    setsfxvol 50 true
+	    setvoicevol 50 true
+	    setconvvol 50 true;
+	    setfeedbackvol 50 true
+	    showgui options
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "back"
+	text "Back"
+	hoversound default
+	clicksound default
+	hovereffect true
+	diabled false
+	<EVENT>
+	    showgui options
+	</EVENT>
+    </BUTTON>
+</GUI>

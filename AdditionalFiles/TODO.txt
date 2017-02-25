@@ -1,0 +1,12 @@
+- 1 April: Spaceunicornponys
+- Undistructable Hurby
+    + Sealing Vehicles
+    + Destroy attackes
+    + Warp to other Planets
+- Eastereggs:
+    + Sepcial Artefacts
+	* Secretpowers (Speed, Damage, Invisible, Regeneration, Extra Life, Extra Amoure, Teleport, Wallhack, Undistructable[Timer], Clone)
+    + Planets
+	* Goldberg (Credtis on Planet)
+	* Vertical movement
+	* Fast Rotations

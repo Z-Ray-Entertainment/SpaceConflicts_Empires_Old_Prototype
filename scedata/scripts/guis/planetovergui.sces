@@ -1,0 +1,147 @@
+<GUI>
+    <PROPS>
+	id "planetovergui"
+    </PROPS>
+//Top
+    <LABEL>
+	<PROPS>
+	    id "plani"
+	    text ""
+	    position 0 1.35
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+//Right
+    <LABEL>
+	<PROPS>
+	    id "credits"
+	    text "Credits"
+	    position 1.35 0.6
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/credits.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "biosphere"
+	    text "Biosphere"
+	    position 1.35 0.3
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/planets/dust_simple.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "owner"
+	    text "Owner"
+	    position 1.35 0.2
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/others/user.png"
+	</PROPS>
+    </LABEL>
+//Left
+    
+    <LABEL>
+	<PROPS>
+	    id "silizium"
+	    text "Silizium"
+	    position -1.35 0.2
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/iron.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "metall"
+	    text "Metall"
+	    position -1.35 0.1
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/metall.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "iron"
+	    text "Iron"
+	    position -1.35 0
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/iron.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "cypton"
+	    text "Crypton"
+	    position -1.35 -0.1
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/crypton.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "cabon"
+	    text "Cabon"
+	    position -1.35 -0.2
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/cabon.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "uran"
+	    text "Uran"
+	    position -1.35 -0.3
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/uran.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "diamonds"
+	    text "Diamonds"
+	    position -1.35 -0.4
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/cabon.png"
+	</PROPS>
+    </LABEL>
+</GUI>
+<TRIGGER>
+    <PROPS>
+	type refresh
+    </PROPS>
+    <TASKS>
+	gui "planetovergui" label "biosphere" set text (get hovered planet biosphere) df
+	gui "planetovergui" label "iron" set text (get resource iron planet (get hovered planet id) df ) df
+	gui "planetovergui" label "cypton" set text (get resource cyrpton planet (get hovered planet id) df ) df
+	gui "planetovergui" label "metall" set text (get resource metall planet (get hovered planet id) df ) df
+	gui "planetovergui" label "uran" set text (get resource uran planet (get hovered planet id) df ) df
+	gui "planetovergui" label "cabon" set text (get resource cabon planet (get hovered planet id) df ) df
+	gui "planetovergui" label "silizium" set text (get resource silizium planet (get hovered planet id) df ) df
+	gui "planetovergui" label "diamonds" set text (get resource diamonds planet (get hovered planet id) df ) df
+	gui "planetovergui" label "plani" set text (get hovered planet name) df
+	gui "planetovergui" label "owner" set text (get hovered planet owner name) df
+	gui "planetovergui" label "credits" set text (get resource credits) df
+    </TASKS>
+</TRIGGER>

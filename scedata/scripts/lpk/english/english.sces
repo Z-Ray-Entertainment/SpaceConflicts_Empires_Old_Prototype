@@ -1,0 +1,37 @@
+<SCRIPT>
+	<LPK>
+	    %hide% Hide
+	    %campaign% Campaign
+	    %skirmish% Skirmish
+	    %multiplayer% Multiplayer
+	    %options% Options
+	    %quit% Quit
+	    %error% Error
+	    %info% Information
+	    %tools% Tools
+	    %gameset% Game Settings
+	    %homedir% Home
+	    %custom% Custom
+	    %apply% Apply
+	    %back% Back
+	    %custom% Custom
+	    %homedir% Home Directory
+	    %spaceedit% Space-Edit
+	    %guiedit% GUI-Editor
+	    %cineedit% Cine-Editor
+	    %gamesettings% Game settings
+	    %audioset% Audio settings
+	    %graphset% Graphic settings
+	    %addbt% Add Button
+	    %addlabel% Add Label
+	    %edit% Edit
+	    %event% Event
+	    %save% Save
+	    %load% Load
+	    %new% New
+	    %next% Next
+	    %prev% Previous
+	    %unitedit% Unit-Editor
+	    %modelview% Modelviewer
+	</LPK>
+</SCRIPT>

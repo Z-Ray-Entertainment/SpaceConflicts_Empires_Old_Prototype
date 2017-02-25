@@ -1,0 +1,116 @@
+<SCRIPT>
+	<UNITPRESET>
+		<PROPS>
+			name "Rocketlauncher Tank"
+			id "rltank"
+			unittype vehicle
+			health 1000
+			race human
+			reqresearches 
+			regbuildings 
+			amour steel 1000
+			weapon explosion 2000
+			speed normal 1
+			speed fast 1
+			mesh object rltankmodel
+			mesh bullet rltankbullet
+			cells 4
+			regres iron 1500
+			regres 
+		</PROPS>
+		<BULLETMESH>
+			<PROPS>
+				id rltankbullet
+				dmgcode all
+			</PROPS>
+			<MD2>
+				<PROPS>
+					type bullet
+					offset 0 0 0
+					launchdir 0.5 1 0
+					meshfile jar "scedata/models/humans/rltank/rocket.md2"
+					flycharateristic parabel
+					skin jar ""
+				</PROPS>
+			</MD2>
+		</BULLETMESH>
+		<UNITMESH>
+			<PROPS>
+				id rltankmodel
+				dmgcode nodamage
+			</PROPS>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/body.md2"
+					skin jar ""
+				</PROPS>
+				<ANIM>
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/battery.md2"
+					skin jar ""
+				</PROPS>
+				<ANIMS>
+					shoot 0 0
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/chains_left.md2"
+					skin ""
+				</PROPS>
+				<ANIMS>
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/chains_right.md2"
+					skin ""
+				</PROPS>
+				<ANIMS>
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/door_lower.md2"
+					skin ""
+				</PROPS>
+				<ANIMS>
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type body
+					offset 0 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/door_upper.md2"
+					skin ""
+				</PROPS>
+				<ANIMS>
+				</ANIMS>
+			</MD2>
+			<MD2>
+				<PROPS>
+					type gun
+					offset 0 0 0
+					facedir 1 0 0
+					meshfile jar "scedata/models/humans/rltank/nodmg/turrend.md2"
+					skin ""
+				</PROPS>
+				<ANIMS>
+				</ANIMS>
+			</MD2>
+		</UNITMESH>
+	</UNIT>
+</SCRIPT>

@@ -1,0 +1,23 @@
+<MAPOBJECTPRESET>
+    <PROPS>
+	    id "deadtree"
+	    health 150
+	    type vegetation
+	    biosphere gasgiant grass swamp rocky lava twilight
+	    dynamic false
+	    rotation 0 0 0
+	    location 0 0 0
+    </PROPS>
+    <MESH>
+	    <PROPS>
+		dmg all
+		animated false
+		animation 0 0
+	    </PROPS>
+            <PART>
+                mesh md2 jar "scedata/models/objects/trees/deadtree_1.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+                offset 0 0 0
+                rotation 0 0 0
+            </PART>
+    </MESH>
+</MAPOBJECTPRESET>

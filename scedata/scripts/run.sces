@@ -1,0 +1,59 @@
+<SCRIPT>
+	<INF>
+		version "0.1 beta"
+		game sce
+	</INF>
+	<SETTINGS>
+		spherequality 32
+		shading smooth
+		playoffline false
+		externaldata home
+		autosave min 10
+		autoinstallupdates false
+		autoscanupdates hour 10
+		skin "default_blue"
+		gui 2d
+		bgmvol true 0.5
+		sfxvol true 0.5
+		voicevol true 0.5
+		convvol true 0.0
+		feedbackvol true 0.5
+		fullscreen false
+		fullres 1280 720
+		winres 300 300
+		antialising 0
+		lastdir home
+		sunlens true
+		clouds true
+		cloudrender 0
+		particles 0
+		texturequaltity 1024
+		simpleobjects false
+		lpk jar "scedata/scripts/lpk/english/english.sces"
+		fov 50
+		animatedfluids true
+		fluidsquality 0
+		smartramusage false
+		weather true
+		groundfog true
+		<KEYS>
+			zoomin VK_PAGE_UP VK_UP
+			zoomout VK_PAGE_DOWN VK_DOWN
+			toogleconsole VK_ALT+VK_C
+			planetoverview VK_ALT+VK_1
+			solarsystemoverview VK_ALT+VK_2
+			menue VK_ALT+VK_0
+			galaxyoverview VK_ALT+VK_3
+			tooglesmoothshading VK_ALT+VK_S
+			tooglelight VK_ALT+L
+		</KEYS>
+		exec jar "scedata/scripts/content.sces"
+	</SETTINGS>
+	<SERVERLIST>
+		<MASTER>
+			server scem.z-ray-entertainment.de
+		<MASTER>
+		<GAME>
+		</GAME>
+	</SERVERLIST>
+</SCRIPT>

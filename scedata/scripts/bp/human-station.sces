@@ -1,0 +1,30 @@
+<BUILDINGPRESET>
+    <PROPS>
+	id "beacon"
+	type space
+	special type station
+	amour titan 1000
+	shiled laser 2000
+	shileregen laser 10
+	upgradeable false
+	space vehicles 500
+	space spacecrafts 1000
+	space units 5000
+	species human
+	<RESTORE>
+	    space resources 1000000
+	    costs crypton 1000
+	    costs metal 10000
+	    costs iron 15000
+	    costs silizium 1000
+	    costs uran 5000
+	</RESTORE>
+    </PROPS>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/station/beacon.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+</BUILDINGPRESET>

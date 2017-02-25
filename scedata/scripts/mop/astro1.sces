@@ -1,0 +1,22 @@
+<MAPOBJECTPRESET>
+    <PROPS>
+	    id "bridge_mid"
+	    health 500
+	    type vegetation
+	    biosphere gasgiant grass swamp rocky
+	    dynamic false
+	    rotation 0 0 0
+    </PROPS>
+    <MESH>
+	    <PROPS>
+		dmg all
+		animated false
+		animation 0 0
+	    </PROPS>
+            <PART>
+                mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+                offset 0 0 0
+                rotation 0 0 0
+            </PART>
+    </MESH>
+</MAPOBJECTPRESET>

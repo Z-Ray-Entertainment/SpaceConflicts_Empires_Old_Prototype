@@ -1,0 +1,22 @@
+<SCRIPT>
+    exec jar "scedata/models/human/hovertank/unit.sces"
+    exec jar "scedata/models/human/mothership/unit.sces"
+    exec jar "scedata/models/human/rltank/unit.sces"
+    exec jar "scedata/models/human/tank/unit.sces"
+
+    exec jar "scedata/models/human/hq/building.sces"
+    exec jar "scedata/models/human/researchcenter/building.sces"
+    exec jar "scedata/models/human/scanner/building.sces"
+//Map Object Presets
+    exec jar "scedata/scripts/mop/initmop.sces"
+
+    exec jar "scedata/scripts/cinematics.sces"
+    exec jar "scedata/scripts/cinewarpstation.sces"
+    exec jar "scedata/scripts/cinesurface.sces"
+    exec jar "scedata/scripts/guis/initguis.sces"
+    exec jar "scedata/scripts/audio.sces"
+    exec jar "scedata/scripts/unuseddata.sces"
+    
+    exec jar "scedata/scripts/defaultnames.sces"
+    //exec jar "scedata/scripts/script1.sces"
+</SCRIPT>

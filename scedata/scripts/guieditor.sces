@@ -1,0 +1,31 @@
+<SCRIPT>
+	<GUI>
+		<PROPS>
+			id "guiedit"
+		</PROPS>
+		<TOOLBAR>
+			<LABEL>
+				<PROPS>
+					id "addbt"
+					disabeld false
+					allign 0 1
+					size 0.3 0.1
+				</PROPS>
+				<EVENT>
+					guiedit add button
+				</EVENT>
+				<POPUP>
+					<PROPS>
+						popside up
+					</PROPS>
+					<LABEL>
+						<PROPS>
+							id "addbtpoplabel"
+							text %addbt%
+						</PROPS>
+					</LABEL>
+				</POPUP>
+			<LABEL>
+		</TOOLBAR>
+	</GUI>
+</SCRIPT>

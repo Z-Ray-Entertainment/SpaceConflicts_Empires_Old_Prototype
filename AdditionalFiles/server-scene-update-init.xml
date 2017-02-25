@@ -1,0 +1,10 @@
+<scene type="surface" id="14431">
+  <sceobject id="8583911">
+    <parameter id="position" value="4;89.4;0.25" />
+    <parameter id="rotation" value="33.3;29;2.98"/>
+    <parameter id="tile" value="Space Marine"/>
+    <parameter id="amoure" value="100;150"/>
+    <parameter id="health" value="80;100" />
+    <parameter id="owner" value="152235" />
+  </sceobject>
+</scene>

@@ -1,0 +1,161 @@
+<GUI>
+    <PROPS>
+	id "main"
+	cinematic "warpstationcine"
+    </PROPS>
+    <TOOLBAR>
+	<PROPS>
+	    id "musicplayer"
+	    position -2.358 -1.2
+	    slide edge left
+	    slide time sec 1
+	</PROPS>
+	<LABEL>
+	    <PROPS>
+		id "backward"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/backward.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		switch bgm
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "playpause"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/play.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		toggle mutebgm
+		if "play_pause"
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "forward"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/forward.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		switch bgm
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "decreasevol"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/sound-off.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		bgmvol decrease
+	    </EVENT>
+	</LABEL>
+	<LABEL>
+	    <PROPS>
+		id "increasevol"
+		text ""
+		texture jar "scedata/textures/gui/skins/default_blue/sound-on.png"
+		size 0.05 0.05
+	    </PROPS>
+	    <EVENT>
+		bgmvol increase
+	    </EVENT>
+	</LABEL>
+    </TOOLBAR>
+    <LABEL>
+	<PROPS>
+	    id "banner"
+	    text ""
+	    texture jar "scedata/textures/gui/skins/default_blue/sce-banner.png"
+	    position 0 1
+	    size 0.7 0.28
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "info"
+	    text "Space Conflicts - Empires 0.0.1 Currendum"
+	    position -1.35 -1.35
+	    size 0.1 0.1
+	    textprops allign left
+	    textprops size 0.02
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "z-ray"
+	    text ""
+	    texture jar "scedata/textures/gui/skins/default_blue/z-ray-banner.png"
+	    position 1 -1
+	    size 0.35 0.1
+	</PROPS>
+	<EVENT>
+		toggle showgui
+	</EVENT>
+    </LABEL>
+    <BUTTON>
+	id "campaign"
+	text %campaign%
+	disabled true
+	position 0 0.3
+	size 0.5 0.1
+	<EVENT>
+	    showgui campaign
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "skirmish"
+	text %skirmish%
+	disabled false
+	position 0 0
+	size 0.5 0.1
+	<EVENT>
+		showgui skirmish
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "multiplayer"
+	text %multiplayer%
+	disabled true
+	position 0 -0.3
+	size 0.5 0.1
+	<EVENT>
+	    showgui multiplayer
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "options"
+	text %options%
+	disabled false
+	position 0 -0.6
+	size 0.5 0.1
+	<EVENT>
+	    showgui options
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "quit"
+	text %quit%
+	disabled false
+	position 1 -0.6
+	size 0.3 0.1
+	<EVENT>
+	    quit
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "tools"
+	text %tools%
+	disabled false
+	position -1 -0.6
+	size 0.3 0.1
+	<EVENT>
+	    showgui "tools"
+	</EVENT>
+    </BUTTON>
+</GUI>

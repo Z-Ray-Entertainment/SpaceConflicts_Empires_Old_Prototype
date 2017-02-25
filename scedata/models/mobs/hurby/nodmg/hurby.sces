@@ -1,0 +1,16 @@
+<SCRIPT>
+	<MD2>
+		idle1 0 100
+		idle2 100 210
+		idle3 210 320
+		idlebase 320 370
+		move 0 0
+		movefast 0 0
+		dance 0 0
+		shoot 0 0
+		meel1 0 0
+		meel2 0 0
+		fly 0 0
+		sit 0 0
+	</MD2>
+</SCRIPT>

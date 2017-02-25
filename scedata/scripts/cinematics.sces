@@ -1,0 +1,2667 @@
+<SCRIPT>
+	<CINEMATIC>
+		<PROPS>
+			id "mainguicine"
+			play loop true
+			play time sec 360
+			//play bgm jar "scedata/audio/bgm/normal/murdok/alt1.ogg"
+			//play bgm jar "scedata/audio/bgm/normal/gazinro/alt1.ogg"
+			interactive false
+			camera eye 0 0 0
+			camerta center 0 0 -1
+			camera up 0 1 0
+		</PROPS>
+		<SCENE>
+			<LIGHT>
+				light position 0 -5 -50 0
+				light ambiente 1 1 1 1
+				light diffuse 1 1 1 1
+				light specular 1 1 1 1
+			</LIGHT>
+			//<CINEOBJ>
+			//	<PROPS>
+			//	    id "galaxy2"
+			//	    mesh plane 25 25
+			//	    scale 1 1 1
+			//	    rotation global -60 0 0
+			//	    location global 0 -9 -50
+			//	    texture jar "scedata/textures/$texturesize$/others/galaxy.png" ".png"
+			//	    lighted false
+			//	</PROPS>
+			//</CINEOBJ>
+			//##########################################
+                        <CINEOBJ>
+                            <PROPS>
+                                id "clawarray"
+				scale 1 1 1
+				rotation global 0 -90 0
+				location global 0 0.01 1.5
+				lighted true
+				sound jar "scedata/audio/sounds/afterburner.wav"
+                            </PROPS>
+                            <MESH>
+                                <PART>
+				    mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				</PART>
+                            </MSH>
+                            <MODIFIER>
+                                <PROPS>
+                                    type array
+                                    offset 0.01 0.01 0.005
+				    axis z both
+                                    amount 25
+                                </PROPS>
+                            </MODIFIER>
+                        </CINEOBJ>
+			<CINEOBJ>
+                            <PROPS>
+                                id "clawarray2"
+				scale 1 1 1
+				rotation global 0 -90 0
+				location global 0 0.01 1.505
+				lighted true
+				sound jar "scedata/audio/sounds/afterburner.wav"
+                            </PROPS>
+                            <MESH>
+                                <PART>
+				    mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				</PART>
+                            </MSH>
+                            <MODIFIER>
+                                <PROPS>
+                                    type array
+                                    offset 0.01 0.01 0.005
+				    axis z both
+                                    amount 25
+                                </PROPS>
+                            </MODIFIER>
+                        </CINEOBJ>
+			<CINEOBJ>
+                            <PROPS>
+                                id "clawarray3"
+				scale 1 1 1
+				rotation global 0 -90 0
+				location global 0 0.01 1.51
+				lighted true
+				sound jar "scedata/audio/sounds/afterburner.wav"
+                            </PROPS>
+                            <MESH>
+                                <PART>
+				    mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				</PART>
+                            </MSH>
+                            <MODIFIER>
+                                <PROPS>
+                                    type array
+                                    offset 0.01 0.01 0.005
+				    axis z both
+                                    amount 25
+                                </PROPS>
+                            </MODIFIER>
+                        </CINEOBJ>
+			<CINEOBJ>
+			    <PROPS>
+				id "clawchild"
+				scale 10000 10000 10000
+				rotation global 0 -90 0
+				location global -0.01 0 1
+				lighted true
+				sound jar "scedata/audio/sounds/afterburner.wav"
+			    </PROPS>
+			    <MESH>
+				<PART>
+				    mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				</PART>
+			    </MESH>
+                            <MODIFIER>
+                                <PROPS>
+                                    type childof "terraformer1"
+                                </PROPS>
+                            </MODIFIER>
+			</CINEOBJ>
+			<CINEOBJ>
+			    <PROPS>
+				id "terraformer1"
+				scale 1 1 1
+				rotation global -90 0 0
+				location global -0.05 -0.05 1.5
+				lighted true
+			    </PROPS>
+			    <MESH>
+				<PART>
+				    mesh md2 jar "scedata/models/human/terraformer/terraformer.md2" "scedata/models/human/terraformer/terraformer.png"
+				</PART>
+			    </MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw2"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.001 0 5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw3"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.001 0.01 5.01
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw4"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.002 0.01 2.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw5"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.002 0 2.52
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw6"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.001 0.005 2.521
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw7"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.001 -0.001 2
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw8"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 -0.001 2.01
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw9"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.001 -0.002 2.02
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw10"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.0005 0.002 2.02
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw11"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.002 -0.001 2.1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw12"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.002 -0.001 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw13"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.0025 -0.002 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw14"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.0025 0.001 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw15"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.003 -0.001 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw16"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.01 -0.01 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw17"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.01 -0.01 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw18"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.01 -0.005 0.6
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw19"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0 0.6
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw20"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.1 0.6
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//##########################
+			<CINEOBJ>
+				<PROPS>
+					id "claw30"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw29"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw28"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw21"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw22"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw23"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw24"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw32"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw25"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw26"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw27"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw33"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw34"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw35"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw36"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw37"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw38"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw39"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw40"
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw41"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw42"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw43"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.004
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw44"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw45"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw46"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw47"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw48"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw49"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw50"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw51"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw52"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw53"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw54"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.008
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw55"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw56"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw57"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw58"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw59"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw60"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw61"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw62"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw63"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw64"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw65"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.012
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw66"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw67"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw68"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw69"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw70"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw71"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw72"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw73"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw74"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw75"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw76"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.03
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw77"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw78"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw79"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw80"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw81"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw82"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw83"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw84"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw85"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw86"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw87"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.034
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw88"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw89"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw90"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw91"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw92"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw93"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw94"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw95"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw96"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw97"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw99"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.038
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "claw55"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.02 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw56"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.016 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw57"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.012 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw58"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.008 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw59"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0.004 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw60"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global 0 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw61"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.004 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw62"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.008 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw63"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.012 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw64"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.016 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw65"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.02 0.005 1.042
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###################
+			<CINEOBJ>
+				<PROPS>
+					id "aljion"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.09 0 0.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "claw31"
+					
+					scale 1 1 1
+					rotation global 0 -90 0
+					location global -0.09 0.09 0.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/ralaan/claw/claw.md2" "scedata/models/ralaan/claw/claw.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion10"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0 0.05 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion2"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.09 0 0.6
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion9"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.4 -0.1 0.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion11"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.6 -0 0.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion12"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.5 0.1 0.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion13"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.5 0.2 0.65
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion14"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.5 -0.2 0.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion3"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.1 -0.1 1
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion4"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.3 0.05 0.55
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion5"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.1 -0.08 0.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion7"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.25 -0.25 0.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion6"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.1 0.05 0.55
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion8"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.1 -0.35 0.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//###########
+			<CINEOBJ>
+				<PROPS>
+					id "aljion15"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.39 0 1.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion16"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.3 0.05 2
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion17"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.21 0 1.6
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion18"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.1 -0.1 1.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion19"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.3 -0 1.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion20"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.2 0.1 1.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion21"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.2 0.2 1.65
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion22"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 0.2 -0.2 1.5
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion23"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.2 -0.1 2
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion24"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.6 0.05 1.55
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion25"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.4 -0.08 1.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion26"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.55 -0.25 1.8
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion27"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.2 0.05 1.55
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "aljion28"
+					scale 1 1 1
+					rotation global 0 0 0
+					location global -0.4 -0.35 1.7
+					lighted true
+					sound jar "scedata/audio/sounds/afterburner.wav"
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/gazinro/aljion2/aljion.md2" "scedata/models/gazinro/aljion2/aljion.jpg"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro1"
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.5 0 -0.5
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro2"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.5 0.1 -0.6
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro3"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.5 -0.2 -0.6
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro4"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.55 0 -0.6
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro5"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.7 0 -0.2
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro6"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -10 0 -0.2
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro7"
+					
+					scale 1 1 1
+					rotation global 0 0 0
+					location global 10 0 -0.1
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro8"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global 0.05 0.2 3
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro9"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global 0.07 -0.2 3
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro10"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global -0.03 -0.1 3
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "astro11"
+					
+					scale 0.5 0.5 0.5
+					rotation global 0 0 0
+					location global 0.02 0.1 3
+					lighted true
+				</PROPS>
+				<MESH>
+				    <PART>
+					mesh md2 jar "scedata/models/objects/asteroid/astro1.md2" "scedata/models/objects/asteroid/astro1.png"
+				    </PART>
+				</MESH>
+			</CINEOBJ>
+			//<CINEOBJ>
+			//	<PROPS>
+			//		id "surface"
+			//		mesh surface 0.684651984 100 100 100
+			//		scale 1 1 1
+			//		rotation global 0 0 0
+			//		location global -50 -10 -50
+			//		fluids true lava
+			//		texture jar "scedata/textures/$texturesize$/terrain/gasgigant/deadgrass.jpg"
+			//		lighted true
+			//	</PROPS>
+			//</CINEOBJ>
+			<CINEOBJ>
+				<PROPS>
+					id "galaxy"
+					mesh plane 50 50
+					scale 1 1 1
+					rotation global -60 0 0
+					location global 0 -10 -50
+					texture jar "scedata/textures/$texturesize$/others/galaxy.png"
+					lighted false
+				</PROPS>
+			</CINEOBJ>
+                        <KEYTIME>
+                            <PROPS>
+                                time sec 180
+                            </PROPS>
+                            <TASKS>
+                                cinematic "warpstationcine"
+                            </TASKS>
+                        </KEYTIME>
+			<KEYTIME>
+				<PROPS>
+					time sec 10000
+				</PROPS>
+				<TASKS>
+					cineobj "galaxy" rotation local 0 0 20000
+					cineobj "aljion2" location local 0 0 -100
+					cineobj "aljion3" location local 0 0 -100
+					cineobj "aljion4" location local 0 0 -100
+					cineobj "aljion5" location local 0 0 -100
+					cineobj "aljion6" location local 0 0 -100
+					cineobj "aljion7" location local 0 0 -100
+					cineobj "aljion8" location local 0 0 -100
+					cineobj "aljion" location local 0 0 -100
+					cineobj "aljion9" location local 0 0 -100
+					cineobj "aljion10" location local 0 0 -100
+					cineobj "aljion11" location local 0 0 -100
+					cineobj "aljion12" location local 0 0 -100
+					cineobj "aljion13" location local 0 0 -100
+					cineobj "aljion14" location local 0 0 -100
+					cineobj "aljion15" location local 0 0 -100
+					cineobj "aljion16" location local 0 0 -100
+					cineobj "aljion17" location local 0 0 -100
+					cineobj "aljion18" location local 0 0 -100
+					cineobj "aljion19" location local 0 0 -100
+					cineobj "aljion20" location local 0 0 -100
+					cineobj "aljion21" location local 0 0 -100
+					cineobj "aljion22" location local 0 0 -100
+					cineobj "aljion23" location local 0 0 -100
+					cineobj "aljion24" location local 0 0 -100
+					cineobj "aljion25" location local 0 0 -100
+					cineobj "aljion26" location local 0 0 -100
+					cineobj "aljion27" location local 0 0 -100
+					cineobj "aljion28" location local 0 0 -100
+					cineobj "claw1" location global 0 0 -500
+					cineobj "claw2" location global 0 0 -500
+					cineobj "claw3" location global 0 0 -500
+					cineobj "claw4" location global 0 0 -500
+					cineobj "claw5" location global 0 0 -500
+					cineobj "claw6" location global 0 0 -500
+					cineobj "claw7" location global 0 0 -500
+					cineobj "claw8" location global 0 0 -500
+					cineobj "claw9" location global 0 0 -500
+					cineobj "claw10" location global 0 0 -500
+					cineobj "claw11" location global 0 0 -500
+					cineobj "claw12" location global 0 0 -100
+					cineobj "claw13" location global 0 0 -100
+					cineobj "claw14" location global 0 0 -100
+					cineobj "claw15" location global 0 0 -100
+					cineobj "claw16" location global 0 0 -100
+					cineobj "claw17" location global 0 0 -100
+					cineobj "claw18" location global 0 0 -100
+					cineobj "claw19" location global 0 0 -100
+					cineobj "claw20" location global 0 0 -100
+					cineobj "claw21" location global 0 0 -100
+					cineobj "claw22" location global 0 0 -100
+					cineobj "claw23" location global 0 0 -100
+					cineobj "claw24" location global 0 0 -100
+					cineobj "claw25" location global 0 0 -100
+					cineobj "claw26" location global 0 0 -100
+					cineobj "claw27" location global 0 0 -100
+					cineobj "claw28" location global 0 0 -100
+					cineobj "claw29" location global 0 0 -100
+					cineobj "claw30" location global 0 0 -100
+					cineobj "claw31" location global 0 0 -100
+					cineobj "claw32" location global 0 0 -100
+					cineobj "claw33" location global 0 0 -100
+					cineobj "claw34" location global 0 0 -100
+					cineobj "claw35" location global 0 0 -100
+					cineobj "claw36" location global 0 0 -100
+					cineobj "claw37" location global 0 0 -100
+					cineobj "claw38" location global 0 0 -100
+					cineobj "claw39" location global 0 0 -100
+					cineobj "claw40" location global 0 0 -100
+					cineobj "claw41" location global 0 0 -100
+					cineobj "claw42" location global 0 0 -100
+					cineobj "claw43" location global 0 0 -100
+					cineobj "claw44" location global 0 0 -100
+					cineobj "claw45" location global 0 0 -100
+					cineobj "claw46" location global 0 0 -100
+					cineobj "claw47" location global 0 0 -100
+					cineobj "claw48" location global 0 0 -100
+					cineobj "claw49" location global 0 0 -100
+					cineobj "claw50" location global 0 0 -100
+					cineobj "claw51" location global 0 0 -100
+					cineobj "claw52" location global 0 0 -100
+					cineobj "claw53" location global 0 0 -100
+					cineobj "claw54" location global 0 0 -100
+					cineobj "claw55" location global 0 0 -100
+					cineobj "claw56" location global 0 0 -100
+					cineobj "claw57" location global 0 0 -100
+					cineobj "claw58" location global 0 0 -100
+					cineobj "claw59" location global 0 0 -100
+					cineobj "claw60" location global 0 0 -100
+					cineobj "claw61" location global 0 0 -100
+					cineobj "claw62" location global 0 0 -100
+					cineobj "claw63" location global 0 0 -100
+					cineobj "claw64" location global 0 0 -100
+					cineobj "claw65" location global 0 0 -100
+					cineobj "claw66" location global 0 0 -100
+					cineobj "claw67" location global 0 0 -100
+					cineobj "claw68" location global 0 0 -100
+					cineobj "claw69" location global 0 0 -100
+					cineobj "claw70" location global 0 0 -100
+					cineobj "claw71" location global 0 0 -100
+					cineobj "claw72" location global 0 0 -100
+					cineobj "claw73" location global 0 0 -100
+					cineobj "claw74" location global 0 0 -100
+					cineobj "claw75" location global 0 0 -100
+					cineobj "claw76" location global 0 0 -100
+					cineobj "claw77" location global 0 0 -100
+					cineobj "claw78" location global 0 0 -100
+					cineobj "claw79" location global 0 0 -100
+					cineobj "claw80" location global 0 0 -100
+					cineobj "claw81" location global 0 0 -100
+					cineobj "claw82" location global 0 0 -100
+					cineobj "claw83" location global 0 0 -100
+					cineobj "claw84" location global 0 0 -100
+					cineobj "claw85" location global 0 0 -100
+					cineobj "claw86" location global 0 0 -100
+					cineobj "claw87" location global 0 0 -100
+					cineobj "claw88" location global 0 0 -100
+					cineobj "claw89" location global 0 0 -100
+					cineobj "claw90" location global 0 0 -100
+					cineobj "claw91" location global 0 0 -100
+					cineobj "claw92" location global 0 0 -100
+					cineobj "claw93" location global 0 0 -100
+					cineobj "claw94" location global 0 0 -100
+					cineobj "claw95" location global 0 0 -100
+					cineobj "claw96" location global 0 0 -100
+					cineobj "claw97" location global 0 0 -100
+					cineobj "claw98" location global 0 0 -100
+					cineobj "claw99" location global 0 0 -100
+					cineobj "clawarray" location global 0 0 -100
+					cineobj "clawarray2" location global 0 0 -100
+					cineobj "clawarray3" location global 0 0 -100
+					cineobj "terraformer1" location global 0 0 -100
+					cineobj "terraformer1" rotation local 0 200000 0
+					cineobj "astro1" location global 500 0 0
+					cineobj "astro1" rotation global 200000 0 200000
+					cineobj "astro2" location global 500 0 0
+					cineobj "astro2" rotation global 200000 200000 200000
+					cineobj "astro3" location global 500 0 0
+					cineobj "astro3" rotation global -200000 -200000 -200000
+					cineobj "astro4" location global 500 0 0
+					cineobj "astro4" rotation global 0 -200000 -200000
+					cineobj "astro5" location global 500 0 0
+					cineobj "astro5" rotation global 0 0 -200000
+					cineobj "astro6" location global 490 0 0
+					cineobj "astro6" rotation global -300000 500000 -200000
+					cineobj "astro7" location global -700 0 0
+					cineobj "astro7" rotation global -300000 1000000 -200000
+					cineobj "astro8" location global 0 0 -100
+					cineobj "astro8" rotation global -50000 500000 -50000
+					cineobj "astro9" location global 0 0 -100
+					cineobj "astro9" rotation global 50000 500000 -50000
+					cineobj "astro10" location global 0 0 -100
+					cineobj "astro10" rotation global -50000 -500000 -50000
+					cineobj "astro11" location global 0 0 -100
+					cineobj "astro11" rotation global -50000 500000 50000
+				</TASKS>
+			</KEYTIME>
+		</SCENE>
+	</CINEMATIC>
+</SCRIPT>

@@ -1,0 +1,50 @@
+<SCRIPT>
+	<SOUNDTRACKS>
+		bgm battle jar "scedata/audio/bgm/battle/battle1.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle2.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle3.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle4.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle5.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle6.ogg"
+		bgm battle jar "scedata/audio/bgm/battle/battle7.ogg"
+		
+		bgm cron jar "scedata/audio/bgm/normal/cron/main.ogg"
+		bgm cron jar "scedata/audio/bgm/normal/cron/alt1.ogg"
+		
+		bgm emiax jar "scedata/audio/bgm/normal/emiax/main.ogg"
+		bgm emiax jar "scedata/audio/bgm/normal/emiax/alt1.ogg"
+		
+		bgm gazinro jar "scedata/audio/bgm/normal/gazinro/main.ogg"
+		bgm gazinro jar "scedata/audio/bgm/normal/gazinro/alt1.ogg"
+		
+		bgm haryaner jar "scedata/audio/bgm/normal/haryaner/main.ogg"
+		bgm haryaner jar "scedata/audio/bgm/normal/haryaner/alt1.ogg"
+		
+		bgm human jar "scedata/audio/bgm/normal/human/main.ogg"
+		bgm human jar "scedata/audio/bgm/normal/human/alt1.ogg"
+		
+		bgm ita jar "scedata/audio/bgm/normal/ita/main.ogg"
+		bgm ita jar "scedata/audio/bgm/normal/ita/alt1.ogg"
+		
+		bgm murdok jar "scedata/audio/bgm/normal/murdok/main.ogg"
+		bgm murdok jar "scedata/audio/bgm/normal/murdok/alt1.ogg"
+		
+		bgm murianer jar "scedata/audio/bgm/normal/murianer/main.ogg"
+		bgm murianer jar "scedata/audio/bgm/normal/murianer/alt1.ogg"
+		
+		bgm noctan jar "scedata/audio/bgm/normal/noctan/main.ogg"
+		bgm noctan jar "scedata/audio/bgm/normal/noctan/alt1.ogg"
+		
+		bgm onnyx jar "scedata/audio/bgm/normal/onnyx/main.ogg"
+		bgm onnyx jar "scedata/audio/bgm/normal/onnyx/alt1.ogg"
+		
+		bgm ralaan jar "scedata/audio/bgm/normal/ralaan/main.ogg"
+		bgm ralaan jar "scedata/audio/bgm/normal/ralaan/alt1.ogg"
+		
+		bgm wolfrim jar "scedata/audio/bgm/normal/wolfrim/main.ogg"
+		bgm wolfrim jar "scedata/audio/bgm/normal/wolfrim/alt1.ogg"
+		
+		bgm xylon jar "scedata/audio/bgm/normal/xylon/main.ogg"
+		bgm xylon jar "scedata/audio/bgm/normal/xylon/alt1.ogg"
+	</SOUNDTRACKS>
+</SCRIPT>

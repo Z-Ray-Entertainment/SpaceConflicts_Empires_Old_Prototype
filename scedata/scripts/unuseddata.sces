@@ -1,0 +1,221 @@
+<SCRIPT>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/behemoth/body.md2" "scedata/models/human/behemoth/hangars.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/behemoth/driver_left.md2" "scedata/models/human/behemoth/hangars.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/behemoth/driver_left.md2" "scedata/models/human/behemoth/hangars.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/behemoth/hangars.md2" "scedata/models/human/behemoth/hangars.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/behemoth/forcefields.md2" "scedata/models/human/behemoth/forcefields.png"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/mobs/hurby/nodmg/hurby.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/station/beacon.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/gazinro/station/station-gazinro.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/researchcenter/nodmg/body.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/objects/sphere.md2" "scedata/models/objects/sphere.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/transmitter/nodmg/body.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/transmitter/nodmg/door_lower.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+            mesh md2 jar "scedata/models/human/transmitter/nodmg/door_upper.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/scanner/nodmg/scanner_1.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+            rotation 0 0 0
+        </PART>
+	<PART>
+	    mesh md2 jar "scedata/models/human/scanner/nodmg/scanner_2.md2" "scedata/models/ralaan/claw/claw.jpg"
+            offset 0 0 0
+            rotation 0 0 0
+	</PART>
+	<PART>
+	    mesh md2 jar "scedata/models/human/scanner/nodmg/scanner_3.md2" "scedata/models/ralaan/claw/claw.jpg"
+            offset 0 0 0
+            rotation 0 0 0
+	</PART>
+	<PART>
+	    mesh md2 jar "scedata/models/human/scanner/nodmg/scanner_body.md2" "scedata/models/ralaan/claw/claw.jpg"
+            offset 0 0 0
+            rotation 0 0 0
+	</PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/hq/nodmg/body.md2" "scedata/models/ralaan/claw/claw.jpg"
+            offset 0 0 0
+            rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/tank/nodmg/body.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/tank/nodmg/chain_left.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/tank/nodmg/chain_right.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/tank/nodmg/gun.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/tank/nodmg/turrend.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/battery.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/body.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/chains_left.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/chains_right.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/door_lower.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/door_upper.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+        <PART>
+            mesh md2 jar "scedata/models/human/rltank/nodmg/turrend.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+        </PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/human/walker/walker.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/gazinro/sprinter/sprinter.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/gazinro/researchcenter/nodmg/researchcenter.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/gazinro/hq/nodmg/hq.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/gazinro/comreley/nodmg/comrealy.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/cron/disrubtor/disrubtor.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+    <MESH>
+	<PART>
+	    mesh md2 jar "scedata/models/emiax/interseptor/inceptor-2.md2" "scedata/models/ralaan/claw/claw.jpg"
+	    offset 0 0 0
+	    rotation 0 0 0
+	</PART>
+    </MESH>
+</SCRIPT>

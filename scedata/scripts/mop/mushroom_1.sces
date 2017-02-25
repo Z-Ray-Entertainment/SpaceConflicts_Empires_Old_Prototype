@@ -1,0 +1,22 @@
+<MAPOBJECTPRESET>
+    <PROPS>
+	    id "mushroom1"
+	    health 100
+	    type vegetation
+	    biosphere gasgiant grass swamp rocky
+	    dynamic false
+	    rotaion 0 0 0
+    </PROPS>
+    <MESH>
+	    <PROPS>
+		dmg all
+		animated false
+		animation 0 0
+	    </PROPS>
+            <PART>
+                mesh md2 jar "scedata/models/objects/mushrooms/mushroom_1.md2" "scedata/models/objects/mushrooms/mushroom.jpg"
+                offset 0 0 0
+                roatation 0 0 0
+            </PART>
+    </MESH>
+</MAPOBJECTPRESET>

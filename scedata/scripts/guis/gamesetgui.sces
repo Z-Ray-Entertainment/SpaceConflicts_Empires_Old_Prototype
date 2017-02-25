@@ -1,0 +1,139 @@
+<GUI>    
+    <PROPS>
+	id "gameset"
+	cinematic "mainguicine"
+    </PROPS>
+    <LABEL>
+	id "info"
+	text "Externaldata:"
+	position 0 0.75
+	size 0.5 1.5
+    </LABEL>
+    <RADIOBT>
+	    id "home"
+	    text %homedir%
+	    position -0.75 0.375
+	    size 0.5 1.5
+	    <EVENT>
+		radiobt appdir disabled
+		radiobt custom disabled
+		textfield path disabled
+		externaldata home
+	    </EVENT>
+    </RADIOBT>    
+    <RADIOBT>
+	id "custom"
+	text %custom%
+	position -0.375 0.375
+	size 0.5 1.5
+	<EVENT>
+	    radiobt appdata disabled
+	    radiobt appdir disabled
+	    textfield path enabled
+	</EVENT>
+    </RADIOBT>
+    <TEXTFIELD>
+	id "path"
+	text ""
+	value ""
+	position -0.75 0
+	size 1 0.1
+    </TEXTFIELD>
+    <BUTTON>
+	id "choosedir"
+	text "Choose"
+	hoversound default
+	clicksound default
+	errorsound default
+	hovereffect true
+	diabled false
+	position -0.375 0
+	size 1 0.1
+	<EVENT>
+	    showfilebrowser
+	    textfield path setvalue filebrowser getvalue
+	</EVENT>
+    </BUTTON>
+    <CHECKBOX>
+	id "autosave"
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+    </CHECKBOX>
+    <SLIDER>
+	id "autosave"
+	text ""
+	value 10
+	increase 1
+	decrease 1
+	position 0 0
+	size 1 0.1
+    </SLIDER>
+    <BUTTON>
+	id "apply"
+	text "Apply"
+	hoversound default
+	clicksound default
+	errorsound default
+	hovereffect true
+	diabled false
+	position 0 0
+	size 1 0.1
+	<EVENT>
+		saveoption textfield path getvalue
+		showgui options
+	</EVENT>
+    </BUTTON> 
+    <BUTTON>
+	id "defaults"
+	text %apply%
+	hoversound default
+	clicksound default
+	errorsound default
+	hovereffect true
+	diabled false
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+	<EVENT>
+		saveoption home
+		showgui options
+	</EVENT>
+    </BUTTON>
+    <BUTTON>
+	id "back"
+	text "Back"
+	hoversound default
+	clicksound default
+	errorsound default
+	hovereffect true
+	diabled false
+	position_16_9 0 0
+	position_4_3 0 0
+	position_1_1 0 0
+	position_16_10 0 0
+	position_5_4 0 0
+	position_5_3 0 0
+	size_16_9 1 0.1
+	size_4_3 1 0.1
+	size_1_1 1 0.1
+	size_16_10 1 0.1
+	size_5_4 1 0.1
+	size_5_3 1 0.1
+	<EVENT>
+		showgui %lastgui
+	</EVENT>
+    </BUTTON>
+</GUI>

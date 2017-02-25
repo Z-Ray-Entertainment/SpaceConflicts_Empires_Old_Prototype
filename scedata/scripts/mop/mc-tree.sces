@@ -1,0 +1,28 @@
+<MAPOBJECTPRESET>
+    <PROPS>
+	    id "mc-tree"
+	    health 150
+	    type vegetation
+	    biosphere gasgiant grass swamp rocky
+	    dynamic false
+	    rotation 0 0 0
+	    location 0 0 0
+    </PROPS>
+    <MESH>
+	    <PROPS>
+		dmg all
+		animated false
+		animation 0 0
+	    </PROPS>
+            <PART>
+                mesh md2 jar "scedata/models/objects/trees/mc-tree-stam.md2" "scedata/models/objects/trees/mc-tree-stam.png"
+                offset 0 0 0
+                rotation 0 0 0
+            </PART>
+	    <PART>
+                mesh md2 jar "scedata/models/objects/trees/mc-tree-leavs.md2" "scedata/models/objects/trees/mc-tree-leavs.png"
+                offset 0 0 0
+                rotation 0 0 0
+            </PART>
+    </MESH>
+</MAPOBJECTPRESET>

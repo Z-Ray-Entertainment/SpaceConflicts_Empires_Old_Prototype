@@ -1,0 +1,162 @@
+<GUI>
+    <PROPS>
+	id "surfacegui"
+    </PROPS>
+//Top
+    <LABEL>
+	<PROPS>
+	    id "backtogalaxy"
+	    text ""
+	    position 0 1.35
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/gui/skins/default_blue/up.png"
+	</PROPS>
+	<EVENT>
+	    showgui galaxygui
+	    set layer 4
+	</EVENT>
+    </LABEL>
+//Right
+    <LABEL>
+	<PROPS>
+	    id "plani"
+	    text "Planet"
+	    position 1.35 0.4
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/others/label.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "biosphere"
+	    text "Biosphere"
+	    position 1.35 0.3
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/planets/dust_simple.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "owner"
+	    text "Owner"
+	    position 1.35 0.2
+	    size 0.05 0.05
+	    textprops allign right
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/others/user.png"
+	</PROPS>
+    </LABEL>
+//Left
+    <LABEL>
+	<PROPS>
+	    id "credits"
+	    text "Credits"
+	    position -1.35 0.4
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/credits.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "silizium"
+	    text "Silizium"
+	    position -1.35 0.2
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/iron.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "metall"
+	    text "Metall"
+	    position -1.35 0.1
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/metall.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "iron"
+	    text "Iron"
+	    position -1.35 0
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/iron.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "cypton"
+	    text "Crypton"
+	    position -1.35 -0.1
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/crypton.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "cabon"
+	    text "Cabon"
+	    position -1.35 -0.2
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/cabon.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "uran"
+	    text "Uran"
+	    position -1.35 -0.3
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/uran.png"
+	</PROPS>
+    </LABEL>
+    <LABEL>
+	<PROPS>
+	    id "diamonds"
+	    text "Diamonds"
+	    position -1.35 -0.4
+	    size 0.05 0.05
+	    textprops allign left
+	    textprops size 0.02
+	    texture jar "scedata/textures/$texturesize$/icons/res/cabon.png"
+	</PROPS>
+    </LABEL>
+</GUI>
+<TRIGGER>
+    <PROPS>
+	type refresh
+    </PROPS>
+    <TASKS>
+	gui "surfacegui" label "biosphere" set text (get current planet biosphere) df
+	gui "surfacegui" label "iron" set text (get resource iron planet (get current planet id) df ) df
+	gui "surfacegui" label "cypton" set text (get resource cyrpton planet (get current planet id) df ) df
+	gui "surfacegui" label "metall" set text (get resource metall planet (get current planet id) df ) df
+	gui "surfacegui" label "uran" set text (get resource uran planet (get current planet id) df ) df
+	gui "surfacegui" label "cabon" set text (get resource cabon planet (get current planet id) df ) df
+	gui "surfacegui" label "silizium" set text (get resource silizium planet (get current planet id) df ) df
+	gui "surfacegui" label "diamonds" set text (get resource diamonds planet (get current planet id) df ) df
+	gui "surfacegui" label "plani" set text (get current planet name) df
+	gui "surfacegui" label "owner" set text (get current planet owner name) df
+	gui "surfacegui" label "credits" set text (get resource credits) df
+    </TASKS>
+</TRIGGER>

@@ -1,0 +1,11 @@
+<GUI>
+    <PROPS>
+      id "multiplayer"
+      text "Multiplayer"
+    </PROPS>
+    <BUTTON>
+	    id "back"
+	    text "Back"
+	    showgui %lastgui
+    </BUTTON>
+</GUI>

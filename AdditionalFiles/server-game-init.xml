@@ -1,0 +1,13 @@
+<game>
+    <players>
+      <player name="Vortex" id="152235" color="#ff4400"/>
+      <player name="Rumo" id="1846453" color="#ff0000"/>
+    </players>
+    <scenes>
+      <sceneindex type="universe" id="14428" />
+      <sceneindex type="galaxy" id="14429" />
+      <sceneindex type="system" id="14430" />
+      <sceneindex type="surface" id="14431" />
+      <sceneindex type="surface" id="14432" />
+    </scenes>
+</game>

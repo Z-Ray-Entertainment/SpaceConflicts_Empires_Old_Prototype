@@ -1,0 +1,53 @@
+<SCRIPT>
+    <CINEMATIC>
+	<PROPS>
+		id "warpstationcine"
+		play loop true
+		play time sec 360
+		//play bgm jar "scedata/audio/bgm/normal/murdok/alt1.ogg"
+		//play bgm jar "scedata/audio/bgm/normal/gazinro/alt1.ogg"
+		interactive false
+		camera eye 0 0 0
+		camerta center 0 0 -1
+		camera up 0 1 0
+	</PROPS>
+	<SCENE>
+	    <LIGHT>
+		light position 0 -5 -50 0
+		light ambiente 1 1 1 1
+		light diffuse 1 1 1 1
+		light specular 1 1 1 1
+	    </LIGHT>
+	    <CINEOBJ>
+		<PROPS>
+		    id "warpstation"
+		    scale 1 1 1
+		    rotation global 0 0 10
+		    location global -0.5 -0.1 -1
+		    lighted true
+		</PROPS>
+		<MESH>
+		    <PART>
+			mesh md2 jar "scedata/models/cron/warpstation/warpstation.md2" "scedata/models/cron/warpstation/warpstation.jpg"
+		    </PART>
+		</MESH>
+	    </CINEOBJ>
+            <KEYTIME>
+                <PROPS>
+                    time sec 360
+                </PROPS>
+                <TASKS>
+                    cinematic "cinesurface"
+                </TASKS>
+            </KEYTIME>
+	    <KEYTIME>
+		<PROPS>
+		    time sec 10000
+		</PROPS>
+		<TASKS>
+		   cineobj "warpstation" rotation global 0 -25000 0
+		</TASKS>
+	    </KEYTIME>
+	</SCENE>
+    </CINEMATIC>
+</SCRIPT>
