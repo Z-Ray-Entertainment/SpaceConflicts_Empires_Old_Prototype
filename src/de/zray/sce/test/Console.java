@@ -156,7 +156,7 @@ public class Console extends javax.swing.JFrame implements SEDispatcherHook{
         try {
             return seConsole.executeCommand(input);
         } catch (ParameterAmountException | InvalidTypeException | InvalidParameterValueException | SyntaxException ex) {
-            SELogger.get().dispatchMsg(this, SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
+            SELogger.get().dispatchMsg("SCEConsole", SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
         }
         return "Error";
     }
