@@ -154,11 +154,13 @@ public class Console extends javax.swing.JFrame implements SEDispatcherHook{
     
     private String issueCommand(String input){
         try {
-            return seConsole.executeCommand(input);
-        } catch (ParameterAmountException | InvalidTypeException | InvalidParameterValueException | SyntaxException ex) {
+            return seConsole.executeScript(input);
+        } catch (SyntaxException ex) {
+            SELogger.get().dispatchMsg("SCEConsole", SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
+        } catch (ParameterAmountException | InvalidTypeException | InvalidParameterValueException ex) {
             SELogger.get().dispatchMsg("SCEConsole", SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
         }
-        return "Error";
+        return "Error while exectuing: "+input;
     }
 
     @Override
