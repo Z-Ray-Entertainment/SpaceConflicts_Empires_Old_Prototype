@@ -22,8 +22,8 @@ public class SCEMain {
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
         test();
-        SCEMainWorld mainWorld = new SCEMainWorld();
-        MainThread.loop(mainWorld);
+        //SCEMainWorld mainWorld = new SCEMainWorld();
+        MainThread.loop(null);
     }
     
     private static void test(){
