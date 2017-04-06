@@ -10,11 +10,11 @@ import de.zray.sce.test.cmds.ToogleDispatcherHook;
 import de.zray.se.MainThread;
 import de.zray.se.logger.SEDispatcherHook;
 import de.zray.se.logger.SELogger;
-import de.zray.se.script.exceptions.DublicateCommandException;
-import de.zray.se.script.exceptions.InvalidParameterValueException;
-import de.zray.se.script.exceptions.InvalidTypeException;
-import de.zray.se.script.exceptions.ParameterAmountException;
-import de.zray.se.script.exceptions.SyntaxException;
+import de.zray.coretex.exceptions.DublicateCommandException;
+import de.zray.coretex.exceptions.InvalidParameterValueException;
+import de.zray.coretex.exceptions.InvalidTypeException;
+import de.zray.coretex.exceptions.ParameterAmountException;
+import de.zray.coretex.exceptions.SyntaxException;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -25,7 +25,7 @@ import java.util.logging.Logger;
  */
 public class Console extends javax.swing.JFrame implements SEDispatcherHook{
     private boolean showHookedLogs = false;
-    private de.zray.se.script.Console seConsole;
+    private de.zray.coretex.Console seConsole;
     
     /**
      * Creates new form Console
