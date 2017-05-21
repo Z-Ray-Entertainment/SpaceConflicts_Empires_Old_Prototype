@@ -18,7 +18,6 @@ import de.zray.se.grapics.material.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
 import de.zray.se.grapics.semesh.SEOriantation;
-import de.zray.zgui.TextureManager;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
 

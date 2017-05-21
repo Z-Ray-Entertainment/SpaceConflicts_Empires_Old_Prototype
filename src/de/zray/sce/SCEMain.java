@@ -8,8 +8,10 @@ package de.zray.sce;
 import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.sce.test.Console;
 import de.zray.se.MainThread;
+import de.zray.se.SEWorld;
 import de.zray.se.Settings;
 import de.zray.se.logger.SELogger;
+import de.zray.se.renderbackend.GLRenderer;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
 
@@ -21,9 +23,11 @@ public class SCEMain {
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
-        test();
+        //test();
         //SCEMainWorld mainWorld = new SCEMainWorld();
-        MainThread.loop(null);
+        MainThread mainThread = new MainThread();
+        mainThread.setRenderBackend(new GLRenderer());
+        mainThread.loop(null);
     }
     
     private static void test(){

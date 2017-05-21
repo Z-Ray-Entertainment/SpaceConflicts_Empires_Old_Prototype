@@ -6,13 +6,7 @@
 package de.zray.sce.gui;
 
 import de.zray.se.InputManager;
-import de.zray.se.MainThread;
 import de.zray.se.SEWorld;
-import de.zray.se.Settings;
-import de.zray.se.grapics.Camera;
-import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -38,7 +32,7 @@ public class SCEInputManager extends InputManager{
 
     @Override
     public void mouseMoved(int posX, int posY) {
-        if(Mouse.isButtonDown(1)){
+        /*if(Mouse.isButtonDown(1)){
             int x = Mouse.getX();
             int y = Mouse.getY();
 
@@ -51,12 +45,12 @@ public class SCEInputManager extends InputManager{
             parentWorld.getGLModule().getCurrentCamera().setRotation(camRot.x, camRot.y, camRot.z);
         }
         mouseLastX = Mouse.getX();
-        mouseLastY = Mouse.getY();
+        mouseLastY = Mouse.getY();*/
     }
 
     @Override
     public void keyPressed(int key) {
-        Vector3f camPos = parentWorld.getGLModule().getCurrentCamera().getPosition();
+        /*Vector3f camPos = parentWorld.getGLModule().getCurrentCamera().getPosition();
         float delta = parentWorld.getDeltaInS();
         switch(key){
             case Keyboard.KEY_W :
@@ -81,12 +75,12 @@ public class SCEInputManager extends InputManager{
                 speedMult = 10;
                 break;
         }
-        parentWorld.getGLModule().getCurrentCamera().setPosition(camPos.x, camPos.y, camPos.z);
+        parentWorld.getGLModule().getCurrentCamera().setPosition(camPos.x, camPos.y, camPos.z);*/
     }
 
     @Override
     public void keyTiped(int key){
-        switch(key){
+        /*switch(key){
             case Keyboard.KEY_F1 :
                 parentWorld.getCurrentGUI().toogleShow();
                 break;
@@ -132,16 +126,16 @@ public class SCEInputManager extends InputManager{
                 }
                 
                 break;
-        }
+        }*/
     }
 
     @Override
     public void keyReleased(int key) {
-        switch(key){
+        /*switch(key){
             case Keyboard.KEY_LSHIFT :
                 speedMult = 1;
                 break;
-        }
+        }*/
     }
     
 }
