@@ -5,10 +5,8 @@
  */
 package de.zray.sce;
 
-import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.sce.test.Console;
 import de.zray.se.MainThread;
-import de.zray.se.SEWorld;
 import de.zray.se.Settings;
 import de.zray.se.logger.SELogger;
 import de.zray.se.renderbackend.GLRenderer;
@@ -27,7 +25,7 @@ public class SCEMain {
         //SCEMainWorld mainWorld = new SCEMainWorld();
         MainThread mainThread = new MainThread();
         mainThread.setRenderBackend(new GLRenderer());
-        mainThread.loop(null);
+        mainThread.loop();
     }
     
     private static void test(){
