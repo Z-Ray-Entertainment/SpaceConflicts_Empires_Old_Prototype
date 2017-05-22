@@ -22,7 +22,7 @@ public class AIStation extends SEAI{
     }
 
     @Override
-    public void act(float delta) {
+    public void act(double delta) {
         turn += 1*delta;
         turn %= 360;
         parrentActor.getSEMesh().getOrientation().setRotation(20, turn, 15);

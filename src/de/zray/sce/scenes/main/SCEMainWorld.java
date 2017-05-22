@@ -5,16 +5,11 @@
  */
 package de.zray.sce.scenes.main;
 
-import de.zray.sce.gui.SCEInputManager;
-import de.zray.sce.gui.main.GUIMain;
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.Planet;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
-import de.zray.se.ai.SEAIModule;
-import de.zray.se.audio.Playlist;
-import de.zray.se.grapics.Camera;
 import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
@@ -28,7 +23,6 @@ import java.io.IOException;
  */
 public class SCEMainWorld extends SEWorld{
     public SCEMainWorld() throws InvalidRangeException, IOException{
-        super();
         //addGUI(new GUIMain(this));
         
         SEActor station = new SEActor("scedata/models/cron/warpstation/warpstation.obj", new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
@@ -71,13 +65,5 @@ public class SCEMainWorld extends SEWorld{
         setInputManager(new SCEInputManager(this));
         getGLModule().getCurrentCamera().setViewMode(Camera.ViewMode.EGO);
         getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
-    }
-
-    private SEAIModule getAIModule() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    private Object getAudioModule() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

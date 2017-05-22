@@ -9,6 +9,7 @@ import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.se.MainThread;
 import de.zray.se.SEWorld;
 import de.zray.se.Settings;
+import de.zray.se.ai.SEAIModule;
 import de.zray.se.renderbackend.opengl.GLRenderer;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
