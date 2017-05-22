@@ -5,10 +5,9 @@
  */
 package de.zray.sce;
 
-import de.zray.sce.test.Console;
 import de.zray.se.MainThread;
+import de.zray.se.SEWorld;
 import de.zray.se.Settings;
-import de.zray.se.logger.SELogger;
 import de.zray.se.renderbackend.GLRenderer;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
@@ -23,14 +22,14 @@ public class SCEMain {
         Settings.get().window.resY = 720;
         //test();
         //SCEMainWorld mainWorld = new SCEMainWorld();
-        MainThread mainThread = new MainThread();
+        final MainThread mainThread = new MainThread();
         mainThread.setRenderBackend(new GLRenderer());
+        mainThread.switchWorld(new SEWorld());
+        
         mainThread.loop();
     }
     
     private static void test(){
-        Console console = new Console();
-        console.setVisible(true);
-        SELogger.get().registerDispatcherHook(console);
+        
     }
 }
