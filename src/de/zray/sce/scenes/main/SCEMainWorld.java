@@ -53,8 +53,8 @@ public class SCEMainWorld extends SEWorld{
         
         addSEActor(new Planet().generatePlanet(this));
         
-        AudioSource audio = getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle1.ogg");
-        audio.playAsMusic(false);
+        getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle1.ogg").playAsMusic(false);
+        //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
         /*Playlist playlist = new Playlist();
         playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");
         playlist.addTrack("scedata/audio/bgm/battle/battle2.ogg");
