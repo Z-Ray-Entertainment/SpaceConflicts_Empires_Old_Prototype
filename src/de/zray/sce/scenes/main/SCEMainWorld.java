@@ -10,6 +10,7 @@ import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.Planet;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
+import de.zray.se.audio.AudioSource;
 import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
@@ -52,6 +53,8 @@ public class SCEMainWorld extends SEWorld{
         
         addSEActor(new Planet().generatePlanet(this));
         
+        AudioSource audio = getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle1.ogg");
+        audio.playAsMusic(false);
         /*Playlist playlist = new Playlist();
         playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");
         playlist.addTrack("scedata/audio/bgm/battle/battle2.ogg");
