@@ -15,6 +15,7 @@ import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
 import de.zray.se.grapics.semesh.SEOriantation;
+import javax.vecmath.Vector3f;
 
 /**
  *
@@ -52,6 +53,11 @@ public class SCEMainWorld extends SEWorld{
         addSEActor(lycan2);
         
         addSEActor(new Planet().generatePlanet(this));
+        
+        Vector3f audioPos = new Vector3f(10, 0, 0);
+        AudioSource laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
+        laught.setPosition(audioPos);
+        laught.playAsSound(true);
         
         getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg").playAsMusic(true);
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
