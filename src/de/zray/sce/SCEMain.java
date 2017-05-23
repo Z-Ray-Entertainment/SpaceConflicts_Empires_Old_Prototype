@@ -9,6 +9,7 @@ import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.se.MainThread;
 import de.zray.se.Settings;
 import de.zray.se.ai.SEAIWorld;
+import de.zray.se.audio.SEAudioWorld;
 import de.zray.se.renderbackend.opengl.GLRenderer;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
@@ -26,7 +27,9 @@ public class SCEMain {
         //test();
         SCEMainWorld mainWorld = new SCEMainWorld();
         SEAIWorld aiWorld = new SEAIWorld(mainWorld);
+        SEAudioWorld audioWorld = new SEAudioWorld(mainWorld);
         mainWorld.setAIWorld(aiWorld);
+        mainWorld.setAudioWorld(audioWorld);
         mainWorld.init();
         
         final MainThread mainThread = new MainThread();
