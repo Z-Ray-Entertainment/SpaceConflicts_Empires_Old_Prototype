@@ -8,25 +8,25 @@ package de.zray.sce.scenes.main.ais;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
 import de.zray.se.ai.SEAI;
-import de.zray.se.ai.SEAIModule;
-import org.lwjgl.util.vector.Vector3f;
+import de.zray.se.ai.SEAIWorld;
+import javax.vecmath.Vector3d;
 
 /**
  *
  * @author Vortex Acherontic
  */
 public class AILycan extends SEAI{
-    private Vector3f dest;
-    private  Vector3f move;
+    private Vector3d dest;
+    private  Vector3d move;
     
-    public AILycan(SEWorld world, SEActor actor, SEAIModule aiMod) {
+    public AILycan(SEWorld world, SEActor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
         newDest(parrentActor.getSEMesh().getOrientation().getPositionVec());
     }
 
     @Override
-    public void act(float delta) {
-        Vector3f pos = parrentActor.getSEMesh().getOrientation().getPositionVec();
+    public void act(double delta) {
+        Vector3d pos = parrentActor.getSEMesh().getOrientation().getPositionVec();
         if(move.x > 0){
             if(dest.x <= parrentActor.getSEMesh().getOrientation().getPositionVec().x){
                 if(move.y > 0){
@@ -97,12 +97,12 @@ public class AILycan extends SEAI{
         parrentActor.getSEMesh().getOrientation().setPosition(pos.x, pos.y, pos.z);
     }
     
-    private void newDest(Vector3f pos){
-        dest = new Vector3f(100f*(float)Math.random(), 100f*(float)Math.random(), 100f*(float)Math.random());
-        float x = dest.x - pos.x;
-        float y = dest.y - pos.y;
-        float z = dest.z - pos.z; 
-        move = new Vector3f(x, y, z);
-        move.normalise();
+    private void newDest(Vector3d pos){
+        dest = new Vector3d(100f*(float)Math.random(), 100f*(float)Math.random(), 100f*(float)Math.random());
+        double x = dest.x - pos.x;
+        double y = dest.y - pos.y;
+        double z = dest.z - pos.z; 
+        move = new Vector3d(x, y, z);
+        move.normalize();
     }
 }

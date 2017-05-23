@@ -44,7 +44,7 @@ public class Planet {
         rootSphere.addLOD(lod_3, 1000);
         
         SEActor planet = new SEActor(rootSphere, null, null, system);
-        planet.setAI(new AIPlanet(system, planet, system.getAIModule()));
+        planet.setAI(new AIPlanet(system, planet, system.getAIWorld()));
         return planet;
     }
 }

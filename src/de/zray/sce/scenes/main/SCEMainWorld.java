@@ -14,19 +14,19 @@ import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
 import de.zray.se.grapics.semesh.SEOriantation;
-import de.zray.zgui.exceptions.InvalidRangeException;
-import java.io.IOException;
 
 /**
  *
  * @author Vortex Acherontic
  */
 public class SCEMainWorld extends SEWorld{
-    public SCEMainWorld() throws InvalidRangeException, IOException{
+    
+    @Override
+    public void init(){
         //addGUI(new GUIMain(this));
         
         SEActor station = new SEActor("scedata/models/cron/warpstation/warpstation.obj", new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.setAI(new AIStation(this, station, this.getAIModule()));
+        station.setAI(new AIStation(this, station, this.getAIWorld()));
         station.getSEMesh().setOrientation(new SEOriantation(0, 0, -20));
         station.getSEMesh().setRenderDist(50);
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
@@ -43,11 +43,11 @@ public class SCEMainWorld extends SEWorld{
         addSEActor(station);
         
         SEActor lycan = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycan.setAI(new AILycan(this, lycan, this.getAIModule()));
+        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan);
         
         SEActor lycan2 = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycan2.setAI(new AILycan(this, lycan2, this.getAIModule()));
+        lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
         addSEActor(lycan2);
         
         addSEActor(new Planet().generatePlanet(this));

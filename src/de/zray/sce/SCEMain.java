@@ -7,9 +7,8 @@ package de.zray.sce;
 
 import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.se.MainThread;
-import de.zray.se.SEWorld;
 import de.zray.se.Settings;
-import de.zray.se.ai.SEAIModule;
+import de.zray.se.ai.SEAIWorld;
 import de.zray.se.renderbackend.opengl.GLRenderer;
 import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
@@ -26,6 +25,10 @@ public class SCEMain {
         Settings.get().title = de.zray.sce.game.Settings.name;
         //test();
         SCEMainWorld mainWorld = new SCEMainWorld();
+        SEAIWorld aiWorld = new SEAIWorld(mainWorld);
+        mainWorld.setAIWorld(aiWorld);
+        mainWorld.init();
+        
         final MainThread mainThread = new MainThread();
         mainThread.setRenderBackend(new GLRenderer());
         mainThread.switchWorld(mainWorld);
