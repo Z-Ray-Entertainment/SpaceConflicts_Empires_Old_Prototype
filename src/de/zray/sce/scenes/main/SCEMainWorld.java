@@ -53,7 +53,7 @@ public class SCEMainWorld extends SEWorld{
         
         addSEActor(new Planet().generatePlanet(this));
         
-        getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg").playAsMusic(false);
+        getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg").playAsMusic(true);
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
         /*Playlist playlist = new Playlist();
         playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");

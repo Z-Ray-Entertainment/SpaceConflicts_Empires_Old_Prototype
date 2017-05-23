@@ -22,7 +22,7 @@ public class SCEMain {
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
-        Settings.get().version = de.zray.sce.game.Settings.version;
+        Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix;
         Settings.get().title = de.zray.sce.game.Settings.name;
         //test();
         SCEMainWorld mainWorld = new SCEMainWorld();

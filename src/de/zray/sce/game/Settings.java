@@ -10,7 +10,7 @@ package de.zray.sce.game;
  * @author Vortex Acherontic
  */
 public class Settings {
-    public static final String version = "0.1.0", suffix = "Currendum", name = "Space Conflcits - Empires";
+    public static final String version = "0.1.0", suffix = "Currendum", name = "Space Conflicts - Empires";
     public static long tickSizeinMS = 10;
     public static double scaleUniverse = 100000, scaleGalaxy = 10000,
             scaleSystem = 1000, scalePlanetAndMoon = 100, scaleSurface = 10;
