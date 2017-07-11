@@ -32,7 +32,7 @@ public class AIPlanet extends SEAI{
         curDay = (curDay+day*delta)%360;
         curYear = (curYear+year*delta)%360;
         Vector2d cords = SEUtils.calcCoordinates(distToSun, curYear);
-        parrentActor.getSEMesh().getOrientation().setPosition(cords.x, 0, cords.y);
-        parrentActor.getSEMesh().getOrientation().setRotation(0, curDay, 0);
+        parrentActor.getOrientation().setPosition(cords.x, 0, cords.y);
+        parrentActor.getOrientation().setRotation(0, curDay, 0);
     }
 }
