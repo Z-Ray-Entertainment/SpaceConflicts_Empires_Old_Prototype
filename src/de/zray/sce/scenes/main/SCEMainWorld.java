@@ -27,29 +27,37 @@ public class SCEMainWorld extends SEWorld{
     public void init(){
         //addGUI(new GUIMain(this));
         
-        SEActor station = new SEActor("scedata/models/cron/warpstation/warpstation.obj", new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        stationMesh.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        stationMesh.setRenderDist(50);
+        SEActor station = new SEActor(stationMesh, null, null, this);
         station.setAI(new AIStation(this, station, this.getAIWorld()));
-        station.getSEMesh().setOrientation(new SEOriantation(0, 0, -20));
-        station.getSEMesh().setRenderDist(50);
+        station.setOriantation(new SEOriantation(0, 0, -20));
+        
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
         stationLOD0_5.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_5, 70);
+        stationLOD0_5.setRenderDist(70);
+        stationMesh.addLOD(stationLOD0_5);
         
         SEMesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
         stationLOD0_25.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_25, 80);
+        stationLOD0_25.setRenderDist(80);
+        stationMesh.addLOD(stationLOD0_25);
         
         SEMesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
         stationLOD0_0.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_0, 100);
+        stationLOD0_0.setRenderDist(100);
+        stationMesh.addLOD(stationLOD0_0);
         addSEActor(station);
         
-        SEActor lycan = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
+        SEMesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
+        lycanMesh.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
+        SEActor lycan = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan);
         
-        SEActor lycan2 = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
+        SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
+        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
         
         addSEActor(new Planet().generatePlanet(this));
