@@ -36,8 +36,8 @@ public class SpectatorInput extends InputManager{
 
     @Override
     public void keyPressed(int key) {
-        System.out.println("KeyPressed!");
         Vector3f pos = new Vector3f();
+        Vector3f rot = new Vector3f();
         switch(key){
             case KeyMap.KEY_Q :
                 pos = getWorld().getCurrentCamera().getPosition();
@@ -69,8 +69,17 @@ public class SpectatorInput extends InputManager{
                 pos.x += 10*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
+            case KeyMap.KEY_PAGE_DOWN :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.x += (100*MainThread.getDeltaInSec())%360;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
+            case KeyMap.KEY_PAGE_UP :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.x -= (100*MainThread.getDeltaInSec())%360;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
         }
-        System.out.println("Pos: "+pos.x+" "+pos.y+" "+pos.z);
     }
 
     @Override
