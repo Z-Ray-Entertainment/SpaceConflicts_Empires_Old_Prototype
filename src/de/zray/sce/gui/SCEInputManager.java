@@ -5,7 +5,7 @@
  */
 package de.zray.sce.gui;
 
-import de.zray.se.InputManager;
+import de.zray.se.inputmanager.InputManager;
 import de.zray.se.SEWorld;
 
 /**

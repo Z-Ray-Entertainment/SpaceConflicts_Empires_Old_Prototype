@@ -16,21 +16,25 @@ import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
 import de.zray.se.grapics.semesh.SEOriantation;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.vecmath.Vector3f;
 
 /**
  *
  * @author Vortex Acherontic
  */
-public class SCEMainWorld extends SEWorld{
+public class SCEMainWorld extends SEWorld implements KeyListener{
     
     @Override
     public void init(){
+        addInputManager(new SCEMainWorldInput(this));
         //addGUI(new GUIMain(this));
-        Camera cam = new Camera(this);
+        Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
-        cam.setViewMode(Camera.ViewMode.EGO);
+        cam.setViewMode(Camera.ViewMode.THIRDPERSON);
         cam.setRotation(90, 0, 0);
+        
         int mainCam = this.addCamera(cam);
         this.setActiveCamera(mainCam);
         
@@ -94,5 +98,21 @@ public class SCEMainWorld extends SEWorld{
         setInputManager(new SCEInputManager(this));
         getGLModule().getCurrentCamera().setViewMode(Camera.ViewMode.EGO);
         getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
+        cam.setLookAt(station.getOrientation().getPositionVec());
+    }
+
+    @Override
+    public void keyTyped(KeyEvent e) {
+        System.out.println("KeyPressed: "+e.paramString());
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("KeyPressed: "+e.paramString());
+    }
+
+    @Override
+    public void keyReleased(KeyEvent e) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
