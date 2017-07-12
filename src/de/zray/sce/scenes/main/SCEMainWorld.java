@@ -28,23 +28,28 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
     
     @Override
     public void init(){
-        addInputManager(new SCEMainWorldInput(this));
+        addInputManager(new SpectatorInput(this));
         //addGUI(new GUIMain(this));
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
-        cam.setViewMode(Camera.ViewMode.THIRDPERSON);
+        cam.setViewMode(Camera.ViewMode.EGO);
         cam.setRotation(90, 0, 0);
         
         int mainCam = this.addCamera(cam);
         this.setActiveCamera(mainCam);
         
         SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
-        stationMesh.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg");
+        stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0.1f);
+        stationMat.setShadeless(true);
+        stationMat.setBackfaceCulling(true);
+        stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(50);
         stationMesh.setRenderMode(SEMesh.RenderMode.VBO);
         SEActor station = new SEActor(stationMesh, null, null, this);
         station.setAI(new AIStation(this, station, this.getAIWorld()));
         station.setOriantation(new SEOriantation(0, 0, -20));
+        station.getOrientation().setScale(0.5, 0.5, 0.5);
         
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
         stationLOD0_5.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
