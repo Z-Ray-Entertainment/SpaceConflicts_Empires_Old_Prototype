@@ -40,31 +40,31 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         
         SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
         SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg");
-        stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0.1f);
+        stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(true);
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(50);
-        stationMesh.setRenderMode(SEMesh.RenderMode.VBO);
+        stationMesh.setRenderMode(SEMesh.RenderMode.DIRECT);
         SEActor station = new SEActor(stationMesh, null, null, this);
         station.setAI(new AIStation(this, station, this.getAIWorld()));
         station.setOriantation(new SEOriantation(0, 0, -20));
         station.getOrientation().setScale(0.5, 0.5, 0.5);
         
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
-        stationLOD0_5.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        stationLOD0_5.setMaterial(stationMat);
         stationLOD0_5.setRenderDist(70);
         stationLOD0_5.setRenderMode(SEMesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_5);
         
         SEMesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
-        stationLOD0_25.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        stationLOD0_25.setMaterial(stationMat);
         stationLOD0_25.setRenderDist(80);
         stationLOD0_25.setRenderMode(SEMesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_25);
         
         SEMesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
-        stationLOD0_0.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
+        stationLOD0_0.setMaterial(stationMat);
         stationLOD0_0.setRenderDist(100);
         stationLOD0_0.setRenderMode(SEMesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_0);
@@ -80,8 +80,6 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
-        
-        addSEActor(new Planet().generatePlanet(this));
         
         Vector3f audioPos = new Vector3f(10, 0, 0);
         AudioSource laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
