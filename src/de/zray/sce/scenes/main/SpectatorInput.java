@@ -41,32 +41,32 @@ public class SpectatorInput extends InputManager{
         switch(key){
             case KeyMap.KEY_Q :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y += 10*MainThread.getDeltaInSec();
+                pos.y += 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_E :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y -= 10*MainThread.getDeltaInSec();
+                pos.y -= 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_W :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z -= 10*MainThread.getDeltaInSec();
+                pos.z -= 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_S :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z += 10*MainThread.getDeltaInSec();
+                pos.z += 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_A :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x -= 10*MainThread.getDeltaInSec();
+                pos.x -= 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_D :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x += 10*MainThread.getDeltaInSec();
+                pos.x += 1*MainThread.getDeltaInSec();
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_PAGE_DOWN :
