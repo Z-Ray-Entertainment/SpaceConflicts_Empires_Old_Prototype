@@ -5,8 +5,10 @@
  */
 package de.zray.sce.scenes.main;
 
+import de.zray.se.MainThread;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
+import javax.vecmath.Vector3f;
 
 /**
  *
@@ -34,7 +36,41 @@ public class SCEMainWorldInput extends InputManager{
 
     @Override
     public void keyPressed(int key) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        System.out.println("KeyPressed!");
+        Vector3f pos = new Vector3f();
+        switch(key){
+            case KeyMap.KEY_Q :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.y += 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+            case KeyMap.KEY_E :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.y -= 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+            case KeyMap.KEY_W :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.z -= 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+            case KeyMap.KEY_S :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.z += 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+            case KeyMap.KEY_A :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.x -= 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+            case KeyMap.KEY_D :
+                pos = getWorld().getCurrentCamera().getPosition();
+                pos.x += 10*MainThread.getDeltaInSec();
+                getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
+                break;
+        }
+        System.out.println("Pos: "+pos.x+" "+pos.y+" "+pos.z);
     }
 
     @Override
@@ -44,8 +80,10 @@ public class SCEMainWorldInput extends InputManager{
 
     @Override
     public void keyReleased(int key) {
-        if(key == KeyMap.KEY_ESCAPE){
-            getWorld().getRenderBackend().requestClose();
+        switch(key){
+            case KeyMap.KEY_ESCAPE :
+                getWorld().getRenderBackend().requestClose();
+                break;
         }
     }
     
