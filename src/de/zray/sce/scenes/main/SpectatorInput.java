@@ -14,8 +14,8 @@ import javax.vecmath.Vector3f;
  *
  * @author vortex
  */
-public class SCEMainWorldInput extends InputManager{
-    public SCEMainWorldInput(SCEMainWorld world) {
+public class SpectatorInput extends InputManager{
+    public SpectatorInput(SCEMainWorld world) {
         super(world);
     }
 
