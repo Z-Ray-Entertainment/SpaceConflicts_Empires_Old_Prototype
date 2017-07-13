@@ -82,9 +82,9 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         addSEActor(lycan2);
         
         Vector3f audioPos = new Vector3f(0, 0, -20);
-        AudioSource laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
-        laught.setPosition(audioPos);
-        laught.playAsSound(true);
+        int laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
+        getAudioWorld().getAudioSource(laught).setPosition(audioPos);
+        getAudioWorld().getAudioSource(laught).playAsSound(true);
         
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg").playAsMusic(true);
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
