@@ -8,6 +8,7 @@ package de.zray.sce.scenes.main;
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.AIOrb;
+import de.zray.sce.unigen.orbs.SystemGenerator;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
 import de.zray.se.grapics.Camera;
@@ -19,6 +20,7 @@ import de.zray.se.grapics.shapes.IcoSphere;
 import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.util.List;
 import javax.vecmath.Color3f;
 import javax.vecmath.Vector3f;
 
@@ -82,37 +84,14 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
+
+        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{0, 4}, this);
+        for(SEActor tmp : system){
+            addSEActor(tmp);
+        }
         
-        SEMaterial sunMaterial = new SEMaterial(new Color3f(Color.ORANGE));
-        sunMaterial.setShadeless(true);
-        sunMaterial.setBackfaceCulling(true);
-        AIOrb sunAI = new AIOrb(this, null, getAIWorld(), null);
-        SEMesh sunMesh = new IcoSphere((float) sunAI.getRadius(), 4).getSEMesh();
-        sunMesh.setMaterial(sunMaterial);
-        sunMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        sunMesh.setRenderDist(1000);
-        SEActor sunActor = new SEActor(sunMesh, sunAI, null, this);
-        sunAI.setActor(sunActor);
-        addSEActor(sunActor);
-        
-        SEMaterial planetMaterial = new SEMaterial(new Color3f(Color.GREEN));
-        planetMaterial.setShadeless(true);
-        planetMaterial.setBackfaceCulling(true);
-        AIOrb planetAI = new AIOrb(this, null, getAIWorld(), sunAI);
-        SEMesh planetMesh = new IcoSphere((float) planetAI.getRadius(), 4).getSEMesh();
-        planetMesh.setMaterial(planetMaterial);
-        planetMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
-        planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor planet = new SEActor(planetMesh, planetAI, null, this);
-        planetAI.setActor(planet);
-        addSEActor(planet);
-        
-        Vector3f audioPos = new Vector3f(0, 0, -20);
-        int laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
-        getAudioWorld().getAudioSource(laught).setPosition(audioPos);
-        getAudioWorld().getAudioSource(laught).playAsSound(true);
-        
-        //getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg").playAsMusic(true);
+        int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
+        getAudioWorld().getAudioSource(music).playAsMusic(true);
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
         /*Playlist playlist = new Playlist();
         playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");

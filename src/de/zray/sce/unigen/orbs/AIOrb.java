@@ -25,7 +25,7 @@ public class AIOrb extends SEAI{
     private double rotSpeed, curYear, curDay, distance, selfRotSpeed = 1;
     private AIOrb center;
     
-    public AIOrb(SEWorld world, SEActor actor, SEAIWorld aiMod, AIOrb center){
+    public AIOrb(SEWorld world, SEActor actor, SEAIWorld aiMod, AIOrb center, boolean genAsSun){
         super(world, actor, aiMod);
         if(center != null){
             this.center = center;
@@ -33,8 +33,14 @@ public class AIOrb extends SEAI{
             speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
             rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
         }
-        mass = Math.random()*Math.pow(10, 10);
-        radius = Math.random()*10;
+        if(genAsSun){
+            mass = Math.random()*Math.pow(10, 10);
+            radius = Math.random()*100;
+        }
+        else{
+            mass = Math.random()*Math.pow(10, 5);
+            radius = Math.random()*10;
+        }
     }
 
     @Override
