@@ -17,21 +17,23 @@ import javax.vecmath.Vector2d;
  * @author Vortex Acherontic
  */
 public class AIPlanet extends SEAI{
-    private float distToSun, day, year;
-    private double curDay, curYear;
+    private double massOfCenter, radiusOfCenter, distanceToCenter;
+    private double selfRotSpeed = 10, curYear = 0, curDay, angleSpeed;
     
     public AIPlanet(SEWorld world, SEActor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
-        distToSun = (float) (Math.random()*10);
-        day = (float) (Math.random()*10);
-        year = (float) Math.random();
+        distanceToCenter = (float) (Math.random()*10);
+        radiusOfCenter = 1;
+        massOfCenter = 10;
+        double speed = SEUtils.calcSateliteSpeed(massOfCenter, radiusOfCenter, distanceToCenter);
+        angleSpeed = SEUtils.calcSpeedInAngleSpeed(speed, radiusOfCenter+distanceToCenter);
     }
 
     @Override
     public void act(double delta) {
-        curDay = (10*delta)%360;
-        curYear = (10*delta)%360;
-        Vector2d cords = SEUtils.calcCoordinates(distToSun, curYear);
+        curDay += (10*delta)%360;
+        curYear += (angleSpeed*delta)%360;
+        Vector2d cords = SEUtils.calcCoordinates(distanceToCenter, curYear);
         parrentActor.getOrientation().setPosition(cords.x, 0, cords.y);
         parrentActor.getOrientation().setRotation(0, curDay, 0);
     }

@@ -7,6 +7,7 @@ package de.zray.sce.scenes.main;
 
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
+import de.zray.sce.unigen.orbs.AIPlanet;
 import de.zray.sce.unigen.orbs.Planet;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
@@ -16,8 +17,11 @@ import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
 import de.zray.se.grapics.semesh.SEOriantation;
+import de.zray.se.grapics.shapes.IcoSphere;
+import java.awt.Color;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import javax.vecmath.Color3f;
 import javax.vecmath.Vector3f;
 
 /**
@@ -80,6 +84,16 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
+        
+        
+        SEMaterial planetMaterial = new SEMaterial(new Color3f(Color.WHITE));
+        planetMaterial.setShadeless(true);
+        SEMesh planetMesh = new IcoSphere(1, 4).getSEMesh();
+        planetMesh.setMaterial(planetMaterial);
+        planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
+        SEActor planet = new SEActor(planetMesh, null, null, this);
+        planet.setAI(new AIPlanet(this, planet, this.getAIWorld()));
+        addSEActor(planet);
         
         Vector3f audioPos = new Vector3f(0, 0, -20);
         int laught = getAudioWorld().loadAudioFile("scedata/audio/sounds/laugh_06.ogg");
