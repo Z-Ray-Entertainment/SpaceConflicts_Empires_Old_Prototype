@@ -7,10 +7,12 @@ package de.zray.sce.scenes.main;
 
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
+import de.zray.sce.unigen.orbs.AIOrb;
 import de.zray.sce.unigen.orbs.AIPlanet;
 import de.zray.sce.unigen.orbs.Planet;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
+import de.zray.se.ai.SEAI;
 import de.zray.se.audio.AudioSource;
 import de.zray.se.grapics.Camera;
 import de.zray.se.grapics.semesh.SEMaterial;
@@ -48,7 +50,7 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         stationMat.setShadeless(true);
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
-        stationMesh.setRenderDist(50);
+        stationMesh.setRenderDist(1000);
         stationMesh.setRenderMode(SEMesh.RenderMode.DIRECT);
         SEActor station = new SEActor(stationMesh, null, null, this);
         station.setAI(new AIStation(this, station, this.getAIWorld()));
@@ -85,14 +87,28 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
         
+        SEMaterial sunMaterial = new SEMaterial(new Color3f(Color.ORANGE));
+        sunMaterial.setShadeless(true);
+        sunMaterial.setBackfaceCulling(true);
+        AIOrb sunAI = new AIOrb(this, null, getAIWorld(), null);
+        SEMesh sunMesh = new IcoSphere((float) sunAI.getRadius(), 4).getSEMesh();
+        sunMesh.setMaterial(sunMaterial);
+        sunMesh.setRenderMode(SEMesh.RenderMode.VBO);
+        sunMesh.setRenderDist(1000);
+        SEActor sunActor = new SEActor(sunMesh, sunAI, null, this);
+        sunAI.setActor(sunActor);
+        addSEActor(sunActor);
         
-        SEMaterial planetMaterial = new SEMaterial(new Color3f(Color.WHITE));
+        SEMaterial planetMaterial = new SEMaterial(new Color3f(Color.GREEN));
         planetMaterial.setShadeless(true);
-        SEMesh planetMesh = new IcoSphere(1, 4).getSEMesh();
+        planetMaterial.setBackfaceCulling(true);
+        AIOrb planetAI = new AIOrb(this, null, getAIWorld(), sunAI);
+        SEMesh planetMesh = new IcoSphere((float) planetAI.getRadius(), 4).getSEMesh();
         planetMesh.setMaterial(planetMaterial);
+        planetMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
         planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor planet = new SEActor(planetMesh, null, null, this);
-        planet.setAI(new AIPlanet(this, planet, this.getAIWorld()));
+        SEActor planet = new SEActor(planetMesh, planetAI, null, this);
+        planetAI.setActor(planet);
         addSEActor(planet);
         
         Vector3f audioPos = new Vector3f(0, 0, -20);
@@ -116,6 +132,7 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         getGLModule().getCurrentCamera().setViewMode(Camera.ViewMode.EGO);
         getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
         cam.setLookAt(station.getOrientation().getPositionVec());
+        cam.setClips(1, 1000);
     }
 
     @Override
