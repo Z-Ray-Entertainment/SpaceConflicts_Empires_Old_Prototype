@@ -14,7 +14,6 @@ import de.zray.se.grapics.shapes.IcoSphere;
 import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
 import javax.vecmath.Color3f;
 
 /**
@@ -22,17 +21,23 @@ import javax.vecmath.Color3f;
  * @author vortex
  */
 public class SystemGenerator {
+    private SEMesh orb = new IcoSphere(1, 2).getSEMesh();
+    
     public List<SEActor> generateSystem(int[] planets, int[] moonsPerPlanet, SEWorld world){
         List<SEActor> system = new LinkedList<SEActor>();
         SEActor sun = buildSun(world);
         system.add(sun);
         
         int planetsAmmount = SEUtils.randomInt(planets[0], planets[1]);
+        int overallOrbs = 1;
         
         for(int i = 0; i < planetsAmmount; i++){
-            system.addAll(buildPlanet(sun, world, moonsPerPlanet[0], moonsPerPlanet[1]));
+            List<SEActor> meshes = buildPlanet(sun, world, moonsPerPlanet[0], moonsPerPlanet[1]);
+            system.addAll(meshes);
+            overallOrbs += meshes.size();
             System.out.println("Generating solarsystem: "+(100d/(double)planetsAmmount*i)+"% of "+planetsAmmount+" done");
         }
+        System.out.println("Generated : "+overallOrbs+" Orbs in general. Sun: "+1+" Planets:"+planetsAmmount+" Moons:"+(overallOrbs-1-planetsAmmount));
         
         return system;
     }
@@ -42,7 +47,7 @@ public class SystemGenerator {
         sunMat.setBackfaceCulling(true);
         sunMat.setShadeless(true);
         AIOrb sunAI = new AIOrb(world, null, world.getAIWorld(), null, AIOrb.Generate.SUN);
-        SEMesh sunMesh = new IcoSphere((float) sunAI.getRadius(), 4).getSEMesh();
+        SEMesh sunMesh = new IcoSphere((float) sunAI.getRadius(), 2).getSEMesh();
         sunMesh.setRenderMode(SEMesh.RenderMode.VBO);
         sunMesh.setMaterial(sunMat);
         SEActor sunActor = new SEActor(sunMesh, sunAI, null, world);
@@ -56,7 +61,7 @@ public class SystemGenerator {
         planetMaterial.setShadeless(true);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
-        SEMesh planetMesh = new IcoSphere((float) planetAI.getRadius(), 4).getSEMesh();
+        SEMesh planetMesh = new IcoSphere((float) planetAI.getRadius(), 2).getSEMesh();
         planetMesh.setMaterial(planetMaterial);
         planetMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
         planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
@@ -74,7 +79,7 @@ public class SystemGenerator {
         moonMaterial.setShadeless(true);
         moonMaterial.setBackfaceCulling(true);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
-        SEMesh moonMesh = new IcoSphere((float) moonAI.getRadius(), 4).getSEMesh();
+        SEMesh moonMesh = new IcoSphere((float) moonAI.getRadius(), 2).getSEMesh();
         moonMesh.setMaterial(moonMaterial);
         moonMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
         moonMesh.setRenderMode(SEMesh.RenderMode.VBO);
