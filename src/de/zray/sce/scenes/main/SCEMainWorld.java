@@ -10,6 +10,7 @@ import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.AIOrb;
 import de.zray.sce.unigen.orbs.SystemGenerator;
 import de.zray.se.SEActor;
+import de.zray.se.SEUtils;
 import de.zray.se.SEWorld;
 import de.zray.se.grapics.Camera;
 import de.zray.se.grapics.semesh.SEMaterial;
@@ -42,6 +43,24 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         int mainCam = this.addCamera(cam);
         this.setActiveCamera(mainCam);
         
+        
+        
+        SEMesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
+        lycanMesh.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
+        lycanMesh.setRenderMode(SEMesh.RenderMode.VBO);
+        SEActor lycan = new SEActor(lycanMesh, null, null, this);
+        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
+        addSEActor(lycan);
+        
+        SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
+        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
+        addSEActor(lycan2);
+
+        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{999, 1000}, new int[]{0, 8}, this);
+        for(SEActor tmp : system){
+            addSEActor(tmp);
+        }
+        
         SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
         SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
@@ -50,9 +69,10 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
         stationMesh.setRenderMode(SEMesh.RenderMode.DIRECT);
-        SEActor station = new SEActor(stationMesh, null, null, this);
+        AIOrb stationAI = new AIOrb(this, null, getAIWorld(), (AIOrb) system.get(SEUtils.randomInt(0, system.size()-1)).getSEAI(), AIOrb.Generate.NONE);
+        SEActor station = new SEActor(stationMesh, stationAI, null, this);
+        stationAI.setActor(station);
         station.setAI(new AIStation(this, station, this.getAIWorld()));
-        station.setOriantation(new SEOriantation(0, 0, -20));
         station.getOrientation().setScale(0.5, 0.5, 0.5);
         
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
@@ -73,22 +93,6 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         stationLOD0_0.setRenderMode(SEMesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_0);
         addSEActor(station);
-        
-        SEMesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
-        lycanMesh.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycanMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor lycan = new SEActor(lycanMesh, null, null, this);
-        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        addSEActor(lycan);
-        
-        SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
-        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        addSEActor(lycan2);
-
-        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{0, 4}, this);
-        for(SEActor tmp : system){
-            addSEActor(tmp);
-        }
         
         int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
         getAudioWorld().getAudioSource(music).playAsMusic(true);

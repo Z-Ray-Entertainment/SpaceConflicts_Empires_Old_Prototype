@@ -18,6 +18,7 @@ import javax.vecmath.Vector3d;
  * @author Vortex Acherontic
  */
 public class AIOrb extends SEAI{
+    public static enum Generate{SUN, PLANET, MOON, NONE};
     public static final int SCALE_SYSTEM = 0, SCALE_GALAXY = 1, SCALE_UNIVERSE = 2;
     public static final double DISTANCE_SCALE[] = {10, 100, 1000000};
     
@@ -25,21 +26,29 @@ public class AIOrb extends SEAI{
     private double rotSpeed, curYear, curDay, distance, selfRotSpeed = 1;
     private AIOrb center;
     
-    public AIOrb(SEWorld world, SEActor actor, SEAIWorld aiMod, AIOrb center, boolean genAsSun){
+    public AIOrb(SEWorld world, SEActor actor, SEAIWorld aiMod, AIOrb center, Generate gen){
         super(world, actor, aiMod);
         if(center != null){
             this.center = center;
-            distance = (Math.random()*1000)+center.getRadius();
+            distance = (Math.random()*100)+center.getRadius();
             speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
             rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
         }
-        if(genAsSun){
-            mass = Math.random()*Math.pow(10, 10);
-            radius = Math.random()*100;
-        }
-        else{
-            mass = Math.random()*Math.pow(10, 5);
-            radius = Math.random()*10;
+        switch(gen){
+            case MOON :
+                mass = Math.random()*Math.pow(10, 2.5);
+                radius = Math.random()*5;
+                distance = (Math.random()*10)+center.getRadius()+radius;
+                break;
+            case PLANET :
+                mass = Math.random()*Math.pow(10, 5);
+                radius = Math.random()*10;
+                distance = (Math.random()*500)+center.getRadius()+radius;
+                break;
+            case SUN :
+                mass = Math.random()*Math.pow(10, 11);
+                radius = Math.random()*100;
+                break;
         }
     }
 
