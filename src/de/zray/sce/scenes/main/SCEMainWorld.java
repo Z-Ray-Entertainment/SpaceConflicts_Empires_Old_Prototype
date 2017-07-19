@@ -47,7 +47,7 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addSEActor(lycan2);
 
-        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{999, 1000}, new int[]{0, 8}, this);
+        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
         for(SEActor tmp : system){
             addSEActor(tmp);
         }
