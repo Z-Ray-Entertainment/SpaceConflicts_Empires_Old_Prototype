@@ -54,6 +54,9 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         
         System.out.println("========Station========");
         SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        SEMesh stationMesh1 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        SEMesh stationMesh2 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        SEMesh stationMesh3 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
         SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(true);
