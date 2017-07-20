@@ -6,11 +6,9 @@
 package de.zray.sce.gui.musicplayer;
 
 import de.zray.sce.gui.SCEButton;
-import de.zray.sce.gui.main.GUITextureLib;
 import de.zray.se.SEWorld;
 import de.zray.zgui.GUI;
 import de.zray.zgui.Orientation;
-import org.lwjgl.input.Keyboard;
 
 /**
  *
@@ -45,9 +43,9 @@ public class MainBTToggelMusic extends SCEButton{
 
     @Override
     public void onKeyTipedAction(int key) {
-        if(Keyboard.KEY_M == key){
+        /*if(Keyboard.KEY_M == key){
             action();
-        }
+        }*/
     }
 
     @Override
@@ -55,12 +53,12 @@ public class MainBTToggelMusic extends SCEButton{
     }
     
     private void action(){
-        getParrentWorld().getAudioModule().setBGMMuted(!getParrentWorld().getAudioModule().isBGMMuted());
+        /*getParrentWorld().getAudioModule().setBGMMuted(!getParrentWorld().getAudioModule().isBGMMuted());
         if(getParrentWorld().getAudioModule().isBGMMuted()){
             setStateTextures(GUITextureLib.SOUND_OFF, GUITextureLib.SOUND_ON, GUITextureLib.SOUND_OFF);
         }
         else{
             setStateTextures(GUITextureLib.SOUND_ON, GUITextureLib.SOUND_OFF, GUITextureLib.SOUND_ON);
-        }
+        }*/
     }
 }

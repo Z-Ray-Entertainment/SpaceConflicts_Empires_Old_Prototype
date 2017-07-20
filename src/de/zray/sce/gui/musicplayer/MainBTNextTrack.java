@@ -49,6 +49,6 @@ public class MainBTNextTrack extends SCEButton{
     }
     
     private void action(){
-        getParrentWorld().getAudioModule().getBGMPlayList().nextTrack();
+        //getParrentWorld().getAudioModule().getBGMPlayList().nextTrack();
     }
 }

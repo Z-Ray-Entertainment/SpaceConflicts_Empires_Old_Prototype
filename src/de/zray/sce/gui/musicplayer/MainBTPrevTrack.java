@@ -49,6 +49,6 @@ public class MainBTPrevTrack extends SCEButton{
     }
     
     private void action(){
-        getParrentWorld().getAudioModule().getBGMPlayList().previousTrack();
+        //getParrentWorld().getAudioModule().getBGMPlayList().previousTrack();
     }
 }
