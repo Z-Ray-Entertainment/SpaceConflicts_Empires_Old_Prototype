@@ -14,6 +14,6 @@ import de.zray.se.SEWorld;
  */
 public class BuildUniverse {
     public SEWorld build(Universe universe){
-        return new SEWorld();
+        return null;
     }
 }
