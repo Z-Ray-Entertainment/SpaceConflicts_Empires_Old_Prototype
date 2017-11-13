@@ -14,15 +14,13 @@ import de.zray.se.grapics.Camera;
 import de.zray.se.grapics.semesh.SEMaterial;
 import de.zray.se.grapics.modelloader.Modelloader;
 import de.zray.se.grapics.semesh.SEMesh;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.util.List;
 
 /**
  *
  * @author Vortex Acherontic
  */
-public class SCEMainWorld extends SEWorld implements KeyListener{
+public class SCEMainWorld extends SEWorld {
     
     @Override
     public void init(){
@@ -106,20 +104,5 @@ public class SCEMainWorld extends SEWorld implements KeyListener{
         getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
         cam.setLookAt(station.getOrientation().getPositionVec());
         cam.setClips(1, 1000);
-    }
-
-    @Override
-    public void keyTyped(KeyEvent e) {
-        System.out.println("KeyPressed: "+e.paramString());
-    }
-
-    @Override
-    public void keyPressed(KeyEvent e) {
-        System.out.println("KeyPressed: "+e.paramString());
-    }
-
-    @Override
-    public void keyReleased(KeyEvent e) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }
