@@ -22,6 +22,8 @@ public class TextureTest extends SEWorld{
     public void init() {
         addInputManager(new SpectatorInput(this));
         SEMesh plane = new Plane(1, 1, false).getSEMesh();
+        plane.getOrientation().setRotation(90, 0, 0);
+        
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
         cam.setViewMode(Camera.ViewMode.EGO);
