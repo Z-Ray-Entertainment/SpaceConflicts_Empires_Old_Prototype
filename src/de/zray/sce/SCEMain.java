@@ -11,14 +11,13 @@ import de.zray.se.Settings;
 import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
 import de.zray.se.renderbackend.opengl.GLRenderer;
-import de.zray.zgui.exceptions.InvalidRangeException;
 import java.io.IOException;
 
 /**
  * @author vortex
  */
 public class SCEMain {
-    public static void main(String[] args) throws IOException, InvalidRangeException{
+    public static void main(String[] args) throws IOException{
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
