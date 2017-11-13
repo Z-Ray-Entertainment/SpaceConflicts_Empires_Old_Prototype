@@ -52,7 +52,7 @@ public class SCEMainWorld extends SEWorld {
         
         System.out.println("========Station========");
         SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
-        SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg");
+        SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(true);
         stationMat.setBackfaceCulling(true);

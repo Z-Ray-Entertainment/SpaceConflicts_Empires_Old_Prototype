@@ -27,7 +27,7 @@ public class SCEMain {
         Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix;
         Settings.get().title = de.zray.sce.game.Settings.name;
         
-        sceMain.initSCE(1);
+        sceMain.initSCE(0);
     }
     
     private void initSCE(int scene) throws IOException{

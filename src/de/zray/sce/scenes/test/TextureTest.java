@@ -11,6 +11,7 @@ import de.zray.se.SEWorld;
 import de.zray.se.graphics.semesh.SEMesh;
 import de.zray.se.graphics.shapes.Plane;
 import de.zray.se.graphics.Camera;
+import de.zray.se.graphics.semesh.SEMaterial;
 
 /**
  *
@@ -22,7 +23,12 @@ public class TextureTest extends SEWorld{
     public void init() {
         addInputManager(new SpectatorInput(this));
         SEMesh plane = new Plane(1, 1, false).getSEMesh();
-        plane.getOrientation().setRotation(90, 0, 0);
+        plane.getOrientation().setRotation(-90, 0, 0);
+        plane.getOrientation().setPosition(0, 0, -10);
+        //plane.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
+        plane.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.png"));
+        plane.setRenderMode(SEMesh.RenderMode.VBO);
+        plane.getMaterial().setShadeless(true);
         
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
