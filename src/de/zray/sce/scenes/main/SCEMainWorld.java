@@ -10,10 +10,10 @@ import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.SystemGenerator;
 import de.zray.se.SEActor;
 import de.zray.se.SEWorld;
-import de.zray.se.grapics.Camera;
-import de.zray.se.grapics.semesh.SEMaterial;
-import de.zray.se.grapics.modelloader.Modelloader;
-import de.zray.se.grapics.semesh.SEMesh;
+import de.zray.se.graphics.Camera;
+import de.zray.se.graphics.semesh.SEMaterial;
+import de.zray.se.graphics.modelloader.Modelloader;
+import de.zray.se.graphics.semesh.SEMesh;
 import java.util.List;
 
 /**
