@@ -6,7 +6,7 @@
 package de.zray.sce.scenes.main;
 
 import de.zray.se.MainThread;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEWorld;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
 import javax.vecmath.Vector3f;

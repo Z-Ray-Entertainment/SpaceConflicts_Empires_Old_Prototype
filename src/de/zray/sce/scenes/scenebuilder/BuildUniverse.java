@@ -6,7 +6,7 @@
 package de.zray.sce.scenes.scenebuilder;
 
 import de.zray.sce.universe.Universe;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEWorld;
 
 /**
  *

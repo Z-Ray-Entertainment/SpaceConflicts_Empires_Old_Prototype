@@ -5,9 +5,9 @@
  */
 package de.zray.sce.unigen.orbs;
 
-import de.zray.se.SEActor;
-import de.zray.se.SEUtils;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEActor;
+import de.zray.se.utils.SEUtils;
+import de.zray.se.world.SEWorld;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
 import javax.vecmath.Vector2d;

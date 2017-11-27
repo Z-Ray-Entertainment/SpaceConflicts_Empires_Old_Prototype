@@ -5,8 +5,8 @@
  */
 package de.zray.sce.scenes.main.ais;
 
-import de.zray.se.SEActor;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEActor;
+import de.zray.se.world.SEWorld;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
 

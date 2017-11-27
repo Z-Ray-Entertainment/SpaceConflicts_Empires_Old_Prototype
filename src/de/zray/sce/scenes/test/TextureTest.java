@@ -6,8 +6,8 @@
 package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
-import de.zray.se.SEActor;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEActor;
+import de.zray.se.world.SEWorld;
 import de.zray.se.graphics.semesh.SEMesh;
 import de.zray.se.graphics.shapes.Plane;
 import de.zray.se.graphics.Camera;

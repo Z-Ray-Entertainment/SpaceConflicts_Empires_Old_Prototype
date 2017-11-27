@@ -5,9 +5,9 @@
  */
 package de.zray.sce.unigen.orbs;
 
-import de.zray.se.SEActor;
-import de.zray.se.SEUtils;
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEActor;
+import de.zray.se.utils.SEUtils;
+import de.zray.se.world.SEWorld;
 import de.zray.se.graphics.semesh.SEMaterial;
 import de.zray.se.graphics.semesh.SEMesh;
 import de.zray.se.graphics.shapes.IcoSphere;
