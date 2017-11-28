@@ -21,9 +21,6 @@ public class SCEMain {
     private static SCEMain sceMain = new SCEMain();
     
     public static void main(String[] args) throws IOException{
-        System.out.println(Math.round(199f/100f));
-        System.out.println(Math.round(-199f/100f));
-        
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
