@@ -24,7 +24,7 @@ public class SCEMain {
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
-        Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix;
+        Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix+" | Engine: "+Settings.get().version;
         Settings.get().title = de.zray.sce.game.Settings.name;
         
         sceMain.initSCE(0);
