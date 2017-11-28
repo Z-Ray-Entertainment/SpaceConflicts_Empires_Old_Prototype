@@ -29,6 +29,7 @@ public class SCEMainWorld extends SEWorld {
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
         cam.setViewMode(Camera.ViewMode.EGO);
+        cam.setClips(0.1f, 10000);
         cam.setRotation(90, 0, 0);
         
         int mainCam = this.addCamera(cam);
