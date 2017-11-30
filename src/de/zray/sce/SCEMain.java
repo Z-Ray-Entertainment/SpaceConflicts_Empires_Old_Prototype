@@ -22,6 +22,8 @@ public class SCEMain {
     
     public static void main(String[] args) throws IOException{
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
+        Settings.get().debug.renderOnTop = false;
+        Settings.get().debug.gridStep = 10;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
         Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix+" | Engine: "+Settings.get().version;
