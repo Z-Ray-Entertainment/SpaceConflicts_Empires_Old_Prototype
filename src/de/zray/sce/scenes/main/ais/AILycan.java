@@ -21,37 +21,37 @@ public class AILycan extends SEAI{
     
     public AILycan(SEWorld world, SEActor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
-        newDest(parrentActor.getRootMesh().getOrientation().getPositionVec());
+        newDest(parentActor.getRootMesh().getOffset().getPositionVec());
     }
 
     @Override
     public void act(double delta) {
-        Vector3d pos = parrentActor.getRootMesh().getOrientation().getPositionVec();
+        Vector3d pos = parentActor.getRootMesh().getOffset().getPositionVec();
         if(move.x > 0){
-            if(dest.x <= parrentActor.getRootMesh().getOrientation().getPositionVec().x){
+            if(dest.x <= parentActor.getRootMesh().getOffset().getPositionVec().x){
                 if(move.y > 0){
-                   if(dest.y <= parrentActor.getRootMesh().getOrientation().getPositionVec().y){
+                   if(dest.y <= parentActor.getRootMesh().getOffset().getPositionVec().y){
                         if(move.z > 0){
-                            if(dest.z <= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z <= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                         else{
-                            if(dest.z >= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z >= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                     } 
                 }
                 else{
-                    if(dest.y >= parrentActor.getRootMesh().getOrientation().getPositionVec().y){
+                    if(dest.y >= parentActor.getRootMesh().getOffset().getPositionVec().y){
                         if(move.z > 0){
-                            if(dest.z <= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z <= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                         else{
-                            if(dest.z >= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z >= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
@@ -60,30 +60,30 @@ public class AILycan extends SEAI{
             }
         }
         else{
-            if(dest.x >= parrentActor.getRootMesh().getOrientation().getPositionVec().x){
+            if(dest.x >= parentActor.getRootMesh().getOffset().getPositionVec().x){
                 if(move.y > 0){
-                   if(dest.y <= parrentActor.getRootMesh().getOrientation().getPositionVec().y){
+                   if(dest.y <= parentActor.getRootMesh().getOffset().getPositionVec().y){
                         if(move.z > 0){
-                            if(dest.z <= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z <= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                         else{
-                            if(dest.z >= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z >= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                     } 
                 }
                 else{
-                    if(dest.y >= parrentActor.getRootMesh().getOrientation().getPositionVec().y){
+                    if(dest.y >= parentActor.getRootMesh().getOffset().getPositionVec().y){
                         if(move.z > 0){
-                            if(dest.z <= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z <= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
                         else{
-                            if(dest.z >= parrentActor.getRootMesh().getOrientation().getPositionVec().z){
+                            if(dest.z >= parentActor.getRootMesh().getOffset().getPositionVec().z){
                                 newDest(pos);
                             }
                         }
@@ -94,7 +94,7 @@ public class AILycan extends SEAI{
         pos.x += move.x*1*delta;
         pos.y += move.y*1*delta;
         pos.z += move.z*1*delta;
-        parrentActor.getRootMesh().getOrientation().setPosition(pos.x, pos.y, pos.z);
+        parentActor.getRootMesh().getOffset().setPosition(pos.x, pos.y, pos.z);
     }
     
     private void newDest(Vector3d pos){

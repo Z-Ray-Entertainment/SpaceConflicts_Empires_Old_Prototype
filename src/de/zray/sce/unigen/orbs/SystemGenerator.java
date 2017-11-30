@@ -48,7 +48,7 @@ public class SystemGenerator {
         sunMat.setShadeless(true);
         AIOrb sunAI = new AIOrb(world, null, world.getAIWorld(), null, AIOrb.Generate.SUN);
         SEMesh sunMesh = new IcoSphere(4).getSEMesh();
-        sunMesh.getOrientation().setScale(sunAI.getRadius(), sunAI.getRadius(), sunAI.getRadius());
+        sunMesh.getOffset().setScale(sunAI.getRadius(), sunAI.getRadius(), sunAI.getRadius());
         sunMesh.setRenderMode(SEMesh.RenderMode.VBO);
         sunMesh.setMaterial(sunMat);
         SEActor sunActor = new SEActor(sunMesh, sunAI, null, world);
@@ -63,7 +63,7 @@ public class SystemGenerator {
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
         SEMesh planetMesh = new IcoSphere(4).getSEMesh();
-        planetMesh.getOrientation().setScale(planetAI.getRadius(), planetAI.getRadius(), planetAI.getRadius());
+        planetMesh.getOffset().setScale(planetAI.getRadius(), planetAI.getRadius(), planetAI.getRadius());
         planetMesh.setMaterial(planetMaterial);
         planetMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
         planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
@@ -83,7 +83,7 @@ public class SystemGenerator {
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
         SEMesh moonMesh = new IcoSphere(4).getSEMesh();
         moonMesh.setMaterial(moonMaterial);
-        moonMesh.getOrientation().setScale(moonAI.getRadius(), moonAI.getRadius(), moonAI.getRadius());
+        moonMesh.getOffset().setScale(moonAI.getRadius(), moonAI.getRadius(), moonAI.getRadius());
         moonMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
         moonMesh.setRenderMode(SEMesh.RenderMode.VBO);
         SEActor moon = new SEActor(moonMesh, moonAI, null, world);

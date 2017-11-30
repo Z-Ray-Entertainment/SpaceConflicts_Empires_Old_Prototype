@@ -59,10 +59,10 @@ public class AIOrb extends SEAI{
             Vector2d cords = SEUtils.calcCoordinates(distance, curYear);
             Vector3d cPos = center.getActor().getOrientation().getPositionVec();
             Vector3d finalPos = new Vector3d(cords.x+cPos.x, cPos.y, cords.y+cPos.z);
-            parrentActor.getOrientation().setPosition(finalPos.x, finalPos.y, finalPos.z);
+            parentActor.getOrientation().setPosition(finalPos.x, finalPos.y, finalPos.z);
         }
         curDay += (selfRotSpeed*delta)%360;
-        parrentActor.getOrientation().setRotation(0, curDay, 0);
+        parentActor.getOrientation().setRotation(0, curDay, 0);
     }
     
     public double getMass(){

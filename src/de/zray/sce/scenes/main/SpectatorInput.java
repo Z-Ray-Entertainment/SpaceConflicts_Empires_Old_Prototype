@@ -17,6 +17,7 @@ import javax.vecmath.Vector3f;
  */
 public class SpectatorInput extends InputManager{
     private int multi = 1;
+    
     public SpectatorInput(SEWorld world) {
         super(world);
     }
@@ -97,7 +98,7 @@ public class SpectatorInput extends InputManager{
     public void keyReleased(int key) {
         switch(key){
             case KeyMap.KEY_ESCAPE :
-                getWorld().getRenderBackend().requestClose();
+                System.exit(0);
                 break;
             case KeyMap.KEY_LEFT_SHIFT :
                 multi = 1;

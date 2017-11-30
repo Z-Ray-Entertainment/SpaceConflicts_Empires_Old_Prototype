@@ -40,15 +40,15 @@ public class SCEMainWorld extends SEWorld {
         lycanMesh.setRenderMode(SEMesh.RenderMode.VBO);
         SEActor lycan = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        //addSEActor(lycan);
+        addSEActor(lycan);
         
         SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        //addSEActor(lycan2);
+        addSEActor(lycan2);
 
         List<SEActor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
         for(SEActor tmp : system){
-            //addSEActor(tmp);
+            addSEActor(tmp);
         }
         
         System.out.println("========Station========");
@@ -63,7 +63,6 @@ public class SCEMainWorld extends SEWorld {
         AIStation stationAI = new AIStation(this, null, getAIWorld());
         SEActor station = new SEActor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
-        station.setAI(new AIStation(this, station, this.getAIWorld()));
         station.getOrientation().setScale(0.5, 0.5, 0.5);
         station.getOrientation().setPosition(0, 0, -20);
         
