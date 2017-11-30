@@ -23,6 +23,8 @@ public class SCEMain {
     public static void main(String[] args) throws IOException{
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().debug.renderOnTop = false;
+        Settings.get().debug.showGrid = false;
+        Settings.get().scene.dpSizes = new int[]{1000, 100, 10, 1};
         Settings.get().debug.gridStep = 10;
         Settings.get().window.resX = 1280;
         Settings.get().window.resY = 720;
