@@ -5,6 +5,7 @@
  */
 package de.zray.sce.scenes.test.inputsmangers;
 
+import de.zray.se.MainThread;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
 import de.zray.se.world.SEActor;
@@ -40,12 +41,26 @@ public class ObjectControlInput extends InputManager{
 
     @Override
     public void keyPressed(int key) {
+        double x = linkedActor.getOrientation().getPositionVec().x;
+        double y = linkedActor.getOrientation().getPositionVec().y;
+        double z = linkedActor.getOrientation().getPositionVec().z;
+        
         switch(key){
             case KeyMap.KEY_ARROW_UP :
+                x += .001 * MainThread.getDeltaInSec();
                 break;
             case KeyMap.KEY_ARROW_DOWN :
+                x -= .001 * MainThread.getDeltaInSec();
+                break;
+            case KeyMap.KEY_ARROW_LEFT :
+                z += .001 * MainThread.getDeltaInSec();
+                break;
+            case KeyMap.KEY_ARROW_RIGHT :
+                z -= .001 * MainThread.getDeltaInSec();
                 break;
         }
+        
+        linkedActor.getOrientation().setPosition(x, y, z);
     }
 
     @Override
