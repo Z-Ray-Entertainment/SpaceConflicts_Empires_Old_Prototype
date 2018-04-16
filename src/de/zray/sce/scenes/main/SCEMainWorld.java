@@ -64,7 +64,7 @@ public class SCEMainWorld extends SEWorld {
         SEActor station = new SEActor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
-        station.getOrientation().setPosition(0, 0, -20);
+        station.getOrientation().setPosition(0, 0, 0);
         
         System.out.println("========Station LODS========");
         SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
