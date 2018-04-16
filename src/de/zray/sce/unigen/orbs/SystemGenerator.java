@@ -5,11 +5,11 @@
  */
 package de.zray.sce.unigen.orbs;
 
-import de.zray.se.world.SEActor;
+import de.zray.se.world.Actor;
 import de.zray.se.utils.SEUtils;
-import de.zray.se.world.SEWorld;
-import de.zray.se.graphics.semesh.SEMaterial;
-import de.zray.se.graphics.semesh.SEMesh;
+import de.zray.se.world.World;
+import de.zray.se.graphics.semesh.Material;
+import de.zray.se.graphics.semesh.Mesh;
 import de.zray.se.graphics.shapes.IcoSphere;
 import java.awt.Color;
 import java.util.LinkedList;
@@ -21,16 +21,16 @@ import javax.vecmath.Color3f;
  * @author vortex
  */
 public class SystemGenerator {
-    public List<SEActor> generateSystem(int[] planets, int[] moonsPerPlanet, SEWorld world){
-        List<SEActor> system = new LinkedList<SEActor>();
-        SEActor sun = buildSun(world);
+    public List<Actor> generateSystem(int[] planets, int[] moonsPerPlanet, World world){
+        List<Actor> system = new LinkedList<Actor>();
+        Actor sun = buildSun(world);
         system.add(sun);
         
         int planetsAmmount = SEUtils.randomInt(planets[0], planets[1]);
         int overallOrbs = 1;
         
         for(int i = 0; i < planetsAmmount; i++){
-            List<SEActor> meshes = buildPlanet(sun, world, moonsPerPlanet[0], moonsPerPlanet[1]);
+            List<Actor> meshes = buildPlanet(sun, world, moonsPerPlanet[0], moonsPerPlanet[1]);
             system.addAll(meshes);
             overallOrbs += meshes.size();
             if(i%10 == 0){
@@ -42,32 +42,32 @@ public class SystemGenerator {
         return system;
     }
     
-    private SEActor buildSun(SEWorld world){
-        SEMaterial sunMat = new SEMaterial(new Color3f(Color.ORANGE));
+    private Actor buildSun(World world){
+        Material sunMat = new Material(new Color3f(Color.ORANGE));
         sunMat.setBackfaceCulling(true);
         sunMat.setShadeless(true);
         AIOrb sunAI = new AIOrb(world, null, world.getAIWorld(), null, AIOrb.Generate.SUN);
-        SEMesh sunMesh = new IcoSphere(4).getSEMesh();
+        Mesh sunMesh = new IcoSphere(4).getSEMesh();
         sunMesh.getOffset().setScale(sunAI.getRadius(), sunAI.getRadius(), sunAI.getRadius());
-        sunMesh.setRenderMode(SEMesh.RenderMode.VBO);
+        sunMesh.setRenderMode(Mesh.RenderMode.VBO);
         sunMesh.setMaterial(sunMat);
-        SEActor sunActor = new SEActor(sunMesh, sunAI, null, world);
+        Actor sunActor = new Actor(sunMesh, sunAI, null, world);
         sunAI.setActor(sunActor);
         return sunActor;
     }
     
-    private List<SEActor> buildPlanet(SEActor sun, SEWorld world, int moonsMin, int moonsMax){
-        List<SEActor> orbs = new LinkedList<>();
-        SEMaterial planetMaterial = new SEMaterial(new Color3f(Color.GREEN));
+    private List<Actor> buildPlanet(Actor sun, World world, int moonsMin, int moonsMax){
+        List<Actor> orbs = new LinkedList<>();
+        Material planetMaterial = new Material(new Color3f(Color.GREEN));
         planetMaterial.setShadeless(true);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
-        SEMesh planetMesh = new IcoSphere(4).getSEMesh();
+        Mesh planetMesh = new IcoSphere(4).getSEMesh();
         planetMesh.getOffset().setScale(planetAI.getRadius(), planetAI.getRadius(), planetAI.getRadius());
         planetMesh.setMaterial(planetMaterial);
-        planetMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
-        planetMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor planet = new SEActor(planetMesh, planetAI, null, world);
+        planetMesh.setDisplayMode(Mesh.DisplayMode.SOLID);
+        planetMesh.setRenderMode(Mesh.RenderMode.VBO);
+        Actor planet = new Actor(planetMesh, planetAI, null, world);
         planetAI.setActor(planet);
         orbs.add(planet);
         for(int i = 0; i < SEUtils.randomInt(moonsMin, moonsMax); i++){
@@ -76,17 +76,17 @@ public class SystemGenerator {
         return orbs;
     }
     
-    private SEActor buildMoon(SEActor planet, SEWorld world){
-        SEMaterial moonMaterial = new SEMaterial(new Color3f(Color.DARK_GRAY));
+    private Actor buildMoon(Actor planet, World world){
+        Material moonMaterial = new Material(new Color3f(Color.DARK_GRAY));
         moonMaterial.setShadeless(true);
         moonMaterial.setBackfaceCulling(true);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
-        SEMesh moonMesh = new IcoSphere(4).getSEMesh();
+        Mesh moonMesh = new IcoSphere(4).getSEMesh();
         moonMesh.setMaterial(moonMaterial);
         moonMesh.getOffset().setScale(moonAI.getRadius(), moonAI.getRadius(), moonAI.getRadius());
-        moonMesh.setDisplayMode(SEMesh.DisplayMode.SOLID);
-        moonMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor moon = new SEActor(moonMesh, moonAI, null, world);
+        moonMesh.setDisplayMode(Mesh.DisplayMode.SOLID);
+        moonMesh.setRenderMode(Mesh.RenderMode.VBO);
+        Actor moon = new Actor(moonMesh, moonAI, null, world);
         moonAI.setActor(moon);
         return moon;
     }

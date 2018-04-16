@@ -7,8 +7,8 @@ package de.zray.sce.scenes.test.ai;
 
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 
 /**
  *
@@ -18,7 +18,7 @@ public class AIStationTest extends SEAI{
     boolean moveLeft = false;
     double start = 0;
     
-    public AIStationTest(SEWorld world, SEActor actor, SEAIWorld aiMod) {
+    public AIStationTest(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
     }
 

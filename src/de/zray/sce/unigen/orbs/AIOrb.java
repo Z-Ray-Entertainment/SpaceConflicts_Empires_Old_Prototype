@@ -5,9 +5,9 @@
  */
 package de.zray.sce.unigen.orbs;
 
-import de.zray.se.world.SEActor;
+import de.zray.se.world.Actor;
 import de.zray.se.utils.SEUtils;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.World;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
 import javax.vecmath.Vector2d;
@@ -26,7 +26,7 @@ public class AIOrb extends SEAI{
     private double rotSpeed, curYear, curDay, distance, selfRotSpeed = 1;
     private AIOrb center;
     
-    public AIOrb(SEWorld world, SEActor actor, SEAIWorld aiMod, AIOrb center, Generate gen){
+    public AIOrb(World world, Actor actor, SEAIWorld aiMod, AIOrb center, Generate gen){
         super(world, actor, aiMod);
         if(center != null){
             this.center = center;

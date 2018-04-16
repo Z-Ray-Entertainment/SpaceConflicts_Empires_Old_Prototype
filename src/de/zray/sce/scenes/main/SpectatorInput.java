@@ -6,7 +6,7 @@
 package de.zray.sce.scenes.main;
 
 import de.zray.se.MainThread;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.World;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
 import javax.vecmath.Vector3f;
@@ -18,7 +18,7 @@ import javax.vecmath.Vector3f;
 public class SpectatorInput extends InputManager{
     private int multi = 1;
     
-    public SpectatorInput(SEWorld world) {
+    public SpectatorInput(World world) {
         super(world);
     }
 

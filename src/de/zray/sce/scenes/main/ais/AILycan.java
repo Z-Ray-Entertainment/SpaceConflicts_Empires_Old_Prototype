@@ -5,8 +5,8 @@
  */
 package de.zray.sce.scenes.main.ais;
 
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
 import javax.vecmath.Vector3d;
@@ -19,7 +19,7 @@ public class AILycan extends SEAI{
     private Vector3d dest;
     private  Vector3d move;
     
-    public AILycan(SEWorld world, SEActor actor, SEAIWorld aiMod) {
+    public AILycan(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
         newDest(parentActor.getRootMesh().getOffset().getPositionVec());
     }

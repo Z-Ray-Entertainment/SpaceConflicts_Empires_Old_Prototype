@@ -5,8 +5,8 @@
  */
 package de.zray.sce.scenes.main.ais;
 
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
 
@@ -17,7 +17,7 @@ import de.zray.se.ai.SEAIWorld;
 public class AIStation extends SEAI{
     private float turn = 0;
     
-    public AIStation(SEWorld world, SEActor actor, SEAIWorld aiMod) {
+    public AIStation(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
     }
 

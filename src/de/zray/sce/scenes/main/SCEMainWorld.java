@@ -8,19 +8,19 @@ package de.zray.sce.scenes.main;
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.unigen.orbs.SystemGenerator;
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 import de.zray.se.graphics.Camera;
-import de.zray.se.graphics.semesh.SEMaterial;
+import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
-import de.zray.se.graphics.semesh.SEMesh;
+import de.zray.se.graphics.semesh.Mesh;
 import java.util.List;
 
 /**
  *
  * @author Vortex Acherontic
  */
-public class SCEMainWorld extends SEWorld {
+public class SCEMainWorld extends World {
     
     @Override
     public void init(){
@@ -35,56 +35,56 @@ public class SCEMainWorld extends SEWorld {
         int mainCam = this.addCamera(cam);
         this.setActiveCamera(mainCam);
         
-        SEMesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
-        lycanMesh.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycanMesh.setRenderMode(SEMesh.RenderMode.VBO);
-        SEActor lycan = new SEActor(lycanMesh, null, null, this);
+        Mesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
+        lycanMesh.setMaterial(new Material("scedata/models/wolfrim/lycan/lycan.png"));
+        lycanMesh.setRenderMode(Mesh.RenderMode.VBO);
+        Actor lycan = new Actor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        addSEActor(lycan);
+        addEntity(lycan);
         
-        SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
+        Actor lycan2 = new Actor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
-        addSEActor(lycan2);
+        addEntity(lycan2);
 
-        List<SEActor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
-        for(SEActor tmp : system){
-            addSEActor(tmp);
+        List<Actor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
+        for(Actor tmp : system){
+            addEntity(tmp);
         }
         
         System.out.println("========Station========");
-        SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
-        SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.png");
+        Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(true);
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
-        stationMesh.setRenderMode(SEMesh.RenderMode.DIRECT);
+        stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
         AIStation stationAI = new AIStation(this, null, getAIWorld());
-        SEActor station = new SEActor(stationMesh, stationAI, null, this);
+        Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
         station.getOrientation().setPosition(0, 0, 0);
         
         System.out.println("========Station LODS========");
-        SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
+        Mesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
         stationLOD0_5.setMaterial(stationMat);
         stationLOD0_5.setRenderDist(70);
-        stationLOD0_5.setRenderMode(SEMesh.RenderMode.VBO);
+        stationLOD0_5.setRenderMode(Mesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_5);
         
-        SEMesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
+        Mesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
         stationLOD0_25.setMaterial(stationMat);
         stationLOD0_25.setRenderDist(80);
-        stationLOD0_25.setRenderMode(SEMesh.RenderMode.VBO);
+        stationLOD0_25.setRenderMode(Mesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_25);
         
-        SEMesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
+        Mesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
         stationLOD0_0.setMaterial(stationMat);
         stationLOD0_0.setRenderDist(100);
-        stationLOD0_0.setRenderMode(SEMesh.RenderMode.VBO);
+        stationLOD0_0.setRenderMode(Mesh.RenderMode.VBO);
         stationMesh.addLOD(stationLOD0_0);
-        addSEActor(station);
+        addEntity(station);
         
         int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
         getAudioWorld().getAudioSource(music).playAsMusic(true);
