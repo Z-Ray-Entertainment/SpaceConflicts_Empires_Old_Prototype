@@ -6,6 +6,7 @@
 package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
+import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.scenes.test.ai.AIStationTest;
 import de.zray.se.graphics.Camera;
 import de.zray.se.graphics.modelloader.Modelloader;
@@ -39,11 +40,11 @@ public class DistancePatchTest extends World{
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
         stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
-        AIStationTest stationAI = new AIStationTest(this, null, getAIWorld());
+        AIStation stationAI = new AIStation(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
-        station.getOrientation().setPosition(0, 0, -20);
+        station.getOrientation().setPosition(0, 0, 0);
         addEntity(station);
     }
 }
