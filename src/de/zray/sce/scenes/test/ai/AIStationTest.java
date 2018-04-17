@@ -17,7 +17,7 @@ import de.zray.se.world.World;
 public class AIStationTest extends SEAI{
     private boolean moveLeft = false;
     private double start = 0;
-    private final double movementSpeed = 1, moveDistance = 10;
+    private final double movementSpeed = 5, moveDistance = 50;
     
     public AIStationTest(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
