@@ -8,18 +8,18 @@ package de.zray.sce.scenes.test.inputsmangers;
 import de.zray.se.MainThread;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 
 /**
  *
  * @author vortex
  */
 public class ObjectControlInput extends InputManager{
-    private SEActor linkedActor;
+    private Actor linkedActor;
     
     
-    public ObjectControlInput(SEWorld world, SEActor linkedActor) {
+    public ObjectControlInput(World world, Actor linkedActor) {
         super(world);
         this.linkedActor = linkedActor;
     }
