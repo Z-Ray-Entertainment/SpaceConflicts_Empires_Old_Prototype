@@ -39,12 +39,12 @@ public class DistancePatchTest extends World{
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
-        stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
+        stationMesh.setRenderMode(Mesh.RenderMode.VBO);
         AIStationTest stationAI = new AIStationTest(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
-        station.getOrientation().setPosition(0, 0, 0);
+        station.getOrientation().setPosition(0, 0, -10);
         addEntity(station);
     }
 }
