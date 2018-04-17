@@ -5,19 +5,8 @@
  */
 package de.zray.sce.test;
 
-import de.zray.sce.game.Settings;
-import de.zray.sce.test.cmds.ToogleDispatcherHook;
-import de.zray.se.MainThread;
 import de.zray.se.logger.SEDispatcherHook;
-import de.zray.se.logger.SELogger;
-import de.zray.coretex.exceptions.DublicateCommandException;
-import de.zray.coretex.exceptions.InvalidParameterValueException;
-import de.zray.coretex.exceptions.InvalidTypeException;
-import de.zray.coretex.exceptions.ParameterAmountException;
-import de.zray.coretex.exceptions.SyntaxException;
 import java.awt.event.KeyEvent;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -25,13 +14,13 @@ import java.util.logging.Logger;
  */
 public class Console extends javax.swing.JFrame implements SEDispatcherHook{
     private boolean showHookedLogs = false;
-    private de.zray.coretex.Console seConsole;
+    //private de.zray.se.script.Console seConsole;
     
     /**
      * Creates new form Console
      */
     public Console() {
-        initComponents();
+        /*initComponents();
         setTitle(Settings.name+" "+Settings.version);
         
         try {
@@ -40,7 +29,7 @@ public class Console extends javax.swing.JFrame implements SEDispatcherHook{
             seConsole.addCommand(new ToogleDispatcherHook(this));
         } catch (DublicateCommandException ex) {
             Logger.getLogger(Console.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
     }
 
     /**
@@ -153,14 +142,15 @@ public class Console extends javax.swing.JFrame implements SEDispatcherHook{
     }
     
     private String issueCommand(String input){
-        try {
+        /*try {
             return seConsole.executeScript(input);
         } catch (SyntaxException ex) {
             SELogger.get().dispatchMsg("SCEConsole", SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
         } catch (ParameterAmountException | InvalidTypeException | InvalidParameterValueException ex) {
             SELogger.get().dispatchMsg("SCEConsole", SELogger.SELogType.ERROR, new String[]{ex.getMessage()}, false);
         }
-        return "Error while exectuing: "+input;
+        return "Error while exectuing: "+input;*/
+        return null;
     }
 
     @Override

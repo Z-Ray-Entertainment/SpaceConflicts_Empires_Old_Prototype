@@ -5,7 +5,7 @@
  */
 package de.zray.sce.universe;
 
-import de.zray.se.SEWorld;
+import de.zray.se.world.SEWorld;
 
 /**
  *

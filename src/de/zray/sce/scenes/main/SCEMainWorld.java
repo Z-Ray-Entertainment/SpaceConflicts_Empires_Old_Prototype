@@ -5,71 +5,111 @@
  */
 package de.zray.sce.scenes.main;
 
-import de.zray.sce.gui.SCEInputManager;
-import de.zray.sce.gui.main.GUIMain;
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
-import de.zray.sce.unigen.orbs.Planet;
-import de.zray.se.SEActor;
-import de.zray.se.SEWorld;
-import de.zray.se.audio.Playlist;
-import de.zray.se.grapics.Camera;
-import de.zray.se.grapics.material.SEMaterial;
-import de.zray.se.grapics.modelloader.Modelloader;
-import de.zray.se.grapics.semesh.SEMesh;
-import de.zray.se.grapics.semesh.SEOriantation;
-import de.zray.zgui.TextureManager;
-import de.zray.zgui.exceptions.InvalidRangeException;
-import java.io.IOException;
+import de.zray.sce.unigen.orbs.SystemGenerator;
+import de.zray.se.exceptions.UnknownEntityException;
+import de.zray.se.world.SEActor;
+import de.zray.se.world.SEWorld;
+import de.zray.se.graphics.Camera;
+import de.zray.se.graphics.semesh.SEMaterial;
+import de.zray.se.graphics.modelloader.Modelloader;
+import de.zray.se.graphics.semesh.SEMesh;
+import de.zray.se.logger.SELogger;
+import java.util.List;
 
 /**
  *
  * @author Vortex Acherontic
  */
-public class SCEMainWorld extends SEWorld{
-    public SCEMainWorld() throws InvalidRangeException, IOException{
-        super();
-        addGUI(new GUIMain(this));
-        
-        SEActor station = new SEActor("scedata/models/cron/warpstation/warpstation.obj", new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.setAI(new AIStation(this, station, this.getAIModule()));
-        station.getSEMesh().setOrientation(new SEOriantation(0, 0, -20));
-        station.getSEMesh().setRenderDist(50);
-        SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
-        stationLOD0_5.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_5, 70);
-        
-        SEMesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
-        stationLOD0_25.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_25, 80);
-        
-        SEMesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
-        stationLOD0_0.setMaterial(new SEMaterial("scedata/models/cron/warpstation/warpstation.jpg"));
-        station.getSEMesh().addLOD(stationLOD0_0, 100);
-        addActor(station);
-        
-        SEActor lycan = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycan.setAI(new AILycan(this, lycan, this.getAIModule()));
-        addActor(lycan);
-        
-        SEActor lycan2 = new SEActor("scedata/models/wolfrim/lycan/lycan.obj", new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
-        lycan2.setAI(new AILycan(this, lycan2, this.getAIModule()));
-        addActor(lycan2);
-        
-        addActor(new Planet().generatePlanet(this));
-        
-        Playlist playlist = new Playlist();
-        playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle2.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle3.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle4.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle5.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle6.ogg");
-        playlist.addTrack("scedata/audio/bgm/battle/battle7.ogg");
-        getAudioModule().setPlaylist(playlist);
-        
-        setInputManager(new SCEInputManager(this));
-        getGLModule().getCurrentCamera().setViewMode(Camera.ViewMode.EGO);
-        getGLModule().getCurrentCamera().setPosition(0, 10, 0);
+public class SCEMainWorld extends SEWorld {
+    
+    @Override
+    public void init(){
+        try{
+            addInputManager(new SpectatorInput(this));
+            //addGUI(new GUIMain(this));
+            Camera cam = new Camera();
+            cam.setPerspectiveRendering(true);
+            cam.setViewMode(Camera.ViewMode.EGO);
+            cam.setClips(0.1f, 10000);
+            cam.setRotation(90, 0, 0);
+
+            int mainCam = this.addCamera(cam);
+            this.setActiveCamera(mainCam);
+
+            SEMesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
+            lycanMesh.setMaterial(new SEMaterial("scedata/models/wolfrim/lycan/lycan.png"));
+            lycanMesh.setRenderMode(SEMesh.RenderMode.VBO);
+            SEActor lycan = new SEActor(lycanMesh, null, null, this);
+            lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
+            addEntity(lycan);
+
+            SEActor lycan2 = new SEActor(lycanMesh, null, null, this);
+            lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
+            addEntity(lycan2);
+
+            List<SEActor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
+            for(SEActor tmp : system){
+                addEntity(tmp);
+            }
+
+            System.out.println("========Station========");
+            SEMesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+            SEMaterial stationMat = new SEMaterial("scedata/models/cron/warpstation/warpstation.png");
+            stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
+            stationMat.setShadeless(true);
+            stationMat.setBackfaceCulling(true);
+            stationMesh.setMaterial(stationMat);
+            stationMesh.setRenderDist(1000);
+            stationMesh.setRenderMode(SEMesh.RenderMode.DIRECT);
+            AIStation stationAI = new AIStation(this, null, getAIWorld());
+            SEActor station = new SEActor(stationMesh, stationAI, null, this);
+            stationAI.setActor(station);
+            station.getOrientation().setScale(0.5, 0.5, 0.5);
+            station.getOrientation().setPosition(0, 0, -20);
+
+            System.out.println("========Station LODS========");
+            SEMesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
+            stationLOD0_5.setMaterial(stationMat);
+            stationLOD0_5.setRenderDist(70);
+            stationLOD0_5.setRenderMode(SEMesh.RenderMode.VBO);
+            stationMesh.addLOD(stationLOD0_5);
+
+            SEMesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
+            stationLOD0_25.setMaterial(stationMat);
+            stationLOD0_25.setRenderDist(80);
+            stationLOD0_25.setRenderMode(SEMesh.RenderMode.VBO);
+            stationMesh.addLOD(stationLOD0_25);
+
+            SEMesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
+            stationLOD0_0.setMaterial(stationMat);
+            stationLOD0_0.setRenderDist(100);
+            stationLOD0_0.setRenderMode(SEMesh.RenderMode.VBO);
+            stationMesh.addLOD(stationLOD0_0);
+            addEntity(station);
+
+            int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
+            getAudioWorld().getAudioSource(music).playAsMusic(true);
+            //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
+            /*Playlist playlist = new Playlist();
+            playlist.addTrack("scedata/audio/bgm/battle/battle1.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle2.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle3.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle4.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle5.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle6.ogg");
+            playlist.addTrack("scedata/audio/bgm/battle/battle7.ogg");
+            getAudioModule().setPlaylist(playlist);
+
+            setInputManager(new SCEInputManager(this));
+            getGLModule().getCurrentCamera().setViewMode(Camera.ViewMode.EGO);
+            getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
+            cam.setLookAt(station.getOrientation().getPositionVec());
+            cam.setClips(1, 1000);
+        }
+        catch(UnknownEntityException e){
+            SELogger.get().dispatchMsg(this, e);
+        }
     }
 }

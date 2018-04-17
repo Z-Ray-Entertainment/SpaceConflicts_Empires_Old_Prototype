@@ -5,16 +5,21 @@
  */
 package de.zray.sce.test.cmds;
 
+<<<<<<< src/de/zray/sce/test/cmds/ToogleDispatcherHook.java
+=======
 import de.zray.sce.test.Console;
 import de.zray.coretex.AbstractCommand;
 import de.zray.coretex.Parameter;
 import java.util.List;
 
+>>>>>>> src/de/zray/sce/test/cmds/ToogleDispatcherHook.java
 /**
  *
  * @author Vortex Acherontic
  */
-public class ToogleDispatcherHook extends AbstractCommand{
+public class ToogleDispatcherHook {
+    /*
+    extends AbstractCommand
     Console console;
     
     public ToogleDispatcherHook(Console console) {
@@ -26,6 +31,6 @@ public class ToogleDispatcherHook extends AbstractCommand{
     public String action(List<Parameter> params) {
         console.toogleHook();
         return "Logger hook toggled.";
-    }
+    }*/
     
 }
