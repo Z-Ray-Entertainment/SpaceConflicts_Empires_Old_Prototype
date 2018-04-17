@@ -40,7 +40,7 @@ public class DistancePatchTest extends World{
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
         stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
-        AIStation stationAI = new AIStation(this, null, getAIWorld());
+        AIStationTest stationAI = new AIStationTest(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
