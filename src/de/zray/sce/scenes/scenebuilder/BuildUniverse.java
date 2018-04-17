@@ -6,14 +6,14 @@
 package de.zray.sce.scenes.scenebuilder;
 
 import de.zray.sce.universe.Universe;
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.World;
 
 /**
  *
  * @author Vortex Acherontic
  */
 public class BuildUniverse {
-    public SEWorld build(Universe universe){
+    public World build(Universe universe){
         return null;
     }
 }

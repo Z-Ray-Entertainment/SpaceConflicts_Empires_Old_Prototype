@@ -5,14 +5,14 @@
  */
 package de.zray.sce.universe;
 
-import de.zray.se.world.SEWorld;
+import de.zray.se.world.World;
 
 /**
  *
  * @author Vortex Acherontic
  */
 public class System {
-    public SEWorld generateSolarsystem(int scale, Chances chances, long seed){
+    public World generateSolarsystem(int scale, Chances chances, long seed){
         int planets, moons, asteroids, wreckage, wormholes, warpStation;
         
         planets = (int) (Math.floor(Math.random())*scale*chances.planet);
@@ -24,7 +24,7 @@ public class System {
         return generate(planets, moons, wreckage, asteroids, wormholes, warpStation);
     }
     
-    private SEWorld generate(int planets, int moons, int wreckage, 
+    private World generate(int planets, int moons, int wreckage, 
             int asteroids, int wormholes, int warpStations){
         return null;
     }

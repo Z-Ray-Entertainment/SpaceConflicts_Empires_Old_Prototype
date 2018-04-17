@@ -6,22 +6,22 @@
 package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
+import de.zray.sce.scenes.main.ais.AIStation;
 import de.zray.sce.scenes.test.ai.AIStationTest;
 import de.zray.sce.scenes.test.inputsmangers.ObjectControlInput;
 import de.zray.se.exceptions.UnknownEntityException;
 import de.zray.se.graphics.Camera;
 import de.zray.se.graphics.modelloader.Modelloader;
-import de.zray.se.graphics.semesh.SEMaterial;
-import de.zray.se.graphics.semesh.SEMesh;
-import de.zray.se.logger.SELogger;
-import de.zray.se.world.SEActor;
-import de.zray.se.world.SEWorld;
+import de.zray.se.graphics.semesh.Material;
+import de.zray.se.graphics.semesh.Mesh;
+import de.zray.se.world.Actor;
+import de.zray.se.world.World;
 
 /**
  *
  * @author vortex
  */
-public class DistancePatchTest extends SEWorld{
+public class DistancePatchTest extends World{
 
     @Override
     public void init() {
@@ -56,5 +56,19 @@ public class DistancePatchTest extends SEWorld{
             SELogger.get().dispatchMsg(this, e);
         }
         
+        Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
+        stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
+        stationMat.setShadeless(true);
+        stationMat.setBackfaceCulling(true);
+        stationMesh.setMaterial(stationMat);
+        stationMesh.setRenderDist(1000);
+        stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
+        AIStationTest stationAI = new AIStationTest(this, null, getAIWorld());
+        Actor station = new Actor(stationMesh, stationAI, null, this);
+        stationAI.setActor(station);
+        station.getOrientation().setScale(0.5, 0.5, 0.5);
+        station.getOrientation().setPosition(0, 0, 0);
+        addEntity(station);
     }
 }
