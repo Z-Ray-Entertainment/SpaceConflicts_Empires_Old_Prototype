@@ -44,7 +44,7 @@ public class DistancePatchTest extends World{
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
         station.getOrientation().setScale(0.5, 0.5, 0.5);
-        station.getOrientation().setPosition(0, 0, -10);
+        station.getOrientation().setPosition(0, 10, 10);
         addEntity(station);
     }
 }
