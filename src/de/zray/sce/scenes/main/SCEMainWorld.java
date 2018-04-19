@@ -59,7 +59,7 @@ public class SCEMainWorld extends World {
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
-        stationMesh.setRenderMode(Mesh.RenderMode.DIRECT);
+        stationMesh.setRenderMode(Mesh.RenderMode.VBO);
         AIStation stationAI = new AIStation(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
