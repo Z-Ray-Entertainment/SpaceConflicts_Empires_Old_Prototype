@@ -11,6 +11,7 @@ import de.zray.sce.unigen.orbs.SystemGenerator;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.graphics.Camera;
+import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
@@ -36,17 +37,19 @@ public class SCEMainWorld extends World {
         this.setActiveCamera(mainCam);
         
         Mesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
-        lycanMesh.setMaterial(new Material("scedata/models/wolfrim/lycan/lycan.png"));
+        Material lycanMat = new Material("scedata/models/wolfrim/lycan/lycan.png");
+        lycanMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0);
+        lycanMesh.setMaterial(lycanMat);
         lycanMesh.setRenderMode(Mesh.RenderMode.VBO);
         Actor lycan = new Actor(lycanMesh, null, null, this);
         lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
         addEntity(lycan);
         
         Actor lycan2 = new Actor(lycanMesh, null, null, this);
-        lycan.setAI(new AILycan(this, lycan, this.getAIWorld()));
+        lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
         addEntity(lycan2);
 
-        List<Actor> system = new SystemGenerator().generateSystem(new int[]{0, 10}, new int[]{0, 8}, this);
+        List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 100}, new int[]{1, 10}, this);
         for(Actor tmp : system){
             addEntity(tmp);
         }
@@ -55,7 +58,7 @@ public class SCEMainWorld extends World {
         Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
         Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
-        stationMat.setShadeless(true);
+        stationMat.setShadeless(false);
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
         stationMesh.setRenderDist(1000);
@@ -104,5 +107,13 @@ public class SCEMainWorld extends World {
         getGLModule().getCurrentCamera().setPosition(0, 10, 0);*/
         cam.setLookAt(station.getOrientation().getPositionVec());
         cam.setClips(1, 1000);
+        
+        LightSource sun = new LightSource();
+        sun.setLightType(LightSource.Type.SUN);
+        sun.setColor(LightSource.DIFFUSE, 1f, 0.6352f, 0f, 0);
+        sun.setColor(LightSource.AMBIENT, 0f, 0f, 0f, 1f);
+        sun.setColor(LightSource.SPECULAR, 1, 1, 1, 0);
+        addEntity(sun);
+        
     }
 }

@@ -59,7 +59,7 @@ public class SystemGenerator {
     private List<Actor> buildPlanet(Actor sun, World world, int moonsMin, int moonsMax){
         List<Actor> orbs = new LinkedList<>();
         Material planetMaterial = new Material(new Color3f(Color.GREEN));
-        planetMaterial.setShadeless(true);
+        planetMaterial.setShadeless(false);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
         Mesh planetMesh = new IcoSphere(4).getSEMesh();
@@ -78,7 +78,7 @@ public class SystemGenerator {
     
     private Actor buildMoon(Actor planet, World world){
         Material moonMaterial = new Material(new Color3f(Color.DARK_GRAY));
-        moonMaterial.setShadeless(true);
+        moonMaterial.setShadeless(false);
         moonMaterial.setBackfaceCulling(true);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
         Mesh moonMesh = new IcoSphere(4).getSEMesh();
