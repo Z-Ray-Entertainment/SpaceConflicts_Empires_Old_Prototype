@@ -73,14 +73,24 @@ public class SpectatorInput extends InputManager{
                 pos.x += movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_PAGE_DOWN :
+            case KeyMap.KEY_ARROW_DOWN :
                 rot = getWorld().getCurrentCamera().getRotation();
                 rot.x += (100*MainThread.getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
-            case KeyMap.KEY_PAGE_UP :
+            case KeyMap.KEY_ARROW_UP :
                 rot = getWorld().getCurrentCamera().getRotation();
                 rot.x -= (100*MainThread.getDeltaInSec())%360*multi;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
+            case KeyMap.KEY_ARROW_LEFT :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.y += (100*MainThread.getDeltaInSec())%360*multi;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
+            case KeyMap.KEY_ARROW_RIGHT :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.y -= (100*MainThread.getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
         }

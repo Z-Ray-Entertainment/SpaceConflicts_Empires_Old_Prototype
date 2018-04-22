@@ -33,6 +33,7 @@ public class AIOrb extends SEAI{
             distance = (Math.random()*100)+center.getRadius();
             speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
             rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
+            curYear = (Math.random()*360)%360;
         }
         switch(gen){
             case MOON :

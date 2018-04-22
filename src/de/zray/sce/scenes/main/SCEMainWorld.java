@@ -49,7 +49,7 @@ public class SCEMainWorld extends World {
         lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
         addEntity(lycan2);
 
-        List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 100}, new int[]{1, 10}, this);
+        List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{1, 4}, this);
         for(Actor tmp : system){
             addEntity(tmp);
         }
@@ -112,7 +112,7 @@ public class SCEMainWorld extends World {
         sun.setLightType(LightSource.Type.SUN);
         sun.setColor(LightSource.DIFFUSE, 1f, 0.6352f, 0f, 0);
         sun.setColor(LightSource.AMBIENT, 0f, 0f, 0f, 1f);
-        sun.setColor(LightSource.SPECULAR, 1, 1, 1, 0);
+        sun.setColor(LightSource.SPECULAR, 1, 1, 1, 1);
         addEntity(sun);
         
     }
