@@ -18,43 +18,60 @@ import javax.vecmath.Vector3d;
  * @author Vortex Acherontic
  */
 public class AIOrb extends SEAI{
+    private static final int SCALE_SYSTEM = 1;
     public static enum Generate{SUN, PLANET, MOON, NONE};
-    public static final int SCALE_SYSTEM = 0, SCALE_GALAXY = 1, SCALE_UNIVERSE = 2;
+    public static final int SCALE_GALAXY = 1, SCALE_UNIVERSE = 2;
     public static final double DISTANCE_SCALE[] = {10, 100, 1000000};
     
     private double mass, radius, speed;
     private double rotSpeed, curYear, curDay, distance, selfRotSpeed = 1;
     private AIOrb center;
     
+    private double radiusDistnace, polar, azimuthal;
+    
     public AIOrb(World world, Actor actor, SEAIWorld aiMod, AIOrb center, Generate gen){
         super(world, actor, aiMod);
-        if(center != null){
-            this.center = center;
-            distance = (Math.random()*100)+center.getRadius();
-            speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
-            rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
-            curYear = (Math.random()*360)%360;
-        }
         switch(gen){
             case MOON :
-                mass = Math.random()*Math.pow(10, 2.5);
-                radius = Math.random()*5;
+                mass = randomMoonMass();
+                radius = randomMoonRadius();
                 distance = (Math.random()*10)+center.getRadius()+radius;
                 break;
             case PLANET :
-                mass = Math.random()*Math.pow(10, 5);
-                radius = Math.random()*10;
+                mass = randomPlanetMass();
+                radius = randomPlanetRadius();
                 distance = (Math.random()*500)+center.getRadius()+radius;
                 break;
             case SUN :
-                mass = Math.random()*Math.pow(10, 11);
-                radius = Math.random()*100;
+                mass = randomSunMass();
+                radius = randomSunRadius();
                 break;
+        }
+        if(center != null){
+            this.center = center;
+            speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
+            rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
+            curYear = (Math.random()*360)%360;
+            polar = (Math.random()*360)%360;
+            azimuthal = (Math.random()*360)%360;
+            radiusDistnace = distance;
         }
     }
 
     @Override
     public void act(double delta) {
+        calcMovement(delta);
+    }
+    
+    public double getMass(){
+        return mass;
+    }
+    
+    public double getRadius(){
+        return radius;
+    }
+    
+    private void calcMovement(double delta){
         if(center != null){
             curYear += (rotSpeed*delta)%360;
             Vector2d cords = SEUtils.calcCoordinates(distance, curYear);
@@ -66,11 +83,27 @@ public class AIOrb extends SEAI{
         parentActor.getOrientation().setRotation(0, curDay, 0);
     }
     
-    public double getMass(){
-        return mass;
+    private double randomSunMass(){
+        return (Math.random()*1000)+100;
     }
     
-    public double getRadius(){
-        return radius;
+    private double randomSunRadius(){
+        return (Math.random()*10)+10;
+    }
+    
+    private double randomPlanetMass(){
+        return (Math.random()*100)+10;
+    }
+    
+    private double randomPlanetRadius(){
+        return (Math.random()*1)+1;
+    }
+    
+    private double randomMoonMass(){
+        return (Math.random()*10)+1;
+    }
+    
+    private double randomMoonRadius(){
+        return (Math.random()*0.1)+0.1;
     }
 }

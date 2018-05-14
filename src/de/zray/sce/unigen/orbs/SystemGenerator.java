@@ -77,9 +77,10 @@ public class SystemGenerator {
     }
     
     private Actor buildMoon(Actor planet, World world){
-        Material moonMaterial = new Material(new Color3f(Color.DARK_GRAY));
+        Material moonMaterial = new Material("scedata/textures/1024/planets/lunar2.jpg");
         moonMaterial.setShadeless(false);
         moonMaterial.setBackfaceCulling(true);
+        moonMaterial.setTestGen(false);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
         Mesh moonMesh = new IcoSphere(4).getSEMesh();
         moonMesh.setMaterial(moonMaterial);
