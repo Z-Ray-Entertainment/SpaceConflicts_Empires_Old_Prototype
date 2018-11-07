@@ -12,7 +12,7 @@ import de.zray.se.MainThread;
 import de.zray.se.Settings;
 import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
-import de.zray.se.renderbackend.opengl.GLRenderer;
+import de.zray.renderbackends.opengl.GLRenderer;
 import java.io.IOException;
 
 /**
