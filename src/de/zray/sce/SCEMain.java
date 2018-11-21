@@ -13,6 +13,7 @@ import de.zray.se.Settings;
 import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
 import de.zray.renderbackends.opengl.GLRenderer;
+import de.zray.sce.scenes.test.BoundingBoxTest;
 import java.io.IOException;
 
 /**
@@ -60,6 +61,12 @@ public class SCEMain {
                 dpTest.setAIWorld(new SEAIWorld(dpTest));
                 dpTest.init();
                 mainThread.switchWorld(dpTest);
+                break;
+            case 3 :
+                BoundingBoxTest bbTest = new BoundingBoxTest();
+                bbTest.setAIWorld(new SEAIWorld(bbTest));
+                bbTest.init();
+                mainThread.switchWorld(bbTest);
                 break;
         }
         

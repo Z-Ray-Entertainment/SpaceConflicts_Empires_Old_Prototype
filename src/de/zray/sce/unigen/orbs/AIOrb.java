@@ -49,8 +49,8 @@ public class AIOrb extends SEAI{
         }
         if(center != null){
             this.center = center;
-            speed = SEUtils.calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
-            rotSpeed = SEUtils.calcSpeedInAngleSpeed(speed, distance);
+            speed = SEUtils.get().calcSateliteSpeed(center.getMass(), center.getRadius(), distance);
+            rotSpeed = SEUtils.get().calcSpeedInAngleSpeed(speed, distance);
             curYear = (Math.random()*360)%360;
             polar = (Math.random()*360)%360;
             azimuthal = (Math.random()*360)%360;
@@ -74,7 +74,7 @@ public class AIOrb extends SEAI{
     private void calcMovement(double delta){
         if(center != null){
             curYear += (rotSpeed*delta)%360;
-            Vector2d cords = SEUtils.calcCoordinates(distance, curYear);
+            Vector2d cords = SEUtils.get().calcCoordinates(distance, curYear);
             Vector3d cPos = center.getActor().getOrientation().getPositionVec();
             Vector3d finalPos = new Vector3d(cords.x+cPos.x, cPos.y, cords.y+cPos.z);
             parentActor.getOrientation().setPosition(finalPos.x, finalPos.y, finalPos.z);

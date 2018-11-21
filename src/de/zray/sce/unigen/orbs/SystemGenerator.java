@@ -26,7 +26,7 @@ public class SystemGenerator {
         Actor sun = buildSun(world);
         system.add(sun);
         
-        int planetsAmmount = SEUtils.randomInt(planets[0], planets[1]);
+        int planetsAmmount = SEUtils.get().randomInt(planets[0], planets[1]);
         int overallOrbs = 1;
         
         for(int i = 0; i < planetsAmmount; i++){
@@ -70,7 +70,7 @@ public class SystemGenerator {
         Actor planet = new Actor(planetMesh, planetAI, null, world);
         planetAI.setActor(planet);
         orbs.add(planet);
-        for(int i = 0; i < SEUtils.randomInt(moonsMin, moonsMax); i++){
+        for(int i = 0; i < SEUtils.get().randomInt(moonsMin, moonsMax); i++){
             orbs.add(buildMoon(planet, world));
         }
         return orbs;
