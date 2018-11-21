@@ -25,7 +25,7 @@ public class AIStation extends SEAI{
     public void act(double delta) {
         turn += 1*delta;
         turn %= 360;
-        parentActor.getRootMesh().getOffset().setRotation(20, turn, 15);
+        parentActor.getOrientation().setRotation(20, turn, 15);
     }
     
 }
