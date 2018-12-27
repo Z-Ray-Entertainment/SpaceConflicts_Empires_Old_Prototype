@@ -46,7 +46,7 @@ public class SCEMain {
     private void initSCE(int scene) throws IOException, Exception{
         final MainThread mainThread = new MainThread();
         if(!mainThread.setRenderBackend(new VKRenderer())){
-            SELogger.get().dispatchMsg(this, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Switching to Legacy Open GL Renderer!"}, false);
+            SELogger.get().dispatchMsg(this, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Try using Open GL Renderer!"}, false);
             if(!mainThread.setRenderBackend(new GLRenderer())){
                 throw new Exception("No supported renderer!");
             } else {
