@@ -22,7 +22,7 @@ import java.io.IOException;
 public class SCEMain {
     private static SCEMain sceMain = new SCEMain();
     
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, Exception{
         Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
         Settings.get().debug.renderOnTop = true;
         Settings.get().debug.showGrid = false;
@@ -41,9 +41,11 @@ public class SCEMain {
         }
     }
     
-    private void initSCE(int scene) throws IOException{
+    private void initSCE(int scene) throws IOException, Exception{
         final MainThread mainThread = new MainThread();
-        mainThread.setRenderBackend(new GLRenderer());
+        if(!mainThread.setRenderBackend(new GLRenderer())){
+            throw new Exception("No supported renderer!");
+        }
         
         switch(scene){
             case 0 :
