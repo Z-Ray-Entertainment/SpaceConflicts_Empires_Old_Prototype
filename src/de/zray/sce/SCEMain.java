@@ -34,7 +34,11 @@ public class SCEMain {
         Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix+" | Engine: "+Settings.get().version;
         Settings.get().title = de.zray.sce.game.Settings.name;
         
-        sceMain.initSCE(Integer.parseInt(args[0]));
+        if(args.length < 1){
+            sceMain.initSCE(0);
+        } else {
+            sceMain.initSCE(Integer.parseInt(args[0]));
+        }
     }
     
     private void initSCE(int scene) throws IOException{
