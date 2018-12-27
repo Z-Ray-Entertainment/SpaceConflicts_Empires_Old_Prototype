@@ -17,7 +17,8 @@ import javax.vecmath.Vector3d;
  */
 public class AILycan extends SEAI{
     private Vector3d dest;
-    private  Vector3d move;
+    private Vector3d move;
+    private float speed = 1;
     
     public AILycan(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
@@ -91,9 +92,9 @@ public class AILycan extends SEAI{
                 }
             }
         }
-        pos.x += move.x*1*delta;
-        pos.y += move.y*1*delta;
-        pos.z += move.z*1*delta;
+        pos.x += move.x*speed*delta;
+        pos.y += move.y*speed*delta;
+        pos.z += move.z*speed*delta;
         parentActor.getOrientation().setPosition(pos.x, pos.y, pos.z);
     }
     
