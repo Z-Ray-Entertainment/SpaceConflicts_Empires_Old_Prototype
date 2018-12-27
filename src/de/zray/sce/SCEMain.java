@@ -49,7 +49,11 @@ public class SCEMain {
             SELogger.get().dispatchMsg(this, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Switching to Legacy Open GL Renderer!"}, false);
             if(!mainThread.setRenderBackend(new GLRenderer())){
                 throw new Exception("No supported renderer!");
+            } else {
+                SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Open GL Renderer"}, false);
             }
+        } else {
+            SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Vulkan Renderer"}, false);
         }
         
         switch(scene){
