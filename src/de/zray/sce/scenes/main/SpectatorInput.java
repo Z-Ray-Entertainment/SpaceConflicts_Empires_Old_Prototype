@@ -17,6 +17,7 @@ import javax.vecmath.Vector3f;
  */
 public class SpectatorInput extends InputManager{
     private int multi = 1;
+    private double movementSpeed = 10;
     
     public SpectatorInput(World world) {
         super(world);
@@ -44,42 +45,52 @@ public class SpectatorInput extends InputManager{
         switch(key){
             case KeyMap.KEY_Q :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y += 1*MainThread.getDeltaInSec()*multi;
+                pos.y += movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_E :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y -= 1*MainThread.getDeltaInSec()*multi;
+                pos.y -= movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_W :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z -= 1*MainThread.getDeltaInSec()*multi;
+                pos.z -= movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_S :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z += 1*MainThread.getDeltaInSec()*multi;
+                pos.z += movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_A :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x -= 1*MainThread.getDeltaInSec()*multi;
+                pos.x -= movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case KeyMap.KEY_D :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x += 1*MainThread.getDeltaInSec()*multi;
+                pos.x += movementSpeed*MainThread.getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_PAGE_DOWN :
+            case KeyMap.KEY_ARROW_DOWN :
                 rot = getWorld().getCurrentCamera().getRotation();
                 rot.x += (100*MainThread.getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
-            case KeyMap.KEY_PAGE_UP :
+            case KeyMap.KEY_ARROW_UP :
                 rot = getWorld().getCurrentCamera().getRotation();
                 rot.x -= (100*MainThread.getDeltaInSec())%360*multi;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
+            case KeyMap.KEY_ARROW_LEFT :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.y += (100*MainThread.getDeltaInSec())%360*multi;
+                getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
+                break;
+            case KeyMap.KEY_ARROW_RIGHT :
+                rot = getWorld().getCurrentCamera().getRotation();
+                rot.y -= (100*MainThread.getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
         }

@@ -26,7 +26,7 @@ public class SystemGenerator {
         Actor sun = buildSun(world);
         system.add(sun);
         
-        int planetsAmmount = SEUtils.randomInt(planets[0], planets[1]);
+        int planetsAmmount = SEUtils.get().randomInt(planets[0], planets[1]);
         int overallOrbs = 1;
         
         for(int i = 0; i < planetsAmmount; i++){
@@ -59,7 +59,7 @@ public class SystemGenerator {
     private List<Actor> buildPlanet(Actor sun, World world, int moonsMin, int moonsMax){
         List<Actor> orbs = new LinkedList<>();
         Material planetMaterial = new Material(new Color3f(Color.GREEN));
-        planetMaterial.setShadeless(true);
+        planetMaterial.setShadeless(false);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
         Mesh planetMesh = new IcoSphere(4).getSEMesh();
@@ -70,16 +70,17 @@ public class SystemGenerator {
         Actor planet = new Actor(planetMesh, planetAI, null, world);
         planetAI.setActor(planet);
         orbs.add(planet);
-        for(int i = 0; i < SEUtils.randomInt(moonsMin, moonsMax); i++){
+        for(int i = 0; i < SEUtils.get().randomInt(moonsMin, moonsMax); i++){
             orbs.add(buildMoon(planet, world));
         }
         return orbs;
     }
     
     private Actor buildMoon(Actor planet, World world){
-        Material moonMaterial = new Material(new Color3f(Color.DARK_GRAY));
-        moonMaterial.setShadeless(true);
+        Material moonMaterial = new Material("scedata/textures/1024/planets/lunar2.jpg");
+        moonMaterial.setShadeless(false);
         moonMaterial.setBackfaceCulling(true);
+        moonMaterial.setTestGen(false);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
         Mesh moonMesh = new IcoSphere(4).getSEMesh();
         moonMesh.setMaterial(moonMaterial);

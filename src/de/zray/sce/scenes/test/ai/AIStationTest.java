@@ -17,7 +17,8 @@ import de.zray.se.world.World;
 public class AIStationTest extends SEAI{
     private boolean moveLeft = false;
     private double start = 0;
-    private final double movementSpeed = 5, moveDistance = 50;
+    private final double movementSpeed = 5, moveDistance = 100;
+    private byte axis = 0;
     
     public AIStationTest(World world, Actor actor, SEAIWorld aiMod) {
         super(world, actor, aiMod);
@@ -27,13 +28,13 @@ public class AIStationTest extends SEAI{
     public void act(double delta) {
         double pos[] = getActor().getOrientation().getPosition();
         if(moveLeft){
-            pos[0] -= (movementSpeed*delta);
-            if(pos[0] <= -moveDistance){
+            pos[axis] -= (movementSpeed*delta);
+            if(pos[axis] <= -moveDistance){
                 moveLeft = false;
             }
         } else {
-            pos[0] += (movementSpeed*delta);
-            if(pos[0] >= moveDistance){
+            pos[axis] += (movementSpeed*delta);
+            if(pos[axis] >= moveDistance){
                 moveLeft = true;
             }
         }

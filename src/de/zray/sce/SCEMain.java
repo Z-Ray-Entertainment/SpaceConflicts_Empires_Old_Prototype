@@ -9,36 +9,53 @@ import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.sce.scenes.test.DistancePatchTest;
 import de.zray.sce.scenes.test.TextureTest;
 import de.zray.se.MainThread;
-import de.zray.se.Settings;
+import de.zray.se.EngineSettings;
 import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
-import de.zray.se.renderbackend.opengl.GLRenderer;
+import de.zray.renderbackends.opengl.GLRenderer;
+import de.zray.renderbackends.vulkan.VKRenderer;
+import de.zray.sce.game.Settings;
+import de.zray.sce.scenes.test.BoundingBoxTest;
+import de.zray.se.logger.SELogger;
 import java.io.IOException;
 
 /**
  * @author vortex
  */
 public class SCEMain {
-    private static SCEMain sceMain = new SCEMain();
+    private static final SCEMain sceMain = new SCEMain();
     
-    public static void main(String[] args) throws IOException{
-        Settings.get().debug.debugMode = Settings.DebugMode.DEBUG_AND_OBJECTS;
-        Settings.get().debug.renderOnTop = true;
-        Settings.get().debug.showGrid = false;
-        Settings.get().scene.dpSizes = null;
-        Settings.get().scene.dpSizes = new int[]{100, 10, 1};
-        Settings.get().debug.gridStep = 10;
-        Settings.get().window.resX = 1280;
-        Settings.get().window.resY = 720;
-        Settings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix+" | Engine: "+Settings.get().version;
-        Settings.get().title = de.zray.sce.game.Settings.name;
+    public static void main(String[] args) throws IOException, Exception{
+        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_AND_OBJECTS;
+        EngineSettings.get().debug.renderOnTop = true;
+        EngineSettings.get().debug.showGrid = false;
+        EngineSettings.get().scene.dpSizes = null;
+        EngineSettings.get().scene.dpSizes = new int[]{100, 10, 1};
+        EngineSettings.get().debug.gridStep = 10;
+        EngineSettings.get().window.resX = 1280;
+        EngineSettings.get().window.resY = 720;
+        EngineSettings.get().version = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
+        EngineSettings.get().title = Settings.name;
         
-        sceMain.initSCE(Integer.parseInt(args[0]));
+        if(args.length <= 0 ){
+            sceMain.initSCE(0);
+        } else {
+            sceMain.initSCE(Integer.parseInt(args[0]));
+        }
     }
     
-    private void initSCE(int scene) throws IOException{
+    private void initSCE(int scene) throws IOException, Exception{
         final MainThread mainThread = new MainThread();
-        mainThread.setRenderBackend(new GLRenderer());
+        if(!mainThread.setRenderBackend(new VKRenderer())){
+            SELogger.get().dispatchMsg(this, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Try using Open GL Renderer!"}, false);
+            if(!mainThread.setRenderBackend(new GLRenderer())){
+                throw new Exception("No supported renderer!");
+            } else {
+                SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Open GL Renderer"}, false);
+            }
+        } else {
+            SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Vulkan Renderer"}, false);
+        }
         
         switch(scene){
             case 0 :
@@ -60,6 +77,12 @@ public class SCEMain {
                 dpTest.setAIWorld(new SEAIWorld(dpTest));
                 dpTest.init();
                 mainThread.switchWorld(dpTest);
+                break;
+            case 3 :
+                BoundingBoxTest bbTest = new BoundingBoxTest();
+                bbTest.setAIWorld(new SEAIWorld(bbTest));
+                bbTest.init();
+                mainThread.switchWorld(bbTest);
                 break;
         }
         

@@ -5,14 +5,6 @@
  */
 package de.zray.sce.test.cmds;
 
-<<<<<<< src/de/zray/sce/test/cmds/ToogleDispatcherHook.java
-=======
-import de.zray.sce.test.Console;
-import de.zray.coretex.AbstractCommand;
-import de.zray.coretex.Parameter;
-import java.util.List;
-
->>>>>>> src/de/zray/sce/test/cmds/ToogleDispatcherHook.java
 /**
  *
  * @author Vortex Acherontic
