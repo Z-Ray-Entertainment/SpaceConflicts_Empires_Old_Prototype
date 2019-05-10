@@ -7,7 +7,7 @@ package de.zray.sce.scenes.main;
 
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
-import de.zray.sce.unigen.orbs.SystemGenerator;
+import de.zray.sce.unigen.systemgen.SystemGenerator;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.graphics.Camera;
