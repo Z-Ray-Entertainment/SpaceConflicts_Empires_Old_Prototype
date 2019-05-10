@@ -14,6 +14,7 @@ import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
 import de.zray.renderbackends.opengl.GLRenderer;
 import de.zray.renderbackends.vulkan.VKRenderer;
+import de.zray.sce.game.Settings;
 import de.zray.sce.scenes.test.BoundingBoxTest;
 import de.zray.se.logger.SELogger;
 import java.io.IOException;
@@ -33,8 +34,8 @@ public class SCEMain {
         EngineSettings.get().debug.gridStep = 10;
         EngineSettings.get().window.resX = 1280;
         EngineSettings.get().window.resY = 720;
-        EngineSettings.get().version = de.zray.sce.game.Settings.version+" "+de.zray.sce.game.Settings.suffix+" | Engine: "+EngineSettings.get().version;
-        EngineSettings.get().title = de.zray.sce.game.Settings.name;
+        EngineSettings.get().version = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
+        EngineSettings.get().title = Settings.name;
         
         if(args.length <= 0 ){
             sceMain.initSCE(0);
