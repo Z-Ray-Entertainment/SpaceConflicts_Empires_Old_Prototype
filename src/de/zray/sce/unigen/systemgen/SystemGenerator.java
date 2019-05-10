@@ -3,8 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.zray.sce.unigen.orbs;
+package de.zray.sce.unigen.systemgen;
 
+import de.zray.sce.unigen.orbs.AIOrb;
 import de.zray.se.world.Actor;
 import de.zray.se.utils.SEUtils;
 import de.zray.se.world.World;
@@ -58,7 +59,7 @@ public class SystemGenerator {
     
     private List<Actor> buildPlanet(Actor sun, World world, int moonsMin, int moonsMax){
         List<Actor> orbs = new LinkedList<>();
-        Material planetMaterial = new Material(new Color3f(Color.GREEN));
+        Material planetMaterial = new Material("scedata/textures/1024/others/debug-128.jpg");
         planetMaterial.setShadeless(false);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
@@ -77,7 +78,7 @@ public class SystemGenerator {
     }
     
     private Actor buildMoon(Actor planet, World world){
-        Material moonMaterial = new Material("scedata/textures/1024/planets/lunar2.jpg");
+        Material moonMaterial = new Material("scedata/textures/1024/others/debug-64.jpg");
         moonMaterial.setShadeless(false);
         moonMaterial.setBackfaceCulling(true);
         moonMaterial.setTestGen(false);
