@@ -8,7 +8,7 @@ package de.zray.sce.scenes.test;
 import de.zray.sce.scenes.main.SpectatorInput;
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
-import de.zray.sce.unigen.orbs.SystemGenerator;
+import de.zray.sce.unigen.systemgen.SystemGenerator;
 import de.zray.se.graphics.Camera;
 import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.modelloader.Modelloader;
