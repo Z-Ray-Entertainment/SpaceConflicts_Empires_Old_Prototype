@@ -22,6 +22,8 @@ import javax.vecmath.Color3f;
  * @author vortex
  */
 public class SystemGenerator {
+    private static final int orbRes = 4;
+    
     public List<Actor> generateSystem(int[] planets, int[] moonsPerPlanet, World world){
         List<Actor> system = new LinkedList<Actor>();
         Actor sun = buildSun(world);
@@ -48,7 +50,7 @@ public class SystemGenerator {
         sunMat.setBackfaceCulling(true);
         sunMat.setShadeless(true);
         AIOrb sunAI = new AIOrb(world, null, world.getAIWorld(), null, AIOrb.Generate.SUN);
-        Mesh sunMesh = new IcoSphere(4).getSEMesh();
+        Mesh sunMesh = new IcoSphere(orbRes).getSEMesh();
         sunMesh.getOffset().setScale(sunAI.getRadius(), sunAI.getRadius(), sunAI.getRadius());
         sunMesh.setRenderMode(Mesh.RenderMode.VBO);
         sunMesh.setMaterial(sunMat);
@@ -59,11 +61,11 @@ public class SystemGenerator {
     
     private List<Actor> buildPlanet(Actor sun, World world, int moonsMin, int moonsMax){
         List<Actor> orbs = new LinkedList<>();
-        Material planetMaterial = new Material("scedata/textures/1024/others/debug-128.jpg");
+        Material planetMaterial = new Material("scedata/textures/1024/others/debug-128.png");
         planetMaterial.setShadeless(false);
         planetMaterial.setBackfaceCulling(true);
         AIOrb planetAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) sun.getSEAI(), AIOrb.Generate.PLANET);
-        Mesh planetMesh = new IcoSphere(4).getSEMesh();
+        Mesh planetMesh = new IcoSphere(orbRes).getSEMesh();
         planetMesh.getOffset().setScale(planetAI.getRadius(), planetAI.getRadius(), planetAI.getRadius());
         planetMesh.setMaterial(planetMaterial);
         planetMesh.setDisplayMode(Mesh.DisplayMode.SOLID);
@@ -78,12 +80,12 @@ public class SystemGenerator {
     }
     
     private Actor buildMoon(Actor planet, World world){
-        Material moonMaterial = new Material("scedata/textures/1024/others/debug-64.jpg");
+        Material moonMaterial = new Material("scedata/textures/1024/planets/dark-astro.png");
         moonMaterial.setShadeless(false);
         moonMaterial.setBackfaceCulling(true);
         moonMaterial.setTestGen(false);
         AIOrb moonAI = new AIOrb(world, null, world.getAIWorld(), (AIOrb) planet.getSEAI(), AIOrb.Generate.MOON);
-        Mesh moonMesh = new IcoSphere(4).getSEMesh();
+        Mesh moonMesh = new IcoSphere(orbRes).getSEMesh();
         moonMesh.setMaterial(moonMaterial);
         moonMesh.getOffset().setScale(moonAI.getRadius(), moonAI.getRadius(), moonAI.getRadius());
         moonMesh.setDisplayMode(Mesh.DisplayMode.SOLID);
