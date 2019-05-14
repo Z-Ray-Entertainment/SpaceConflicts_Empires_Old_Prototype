@@ -7,7 +7,6 @@ package de.zray.sce.scenes.main;
 
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
-import de.zray.sce.unigen.systemgen.SystemGenerator;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.graphics.Camera;
@@ -15,7 +14,6 @@ import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
-import java.util.List;
 
 /**
  *
@@ -49,10 +47,10 @@ public class SCEMainWorld extends World {
         lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
         addEntity(lycan2);
 
-        List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{1, 4}, this);
+        /*List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{1, 4}, this);
         for(Actor tmp : system){
             addEntity(tmp);
-        }
+        }*/
         
         System.out.println("========Station========");
         Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
