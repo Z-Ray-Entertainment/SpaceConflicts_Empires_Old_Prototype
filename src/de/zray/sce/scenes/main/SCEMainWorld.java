@@ -61,7 +61,7 @@ public class SCEMainWorld extends World {
         stationMat.setShadeless(false);
         stationMat.setBackfaceCulling(true);
         stationMesh.setMaterial(stationMat);
-        stationMesh.setRenderDist(1000);
+        stationMesh.setRenderDist(50);
         stationMesh.setRenderMode(Mesh.RenderMode.VBO);
         AIStation stationAI = new AIStation(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
@@ -74,19 +74,19 @@ public class SCEMainWorld extends World {
         stationLOD0_5.setMaterial(stationMat);
         stationLOD0_5.setRenderDist(70);
         stationLOD0_5.setRenderMode(Mesh.RenderMode.VBO);
-        stationMesh.addLOD(stationLOD0_5);
+        stationMesh.setLOD(stationLOD0_5);
         
         Mesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
         stationLOD0_25.setMaterial(stationMat);
         stationLOD0_25.setRenderDist(80);
         stationLOD0_25.setRenderMode(Mesh.RenderMode.VBO);
-        stationMesh.addLOD(stationLOD0_25);
+        stationLOD0_5.setLOD(stationLOD0_25);
         
         Mesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
         stationLOD0_0.setMaterial(stationMat);
-        stationLOD0_0.setRenderDist(100);
+        stationLOD0_0.setRenderDist(-1);
         stationLOD0_0.setRenderMode(Mesh.RenderMode.VBO);
-        stationMesh.addLOD(stationLOD0_0);
+        stationLOD0_25.setLOD(stationLOD0_0);
         addEntity(station);
         
         int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
