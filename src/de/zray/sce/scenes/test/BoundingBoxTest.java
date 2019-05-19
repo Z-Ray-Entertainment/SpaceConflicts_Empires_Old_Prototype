@@ -12,6 +12,7 @@ import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.semesh.Mesh;
+import de.zray.se.storages.AssetLibrary;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 
@@ -35,7 +36,7 @@ public class BoundingBoxTest extends World {
         this.setActiveCamera(mainCam);
         
         System.out.println("========Station========");
-        Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
+        Mesh stationMesh = Modelloader.get().loadModel("warpstation.obj");
         Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(false);

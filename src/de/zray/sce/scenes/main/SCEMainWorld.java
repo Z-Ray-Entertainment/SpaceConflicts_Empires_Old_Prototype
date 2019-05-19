@@ -14,6 +14,7 @@ import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
+import de.zray.se.storages.AssetLibrary;
 
 /**
  *
@@ -34,8 +35,8 @@ public class SCEMainWorld extends World {
         int mainCam = this.addCamera(cam);
         this.setActiveCamera(mainCam);
         
-        Mesh lycanMesh = Modelloader.get().loadModel("scedata/models/wolfrim/lycan/lycan.obj");
-        Material lycanMat = new Material("scedata/models/wolfrim/lycan/lycan.png");
+        Mesh lycanMesh = Modelloader.get().loadModel("lycan.obj");
+        Material lycanMat = new Material("lycan.png");
         lycanMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0);
         lycanMesh.setMaterial(lycanMat);
         lycanMesh.setRenderMode(Mesh.RenderMode.VBO);
@@ -53,8 +54,8 @@ public class SCEMainWorld extends World {
         }*/
         
         System.out.println("========Station========");
-        Mesh stationMesh = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation.obj");
-        Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
+        Mesh stationMesh = Modelloader.get().loadModel("warpstation.obj");
+        Material stationMat = new Material("warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(false);
         stationMat.setBackfaceCulling(true);
@@ -68,26 +69,26 @@ public class SCEMainWorld extends World {
         station.getOrientation().setPosition(0, 0, 0);
         
         System.out.println("========Station LODS========");
-        Mesh stationLOD0_5 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.5.obj");
+        Mesh stationLOD0_5 = Modelloader.get().loadModel("warpstation-0.5.obj");
         stationLOD0_5.setMaterial(stationMat);
         stationLOD0_5.setRenderDist(70);
         stationLOD0_5.setRenderMode(Mesh.RenderMode.VBO);
         stationMesh.setLOD(stationLOD0_5);
         
-        Mesh stationLOD0_25 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.25.obj");
+        Mesh stationLOD0_25 = Modelloader.get().loadModel("warpstation-0.25.obj");
         stationLOD0_25.setMaterial(stationMat);
         stationLOD0_25.setRenderDist(80);
         stationLOD0_25.setRenderMode(Mesh.RenderMode.VBO);
         stationLOD0_5.setLOD(stationLOD0_25);
         
-        Mesh stationLOD0_0 = Modelloader.get().loadModel("scedata/models/cron/warpstation/warpstation-0.0.obj");
+        Mesh stationLOD0_0 = Modelloader.get().loadModel("warpstation-0.0.obj");
         stationLOD0_0.setMaterial(stationMat);
         stationLOD0_0.setRenderDist(-1);
         stationLOD0_0.setRenderMode(Mesh.RenderMode.VBO);
         stationLOD0_25.setLOD(stationLOD0_0);
         addEntity(station);
         
-        int music = getAudioWorld().loadAudioFile("scedata/audio/bgm/normal/rynos_theme.ogg");
+        int music = getAudioWorld().loadAudioFile("rynos_theme.ogg");
         getAudioWorld().getAudioSource(music).playAsMusic(true);
         //getAudioWorld().loadAudioFile("scedata/audio/bgm/battle/battle2.ogg").playAsMusic(false);
         /*Playlist playlist = new Playlist();
