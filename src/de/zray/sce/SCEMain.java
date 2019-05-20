@@ -47,16 +47,8 @@ public class SCEMain {
     
     private void initSCE(int scene) throws IOException, Exception{
         final MainThread mainThread = new MainThread();
-        if(!mainThread.setRenderBackend(new VKRenderer())){
-            SELogger.get().dispatchMsg(SCEMain.class, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Try using Open GL Renderer!"}, false);
-            if(!mainThread.setRenderBackend(new GLRenderer())){
-                throw new Exception("No supported renderer!");
-            } else {
-                SELogger.get().dispatchMsg(SCEMain.class, SELogger.SELogType.INFO, new String[]{"Using Open GL Renderer"}, false);
-            }
-        } else {
-            SELogger.get().dispatchMsg(SCEMain.class, SELogger.SELogType.INFO, new String[]{"Using Vulkan Renderer"}, false);
-        }
+        mainThread.registerRenderBackend(new GLRenderer());
+        mainThread.registerRenderBackend(new VKRenderer());
         
         switch(scene){
             case 0 :
