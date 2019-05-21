@@ -16,7 +16,6 @@ import de.zray.renderbackends.opengl.GLRenderer;
 import de.zray.renderbackends.vulkan.VKRenderer;
 import de.zray.sce.game.Settings;
 import de.zray.sce.scenes.test.BoundingBoxTest;
-import de.zray.se.logger.SELogger;
 import java.io.IOException;
 
 /**

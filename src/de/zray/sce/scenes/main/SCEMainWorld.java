@@ -14,7 +14,7 @@ import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
-import de.zray.se.storages.AssetLibrary;
+import de.zray.se.graphics.shapes.IcoSphere;
 
 /**
  *
@@ -46,8 +46,45 @@ public class SCEMainWorld extends World {
         
         Actor lycan2 = new Actor(lycanMesh, null, null, this);
         lycan2.setAI(new AILycan(this, lycan2, this.getAIWorld()));
+        
         addEntity(lycan2);
 
+        Mesh icoSphere_3 = new IcoSphere(3).getSEMesh();
+        icoSphere_3.setRenderDist(20);
+        Mesh icoSphere_2 = new IcoSphere(2).getSEMesh();
+        icoSphere_2.setRenderDist(30);
+        Mesh icoSphere_1 = new IcoSphere(1).getSEMesh();
+        icoSphere_1.setRenderDist(40);
+        Mesh icoSphere_0 = new IcoSphere(0).getSEMesh();
+        icoSphere_0.setRenderDist(-1);
+        
+        Material sphereMat = new Material("lunar2.png");
+        sphereMat.setDiffuseColor(1, 1, 1, 0);
+        sphereMat.setShadeless(false);
+        icoSphere_0.setMaterial(sphereMat);
+        icoSphere_1.setMaterial(sphereMat);
+        icoSphere_2.setMaterial(sphereMat);
+        icoSphere_3.setMaterial(sphereMat);
+        
+        icoSphere_0.setRenderMode(Mesh.RenderMode.VBO);
+        icoSphere_0.setDisplayMode(Mesh.DisplayMode.WIRED);
+        icoSphere_1.setRenderMode(Mesh.RenderMode.VBO);
+        icoSphere_1.setDisplayMode(Mesh.DisplayMode.WIRED);
+        icoSphere_2.setRenderMode(Mesh.RenderMode.VBO);
+        icoSphere_2.setDisplayMode(Mesh.DisplayMode.WIRED);
+        icoSphere_3.setRenderMode(Mesh.RenderMode.VBO);
+        icoSphere_3.setDisplayMode(Mesh.DisplayMode.WIRED);
+        
+        icoSphere_3.setLOD(icoSphere_2);
+        icoSphere_2.setLOD(icoSphere_1);
+        icoSphere_1.setLOD(icoSphere_0);
+        
+        Actor sphere = new Actor(icoSphere_3, null, null, this);
+        sphere.getOrientation().setScale(2, 2, 2);
+        sphere.getOrientation().setPosition(5, 0, 0);
+        addEntity(sphere);
+        
+        
         /*List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{1, 4}, this);
         for(Actor tmp : system){
             addEntity(tmp);
