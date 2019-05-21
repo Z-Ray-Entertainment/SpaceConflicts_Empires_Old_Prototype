@@ -15,6 +15,7 @@ import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
 import de.zray.se.graphics.shapes.IcoSphere;
+import de.zray.se.utils.UVGenerator.Mapping;
 
 /**
  *
@@ -49,16 +50,13 @@ public class SCEMainWorld extends World {
         
         addEntity(lycan2);
 
-        Actor sphereV = testSpheres(IcoSphere.UVMode.BY_VERTEX);
-        sphereV.getOrientation().setPosition(5, 0, 0);
-        Actor sphereN = testSpheres(IcoSphere.UVMode.BY_NORMAL);
-        sphereN.getOrientation().setPosition(11, 0, 0);
-        Actor sphereC = testSpheres(IcoSphere.UVMode.CYLINDRIC);
-        sphereC.getOrientation().setPosition(16, 0, 0);
+        Actor sphereS = testSpheres(Mapping.SPHERE);
+        sphereS.getOrientation().setPosition(5, 0, 0);
+        Actor sphereC = testSpheres(Mapping.CYLINDER);
+        sphereC.getOrientation().setPosition(11, 0, 0);
         
         addEntity(sphereC);
-        addEntity(sphereN);
-        addEntity(sphereV);
+        addEntity(sphereS);
         
         /*List<Actor> system = new SystemGenerator().generateSystem(new int[]{1, 10}, new int[]{1, 4}, this);
         for(Actor tmp : system){
@@ -128,14 +126,14 @@ public class SCEMainWorld extends World {
         
     }
     
-    private Actor testSpheres(IcoSphere.UVMode uvMode){
-        Mesh icoSphere_3 = new IcoSphere(3, uvMode).getSEMesh();
+    private Actor testSpheres(Mapping mapping){
+        Mesh icoSphere_3 = new IcoSphere(3, mapping).getSEMesh();
         icoSphere_3.setRenderDist(20);
-        Mesh icoSphere_2 = new IcoSphere(2, uvMode).getSEMesh();
+        Mesh icoSphere_2 = new IcoSphere(2, mapping).getSEMesh();
         icoSphere_2.setRenderDist(30);
-        Mesh icoSphere_1 = new IcoSphere(1, uvMode).getSEMesh();
+        Mesh icoSphere_1 = new IcoSphere(1, mapping).getSEMesh();
         icoSphere_1.setRenderDist(40);
-        Mesh icoSphere_0 = new IcoSphere(0, uvMode).getSEMesh();
+        Mesh icoSphere_0 = new IcoSphere(0, mapping).getSEMesh();
         icoSphere_0.setRenderDist(-1);
         
         Material sphereMat = new Material("lunar2.png");

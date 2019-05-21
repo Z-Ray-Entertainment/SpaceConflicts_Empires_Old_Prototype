@@ -5,7 +5,7 @@
  */
 package de.zray.sce.game;
 
-import javax.vecmath.Vector3d;
+import org.joml.Vector3d;
 
 /**
  *

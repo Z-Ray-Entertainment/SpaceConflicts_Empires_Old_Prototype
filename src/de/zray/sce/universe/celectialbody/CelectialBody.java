@@ -6,7 +6,7 @@
 package de.zray.sce.universe.celectialbody;
 
 import de.zray.se.world.Actor;
-import javax.vecmath.Vector3d;
+import org.joml.Vector3d;
 
 /**
  *

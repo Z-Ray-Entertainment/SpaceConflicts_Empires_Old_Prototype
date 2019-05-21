@@ -9,7 +9,7 @@ import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.ai.SEAI;
 import de.zray.se.ai.SEAIWorld;
-import javax.vecmath.Vector3d;
+import org.joml.Vector3d;
 
 /**
  *
