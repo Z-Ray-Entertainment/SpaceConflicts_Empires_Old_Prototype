@@ -1,6 +1,9 @@
-/nbproject/private/
-/dist/
-/nbproject/
-/test/
-/build/
-/build.xml
+nbproject/private/
+nbproject/
+build/
+build.xml
+dist/
+nbdist/
+private/
+test/
+nbproject/project.properties
