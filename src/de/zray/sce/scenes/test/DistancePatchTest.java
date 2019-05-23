@@ -7,11 +7,11 @@ package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
 import de.zray.sce.scenes.test.ai.AIStationTest;
+import de.zray.se.Engine;
 import de.zray.se.graphics.Camera;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.semesh.Mesh;
-import de.zray.se.storages.AssetLibrary;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 
@@ -23,7 +23,7 @@ public class DistancePatchTest extends World{
 
     @Override
     public void init() {
-        addInputManager(new SpectatorInput(this));
+        Engine.get().addInputManager(new SpectatorInput(this));
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);
         cam.setViewMode(Camera.ViewMode.EGO);

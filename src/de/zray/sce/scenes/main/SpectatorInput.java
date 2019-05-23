@@ -5,11 +5,11 @@
  */
 package de.zray.sce.scenes.main;
 
-import de.zray.se.MainThread;
+import de.zray.se.Engine;
 import de.zray.se.world.World;
 import de.zray.se.inputmanager.InputManager;
-import de.zray.se.inputmanager.KeyMap;
 import org.joml.Vector3f;
+import static org.lwjgl.glfw.GLFW.*;
 
 /**
  *
@@ -43,54 +43,54 @@ public class SpectatorInput extends InputManager{
         Vector3f pos = new Vector3f();
         Vector3f rot = new Vector3f();
         switch(key){
-            case KeyMap.KEY_Q :
+            case GLFW_KEY_Q :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y += movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.y += movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_E :
+            case GLFW_KEY_E :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y -= movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.y -= movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_W :
+            case GLFW_KEY_W :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z -= movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.z -= movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_S :
+            case GLFW_KEY_S :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z += movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.z += movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_A :
+            case GLFW_KEY_A :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x -= movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.x -= movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_D :
+            case GLFW_KEY_D :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x += movementSpeed*MainThread.getDeltaInSec()*multi;
+                pos.x += movementSpeed*Engine.get().getDeltaInSec()*multi;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
-            case KeyMap.KEY_ARROW_DOWN :
+            case GLFW_KEY_DOWN :
                 rot = getWorld().getCurrentCamera().getRotation();
-                rot.x += (100*MainThread.getDeltaInSec())%360*multi;
+                rot.x += (100*Engine.get().getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
-            case KeyMap.KEY_ARROW_UP :
+            case GLFW_KEY_UP :
                 rot = getWorld().getCurrentCamera().getRotation();
-                rot.x -= (100*MainThread.getDeltaInSec())%360*multi;
+                rot.x -= (100*Engine.get().getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
-            case KeyMap.KEY_ARROW_LEFT :
+            case GLFW_KEY_LEFT :
                 rot = getWorld().getCurrentCamera().getRotation();
-                rot.y += (100*MainThread.getDeltaInSec())%360*multi;
+                rot.y += (100*Engine.get().getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
-            case KeyMap.KEY_ARROW_RIGHT :
+            case GLFW_KEY_RIGHT :
                 rot = getWorld().getCurrentCamera().getRotation();
-                rot.y -= (100*MainThread.getDeltaInSec())%360*multi;
+                rot.y -= (100*Engine.get().getDeltaInSec())%360*multi;
                 getWorld().getCurrentCamera().setRotation(rot.x, rot.y, rot.z);
                 break;
         }
@@ -99,7 +99,7 @@ public class SpectatorInput extends InputManager{
     @Override
     public void keyTiped(int key) {
         switch(key){
-            case KeyMap.KEY_LEFT_SHIFT :
+            case GLFW_KEY_LEFT_SHIFT :
                 multi = 10;
                 break;
         }
@@ -108,10 +108,10 @@ public class SpectatorInput extends InputManager{
     @Override
     public void keyReleased(int key) {
         switch(key){
-            case KeyMap.KEY_ESCAPE :
+            case GLFW_KEY_ESCAPE :
                 System.exit(0);
                 break;
-            case KeyMap.KEY_LEFT_SHIFT :
+            case GLFW_KEY_LEFT_SHIFT :
                 multi = 1;
                 break;
         }

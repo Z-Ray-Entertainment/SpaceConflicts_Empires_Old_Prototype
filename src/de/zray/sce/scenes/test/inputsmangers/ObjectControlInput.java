@@ -5,11 +5,11 @@
  */
 package de.zray.sce.scenes.test.inputsmangers;
 
-import de.zray.se.MainThread;
+import de.zray.se.Engine;
 import de.zray.se.inputmanager.InputManager;
-import de.zray.se.inputmanager.KeyMap;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
+import static org.lwjgl.glfw.GLFW.*;
 
 /**
  *
@@ -46,17 +46,17 @@ public class ObjectControlInput extends InputManager{
         double z = linkedActor.getOrientation().getPositionVec().z;
         
         switch(key){
-            case KeyMap.KEY_ARROW_UP :
-                x += .001 * MainThread.getDeltaInSec();
+            case GLFW_KEY_UP :
+                x += .001 * Engine.get().getDeltaInSec();
                 break;
-            case KeyMap.KEY_ARROW_DOWN :
-                x -= .001 * MainThread.getDeltaInSec();
+            case GLFW_KEY_DOWN :
+                x -= .001 * Engine.get().getDeltaInSec();
                 break;
-            case KeyMap.KEY_ARROW_LEFT :
-                z += .001 * MainThread.getDeltaInSec();
+            case GLFW_KEY_LEFT :
+                z += .001 * Engine.get().getDeltaInSec();
                 break;
-            case KeyMap.KEY_ARROW_RIGHT :
-                z -= .001 * MainThread.getDeltaInSec();
+            case GLFW_KEY_RIGHT :
+                z -= .001 * Engine.get().getDeltaInSec();
                 break;
         }
         

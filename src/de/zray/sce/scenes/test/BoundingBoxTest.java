@@ -7,12 +7,12 @@ package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
 import de.zray.sce.scenes.main.ais.AIStation;
+import de.zray.se.Engine;
 import de.zray.se.graphics.Camera;
 import de.zray.se.graphics.LightSource;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.semesh.Mesh;
-import de.zray.se.storages.AssetLibrary;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 
@@ -24,7 +24,7 @@ public class BoundingBoxTest extends World {
 
     @Override
     public void init() {
-        addInputManager(new SpectatorInput(this));
+        Engine.get().addInputManager(new SpectatorInput(this));
         //addGUI(new GUIMain(this));
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);

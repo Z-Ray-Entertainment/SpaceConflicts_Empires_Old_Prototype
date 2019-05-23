@@ -7,6 +7,7 @@ package de.zray.sce.scenes.main;
 
 import de.zray.sce.scenes.main.ais.AILycan;
 import de.zray.sce.scenes.main.ais.AIStation;
+import de.zray.se.Engine;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.graphics.Camera;
@@ -25,7 +26,7 @@ public class SCEMainWorld extends World {
     
     @Override
     public void init(){
-        addInputManager(new SpectatorInput(this));
+        Engine.get().addInputManager(new SpectatorInput(this));
         //addGUI(new GUIMain(this));
         Camera cam = new Camera();
         cam.setPerspectiveRendering(true);

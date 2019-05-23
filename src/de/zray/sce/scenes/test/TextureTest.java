@@ -6,6 +6,7 @@
 package de.zray.sce.scenes.test;
 
 import de.zray.sce.scenes.main.SpectatorInput;
+import de.zray.se.Engine;
 import de.zray.se.world.Actor;
 import de.zray.se.world.World;
 import de.zray.se.graphics.semesh.Mesh;
@@ -21,7 +22,7 @@ public class TextureTest extends World{
 
     @Override
     public void init() {
-        addInputManager(new SpectatorInput(this));
+        Engine.get().addInputManager(new SpectatorInput(this));
         Mesh plane = new Plane(1, 1, false).getSEMesh();
         plane.getOffset().setRotation(-90, 0, 0);
         plane.getOffset().setPosition(0, 0, -10);

@@ -8,7 +8,7 @@ package de.zray.sce;
 import de.zray.sce.scenes.main.SCEMainWorld;
 import de.zray.sce.scenes.test.DistancePatchTest;
 import de.zray.sce.scenes.test.TextureTest;
-import de.zray.se.MainThread;
+import de.zray.se.Engine;
 import de.zray.se.EngineSettings;
 import de.zray.se.ai.SEAIWorld;
 import de.zray.se.audio.SEAudioWorld;
@@ -33,8 +33,7 @@ public class SCEMain {
         EngineSettings.get().debug.gridStep = 10;
         EngineSettings.get().window.resX = 1280;
         EngineSettings.get().window.resY = 720;
-        EngineSettings.get().version = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
-        EngineSettings.get().title = Settings.name;
+        EngineSettings.get().windowTitle = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
         EngineSettings.get().assetDirectory = "scedata/";
         
         if(args.length <= 0 ){
@@ -45,7 +44,7 @@ public class SCEMain {
     }
     
     private void initSCE(int scene) throws IOException, Exception{
-        final MainThread mainThread = new MainThread();
+        final Engine mainThread = new Engine();
         mainThread.registerRenderBackend(new GLRenderer());
         mainThread.registerRenderBackend(new VKRenderer());
         
