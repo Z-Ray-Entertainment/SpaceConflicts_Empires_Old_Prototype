@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package de.zray.sce.universe;
+package de.zray.sce.universe.celectialbody;
 
-import de.zray.sce.universe.celectialbody.CelectialBody;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -13,14 +12,14 @@ import java.util.List;
  *
  * @author vortex
  */
-public class Universe {
+public class Galaxy extends CelectialBody{
     private List<CelectialBody> bodies = new LinkedList();
     
-    public void addBodie(CelectialBody body){
+    public void addCelectialBody(CelectialBody body){
         this.bodies.add(body);
     }
     
-    public List<CelectialBody> getBodies(){
-        return bodies;
+    public LinkedList<CelectialBody> getBodyies(){
+        return (LinkedList<CelectialBody>) bodies;
     }
 }

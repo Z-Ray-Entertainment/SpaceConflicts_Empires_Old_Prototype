@@ -6,8 +6,9 @@
 package de.zray.sce.utils;
 
 import java.util.Random;
-import javax.vecmath.Vector2d;
-import javax.vecmath.Vector3d;
+import org.joml.Vector2d;
+import org.joml.Vector3d;
+
 
 /**
  *

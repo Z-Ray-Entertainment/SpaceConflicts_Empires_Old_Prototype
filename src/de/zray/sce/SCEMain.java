@@ -16,7 +16,6 @@ import de.zray.renderbackends.opengl.GLRenderer;
 import de.zray.renderbackends.vulkan.VKRenderer;
 import de.zray.sce.game.Settings;
 import de.zray.sce.scenes.test.BoundingBoxTest;
-import de.zray.se.logger.SELogger;
 import java.io.IOException;
 
 /**
@@ -26,7 +25,7 @@ public class SCEMain {
     private static final SCEMain sceMain = new SCEMain();
     
     public static void main(String[] args) throws IOException, Exception{
-        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_AND_OBJECTS;
+        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_OFF;
         EngineSettings.get().debug.renderOnTop = true;
         EngineSettings.get().debug.showGrid = false;
         EngineSettings.get().scene.dpSizes = null;
@@ -36,6 +35,7 @@ public class SCEMain {
         EngineSettings.get().window.resY = 720;
         EngineSettings.get().version = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
         EngineSettings.get().title = Settings.name;
+        EngineSettings.get().assetDirectory = "scedata/";
         
         if(args.length <= 0 ){
             sceMain.initSCE(0);
@@ -46,16 +46,8 @@ public class SCEMain {
     
     private void initSCE(int scene) throws IOException, Exception{
         final MainThread mainThread = new MainThread();
-        if(!mainThread.setRenderBackend(new VKRenderer())){
-            SELogger.get().dispatchMsg(this, SELogger.SELogType.WARNING, new String[]{"Vulkan Renderer not supported!", "Try using Open GL Renderer!"}, false);
-            if(!mainThread.setRenderBackend(new GLRenderer())){
-                throw new Exception("No supported renderer!");
-            } else {
-                SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Open GL Renderer"}, false);
-            }
-        } else {
-            SELogger.get().dispatchMsg(this, SELogger.SELogType.INFO, new String[]{"Using Vulkan Renderer"}, false);
-        }
+        mainThread.registerRenderBackend(new GLRenderer());
+        mainThread.registerRenderBackend(new VKRenderer());
         
         switch(scene){
             case 0 :

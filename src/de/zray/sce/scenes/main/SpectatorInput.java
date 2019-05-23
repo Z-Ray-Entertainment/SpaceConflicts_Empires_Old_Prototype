@@ -9,7 +9,7 @@ import de.zray.se.MainThread;
 import de.zray.se.world.World;
 import de.zray.se.inputmanager.InputManager;
 import de.zray.se.inputmanager.KeyMap;
-import javax.vecmath.Vector3f;
+import org.joml.Vector3f;
 
 /**
  *
