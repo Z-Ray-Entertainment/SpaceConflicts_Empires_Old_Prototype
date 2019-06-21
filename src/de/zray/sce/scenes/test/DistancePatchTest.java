@@ -33,7 +33,7 @@ public class DistancePatchTest extends World{
         this.setActiveCamera(mainCam);
         
         Mesh stationMesh = Modelloader.get().loadModel("warpstation.obj");
-        Material stationMat = new Material("scedata/models/cron/warpstation/warpstation.png");
+        Material stationMat = new Material("warpstation.png");
         stationMat.setDiffuseColor(0.5f, 0.5f, 0.5f, 0f);
         stationMat.setShadeless(true);
         stationMat.setBackfaceCulling(true);
@@ -43,8 +43,8 @@ public class DistancePatchTest extends World{
         AIStationTest stationAI = new AIStationTest(this, null, getAIWorld());
         Actor station = new Actor(stationMesh, stationAI, null, this);
         stationAI.setActor(station);
-        station.getOrientation().setScale(0.5, 0.5, 0.5);
-        station.getOrientation().setPosition(0, 10, 10);
+        station.getOrientation().setScale(1, 1, 1);
+        station.getOrientation().setPosition(0, 0, 0);
         addEntity(station);
     }
 }
