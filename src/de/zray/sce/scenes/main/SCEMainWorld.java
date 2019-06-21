@@ -16,6 +16,7 @@ import de.zray.se.graphics.semesh.Material;
 import de.zray.se.graphics.modelloader.Modelloader;
 import de.zray.se.graphics.semesh.Mesh;
 import de.zray.se.graphics.shapes.IcoSphere;
+import de.zray.se.logger.SELogger;
 import de.zray.se.utils.UVGenerator.Mapping;
 
 /**
@@ -26,6 +27,7 @@ public class SCEMainWorld extends World {
     
     @Override
     public void init(){
+        SELogger.get().dispatchMsg(SCEMainWorld.class, SELogger.SELogType.INFO, new String[]{"New SCEMainWorld"}, false);
         Engine.get().addInputManager(new SpectatorInput(this));
         //addGUI(new GUIMain(this));
         Camera cam = new Camera();
@@ -120,7 +122,7 @@ public class SCEMainWorld extends World {
         
         LightSource sun = new LightSource();
         sun.setLightType(LightSource.Type.SUN);
-        sun.setColor(LightSource.DIFFUSE, 1f, 0.6352f, 0f, 0);
+        sun.setColor(LightSource.DIFFUSE, 1f, .8f, 0f, 0);
         sun.setColor(LightSource.AMBIENT, 0f, 0f, 0f, 1f);
         sun.setColor(LightSource.SPECULAR, 1, 1, 1, 1);
         addEntity(sun);

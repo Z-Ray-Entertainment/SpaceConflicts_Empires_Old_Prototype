@@ -44,9 +44,8 @@ public class SCEMain {
     }
     
     private void initSCE(int scene) throws IOException, Exception{
-        final Engine mainThread = new Engine();
-        mainThread.registerRenderBackend(new GLRenderer());
-        mainThread.registerRenderBackend(new VKRenderer());
+        Engine.get().registerRenderBackend(new GLRenderer());
+        Engine.get().registerRenderBackend(new VKRenderer());
         
         switch(scene){
             case 0 :
@@ -56,27 +55,27 @@ public class SCEMain {
                 mainWorld.setAIWorld(aiWorld);
                 mainWorld.setAudioWorld(audioWorld);
                 mainWorld.init();
-                mainThread.switchWorld(mainWorld);
+                Engine.get().switchWorld(mainWorld);
                 break;
             case 1 :
                 TextureTest textureTest = new TextureTest();
                 textureTest.init();
-                mainThread.switchWorld(textureTest);
+                Engine.get().switchWorld(textureTest);
                 break;
             case 2 :
                 DistancePatchTest dpTest = new DistancePatchTest();
                 dpTest.setAIWorld(new SEAIWorld(dpTest));
                 dpTest.init();
-                mainThread.switchWorld(dpTest);
+                Engine.get().switchWorld(dpTest);
                 break;
             case 3 :
                 BoundingBoxTest bbTest = new BoundingBoxTest();
                 bbTest.setAIWorld(new SEAIWorld(bbTest));
                 bbTest.init();
-                mainThread.switchWorld(bbTest);
+                Engine.get().switchWorld(bbTest);
                 break;
         }
         
-        mainThread.loop();
+        Engine.get().loop();
     }
 }

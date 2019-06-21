@@ -40,37 +40,40 @@ public class SpectatorInput extends InputManager{
 
     @Override
     public void keyPressed(int key) {
+        
         Vector3f pos = new Vector3f();
         Vector3f rot = new Vector3f();
+        
+        double moveFac = movementSpeed/Engine.get().getFPS()*multi;
         switch(key){
             case GLFW_KEY_Q :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y += movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.y += moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_E :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.y -= movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.y -= moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_W :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z -= movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.z -= moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_S :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.z += movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.z += moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_A :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x -= movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.x -= moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_D :
                 pos = getWorld().getCurrentCamera().getPosition();
-                pos.x += movementSpeed*Engine.get().getDeltaInSec()*multi;
+                pos.x += moveFac;
                 getWorld().getCurrentCamera().setPosition(pos.x, pos.y, pos.z);
                 break;
             case GLFW_KEY_DOWN :
@@ -109,7 +112,7 @@ public class SpectatorInput extends InputManager{
     public void keyReleased(int key) {
         switch(key){
             case GLFW_KEY_ESCAPE :
-                System.exit(0);
+                Engine.get().shutdown();
                 break;
             case GLFW_KEY_LEFT_SHIFT :
                 multi = 1;
