@@ -64,13 +64,7 @@ public class ObjectControlInput extends InputManager{
     }
 
     @Override
-    public void keyTiped(int key) {
+    public void keyReleased(int i) {
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-    @Override
-    public void keyReleased(int key) {
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
 }
