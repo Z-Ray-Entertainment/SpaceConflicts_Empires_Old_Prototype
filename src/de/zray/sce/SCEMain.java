@@ -25,7 +25,7 @@ public class SCEMain {
     private static final SCEMain sceMain = new SCEMain();
     
     public static void main(String[] args) throws IOException, Exception{
-        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_OFF;
+        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_AND_OBJECTS;
         EngineSettings.get().debug.renderOnTop = true;
         EngineSettings.get().debug.showGrid = false;
         EngineSettings.get().scene.dpSizes = null;
