@@ -25,7 +25,7 @@ public class SCEMain {
     private static final SCEMain sceMain = new SCEMain();
     
     public static void main(String[] args) throws IOException, Exception{
-        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_AND_OBJECTS;
+        EngineSettings.get().debug.debugMode = EngineSettings.DebugMode.DEBUG_OFF;
         EngineSettings.get().debug.renderOnTop = true;
         EngineSettings.get().debug.showGrid = false;
         EngineSettings.get().scene.dpSizes = null;
@@ -33,7 +33,7 @@ public class SCEMain {
         EngineSettings.get().debug.gridStep = 10;
         EngineSettings.get().window.resX = 1280;
         EngineSettings.get().window.resY = 720;
-        EngineSettings.get().windowTitle = Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().version;
+        EngineSettings.get().windowTitle = "Space Conflicts - Empires  (Pre Alpha) | Ver.: "+Settings.version+" "+Settings.suffix+" | Engine: "+EngineSettings.get().defaultEngineTitle;
         EngineSettings.get().assetDirectory = "scedata/";
         
         if(args.length <= 0 ){
