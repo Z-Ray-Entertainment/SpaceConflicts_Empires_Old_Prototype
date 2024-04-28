@@ -3,6 +3,7 @@ To build and run this appliation you need:
 
 - (open)JDK 1.8
 - [SingularityEngine](https://github.com/Z-Ray-Entertainment/SingularityEngine)
+- [Singularity Engine Renderer Legacy OpenGL](https://github.com/Z-Ray-Entertainment/se-render-legacy-opengl)
 - [ZGUI](https://github.com/Z-Ray-Entertainment/ZGUI)
 - [CoreText](https://github.com/Z-Ray-Entertainment/CoreText)
 - [SELibs](https://github.com/Z-Ray-Entertainment/SELibs)
