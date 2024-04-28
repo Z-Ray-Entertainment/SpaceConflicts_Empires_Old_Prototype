@@ -14,4 +14,4 @@ Maybe it is already enough to then run the newly build thing.
 
 ## Notice
 This is not the source code of the game as shwon in [this video](https://www.youtube.com/watch?v=4pYG6aQe1v4). As this is a new revision after splitting game and engine code into seperate projects.  
-The original original source code unfortuanlety got lost. But you may recive it by de-compiling the old jars from [here](404).
+The original original source code unfortuanlety got lost. But you may recive it by de-compiling the old jars from [here]([404](https://github.com/Z-Ray-Entertainment/SpaceConflicts_Empires_Old_Prototype/tree/master/even_older_prototypes)).
