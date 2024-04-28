@@ -1,0 +1,1 @@
+java -Djava.library.path="%cd%\win64" -jar %cd%\space_conflicts_empires.jar

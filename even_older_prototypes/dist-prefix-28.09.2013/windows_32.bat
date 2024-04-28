@@ -1,0 +1,1 @@
+java -Djava.library.path="%cd%\win32" -jar %cd%\sce-client.jar
